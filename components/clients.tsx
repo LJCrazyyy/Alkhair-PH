@@ -93,36 +93,36 @@ export default function Clients() {
         </div>
       </div>
 
-      {/* MODAL */}
+            {/* MODAL */}
       {selectedBrand && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
-          <div className="bg-background max-w-lg w-full rounded-xl p-6 relative">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
+          <div className="bg-background max-w-3xl w-full rounded-2xl p-10 relative shadow-2xl">
 
             {/* CLOSE */}
             <button
               onClick={() => setSelectedBrand(null)}
-              className="absolute top-3 right-3 text-gray-400 hover:text-white text-xl"
+              className="absolute top-5 right-5 text-gray-400 hover:text-white text-2xl"
             >
               ✕
             </button>
 
             {/* HEADER */}
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-16 rounded-lg bg-white flex items-center justify-center overflow-hidden">
+            <div className="flex items-center gap-8 mb-8">
+              <div className="w-28 h-28 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-md">
                 <img
                   src={selectedBrand.image}
                   alt={selectedBrand.name}
-                  className="w-full h-full object-contain p-2"
+                  className="w-full h-full object-contain p-4"
                 />
               </div>
 
-              <h3 className="text-lg font-semibold text-white">
+              <h3 className="text-2xl font-bold text-white">
                 {selectedBrand.name}
               </h3>
             </div>
 
             {/* DESCRIPTION */}
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <p className="text-base text-gray-300 leading-relaxed">
               {selectedBrand.description}
             </p>
 
