@@ -49,9 +49,9 @@ export function Footer() {
               <div className="flex items-start gap-3 text-gray-400">
                 <MapPin className="w-5 h-5 mt-1 shrink-0" />
                 <p className="text-sm">
-                  252-C Swiggert Street &<br />
-                  349 Armstrong Ave<br />
-                  Moonwalk Paranaque
+                  252-C Swiggert Parañaque,<br />
+                  1709 Metro Manila,<br />
+                  Manila, Philippines
                 </p>
               </div>
             </div>

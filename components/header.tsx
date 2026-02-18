@@ -26,7 +26,7 @@ export function Header() {
             <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
               <span className="text-black font-bold text-xl">AK</span>
             </div>
-            <span className="text-white font-semibold text-lg hidden sm:block">Alkhair eCommerce</span>
+            <span className="text-white font-semibold text-lg hidden sm:block">Alkhair PH</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">

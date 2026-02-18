@@ -6,7 +6,7 @@ import { Stats } from "@/components/stats"
 import  Clients  from "@/components/clients"
 import { News } from "@/components/news"
 import { Partners } from "@/components/partners"
-import { Careers } from "@/components/careers"
+import { Careers } from "@/components/Careers"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 

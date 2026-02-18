@@ -35,7 +35,7 @@ export function News() {
             </blockquote>
 
             <div className="text-gray-500">
-              By <span className="text-white font-semibold">ALBY ALABADO</span>
+              By <span className="text-white font-semibold">Christian Kitch Marquez</span>
               <br />
               Chief Operating Officer
             </div>

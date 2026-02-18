@@ -9,7 +9,7 @@ export function Partners() {
     <section id="partners" className="py-24 bg-card">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-gray-500 uppercase tracking-widest mb-4">CHANNEL PARTNERS</p>
+          <p className="text-white-500 uppercase tracking-widest mb-4">CHANNEL PARTNERS</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white">OUR PARTNERS</h2>
         </div>
 

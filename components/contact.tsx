@@ -69,10 +69,10 @@ ${formData.message}
     <section id="contact" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
-          CONTACT US
+          READY TO SCALE?
         </h2>
-        <p className="text-gray-400 text-center mb-12">
-          ALTERNATIVELY YOU CAN FILL IN THE FOLLOWING CONTACT FORM:
+        <p className="text-white-400 text-center mb-12">
+           MAKE YOUR NEXT MOVE COUNT, LET'S LEVEL UP RESULTS
         </p>
 
         <div className="max-w-2xl mx-auto">
@@ -126,7 +126,7 @@ ${formData.message}
               />
               
               <Select value={formData.service} onValueChange={handleServiceChange}>
-                <SelectTrigger className="bg-card border-border text-gray-500">
+                <SelectTrigger className="bg-card border-border text-white-500">
                   <SelectValue placeholder="Service Inquiry" />
                 </SelectTrigger>
                 <SelectContent className="bg-card border-border">
