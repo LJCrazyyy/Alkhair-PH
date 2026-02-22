@@ -21,7 +21,7 @@ export function Footer() {
               <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
                 <span className="text-black font-bold text-xl">AK</span>
               </div>
-              <span className="text-white font-semibold text-lg">Alkhair eCommerce</span>
+              <span className="text-white font-semibold text-lg">Alkhair PH</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Premier live selling agency in the Philippines, driving sales on major platforms 
