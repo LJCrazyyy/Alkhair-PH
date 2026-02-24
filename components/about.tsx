@@ -1,6 +1,7 @@
 "use client"
 
 import { VideoCarousel } from "@/components/ui/video-carousel"
+import { useState } from "react"
 
 interface AboutProps {
   mediaType?: "image" | "video"
@@ -11,6 +12,14 @@ export function About({
   mediaType = "video",
   mediaSrc = "/Clients/Intro.mp4",
 }: AboutProps) {
+  const items = [
+    { src: mediaSrc, title: 'AIRWELL', description: 'Sample Airwell Product Shoot.' },
+    { src: '/Clients/Video2.mp4', title: 'Product Shoot', description: 'Product shoot highlights and lighting setups.' },
+    { src: '/Clients/Video3.mp4', title: 'Behind the Scenes', description: 'Behind the scenes footage and team workflow.' },
+  ]
+
+  const [active, setActive] = useState(0)
+
   return (
     <section id="about" className="py-24 bg-card">
       <div className="container mx-auto px-4">
@@ -53,13 +62,7 @@ We focus on one thing: building systems that sell and strategies that scale.
                 className="rounded-3xl shadow-2xl border border-white/5 w-full h-auto object-contain"
               />
             ) : (
-              <VideoCarousel
-                videos={[
-                  mediaSrc,
-                  "/Clients/Video2.mp4",
-                  "/Clients/Video3.mp4",
-                ]}
-              />
+              <VideoCarousel videos={items} onSlideChange={(i) => setActive(i)} />
             )}
           </div>
 
@@ -73,10 +76,10 @@ We focus on one thing: building systems that sell and strategies that scale.
              Professional photos and videos that showcase your brand, build credibility, and drive engagement and conversions.
               From front-end visibility to backend operations, we handle the
               full ecosystem helping you scale efficiently and sustainably.
-              <br />
-              <br />
-              Sample Airwell Product Shootw
             </p>
+
+            <p className="text-white font-semibold text-lg mt-6">{items[active]?.title}</p>
+            <p className="text-gray-400 text-sm mt-2">{items[active]?.description}</p>
           </div>
 
         </div>
