@@ -1,5 +1,7 @@
 "use client"
 
+import { VideoCarousel } from "@/components/ui/video-carousel"
+
 interface AboutProps {
   mediaType?: "image" | "video"
   mediaSrc?: string
@@ -39,31 +41,26 @@ We focus on one thing: building systems that sell and strategies that scale.
           </div>
         </div>
 
-        {/* LOWER GRID */}
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* LOWER GRID */}
+          <div className="grid md:grid-cols-2 gap-16 items-center">
 
           {/* LEFT CARD (MEDIA) */}
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/5 aspect-video bg-black w-full h-full">
+          <div>
             {mediaType === "image" ? (
               <img
                 src={mediaSrc}
                 alt="About Media"
-                className="absolute top-0 left-0 w-full h-full object-contain bg-black"
+                className="rounded-3xl shadow-2xl border border-white/5 w-full h-auto object-contain"
               />
             ) : (
-              <video
-                src={mediaSrc}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                className="absolute top-0 left-0 w-full h-full object-cover"
+              <VideoCarousel
+                videos={[
+                  mediaSrc,
+                  "/Clients/Video2.mp4",
+                  "/Clients/Video3.mp4",
+                ]}
               />
             )}
-
-            {/* Optional overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
           </div>
 
           {/* RIGHT TEXT */}

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
@@ -18,9 +18,18 @@ const navItems = [
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeHash, setActiveHash] = useState("")
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const updateHash = () => setActiveHash(window.location.hash || "")
+    updateHash()
+    window.addEventListener("hashchange", updateHash)
+    return () => window.removeEventListener("hashchange", updateHash)
+  }, [])
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--primary)]/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           
@@ -35,29 +44,38 @@ export function Header() {
                 priority
               />
             </div>
-            <span className="text-white font-semibold text-lg hidden sm:block">
+            <span className="text-[var(--primary-foreground)] font-semibold text-lg hidden sm:block">
               Alkhair PH
             </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-muted-foreground hover:text-white text-sm font-medium transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = activeHash === item.href
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  onClick={() => setActiveHash(item.href)}
+                  className={
+                    "text-sm font-medium transition-colors " +
+                    (isActive
+                      ? "text-[var(--hover-green-foreground)] font-semibold"
+                      : "text-muted-foreground hover:text-[var(--hover-green-foreground)]")
+                  }
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
           </nav>
 
           {/* Mobile Menu Button */}
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-white"
+            className="lg:hidden text-[var(--primary-foreground)]"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -72,16 +90,27 @@ export function Header() {
         {isOpen && (
           <nav className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="text-muted-foreground hover:text-white text-sm font-medium transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {navItems.map((item) => {
+                const isActive = activeHash === item.href
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => {
+                      setIsOpen(false)
+                      setActiveHash(item.href)
+                    }}
+                    className={
+                      "text-sm font-medium transition-colors " +
+                      (isActive
+                        ? "text-[var(--hover-green-foreground)] font-semibold"
+                        : "text-muted-foreground hover:text-[var(--hover-green-foreground)]")
+                    }
+                  >
+                    {item.label}
+                  </Link>
+                )
+              })}
             </div>
           </nav>
         )}
