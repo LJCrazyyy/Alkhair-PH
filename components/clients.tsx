@@ -84,7 +84,7 @@ export default function Clients() {
   return (
     <section id="clients" className="py-24 bg-card">
       <div className="container mx-auto px-4">
-        <p className="text-center text-white-500 uppercase tracking-widest mb-12">
+        <p className="text-center text-gray-500 uppercase tracking-widest mb-12">
           OUR CLIENTS
         </p>
 

@@ -71,7 +71,7 @@ ${formData.message}
         <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">
           READY TO SCALE?
         </h2>
-        <p className="text-white-400 text-center mb-12">
+        <p className="text-gray-400 text-center mb-12">
            MAKE YOUR NEXT MOVE COUNT, LET'S LEVEL UP RESULTS
         </p>
 

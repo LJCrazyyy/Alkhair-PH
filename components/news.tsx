@@ -14,7 +14,7 @@ export function News() {
               <div className="w-32 h-32 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
                 <span className="text-5xl text-white font-bold">AK</span>
               </div>
-              <p className="text-gray-400">Alkhair eCommerce</p>
+              <p className="text-gray-400">Alkhair PH</p>
             </div>
           </div>
 
@@ -39,13 +39,6 @@ export function News() {
               <br />
               Chief Operating Officer
             </div>
-
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-black bg-transparent"
-            >
-              READ MORE
-            </Button>
           </div>
         </div>
       </div>

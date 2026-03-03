@@ -20,11 +20,11 @@ const leaders: Leader[] = [
     email: "juan@company.com",
   },
   {
-    name: "Maria Santos",
-    position: "Operations Manager",
+    name: "Christian Kitch Marquez",
+    position: "Chief Operating Officer",
     description: "Oversees daily operations and internal processes.",
-    bio: "Maria ensures that all departments work efficiently and meet business goals.",
-    email: "maria@company.com",
+    bio: "Christian ensures that all departments work efficiently and meet business goals.",
+    email: "christian@company.com",
   },
   {
     name: "Carlos Reyes",
@@ -64,13 +64,13 @@ export function Careers() {
 
         {/* HEADER */}
         <div className="text-center mb-16">
-          <p className="text-white-500 uppercase tracking-widest mb-4">
+          <p className="text-gray-500 uppercase tracking-widest mb-4">
             JOIN OUR TEAM
           </p>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             MEET OUR TEAM
           </h2>
-          <p className="text-white-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto">
             Bring the Drive. We'll Provide the Platform.
           </p>
         </div>
@@ -88,12 +88,9 @@ export function Careers() {
               >
 
                 {/* ICON */}
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full
-                  bg-gradient-to-br from-purple-500 to-pink-500
-                  flex items-center justify-center
-                  shadow-lg group-hover:shadow-purple-500/50 transition"
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center"
                 >
-                  <Users className="w-8 h-8 text-white" />
+                  <Users className="w-8 h-8 text-gray-600" />
                 </div>
 
                 {/* NAME */}
@@ -102,12 +99,12 @@ export function Careers() {
                 </h3>
 
                 {/* POSITION */}
-                <p className="text-purple-400 text-sm mb-2">
+                <p className="text-green-400 text-sm mb-2">
                   {person.position}
                 </p>
 
                 {/* DESCRIPTION */}
-                <p className="text-white-400 text-sm">
+                <p className="text-gray-400 text-sm">
                   {person.description}
                 </p>
 
@@ -134,16 +131,6 @@ export function Careers() {
           ))}
         </div>
 
-        {/* BUTTON */}
-        <div className="text-center">
-          <Button
-            variant="outline"
-            className="border-white text-white hover:bg-white hover:text-black bg-transparent"
-          >
-            VIEW ALL OPENINGS
-          </Button>
-        </div>
-
       </div>
 
       {/* MODAL */}
@@ -161,11 +148,9 @@ export function Careers() {
             </button>
 
             {/* ICON */}
-            <div className="w-20 h-20 mx-auto mb-4 rounded-full
-              bg-gradient-to-br from-purple-500 to-pink-500
-              flex items-center justify-center"
+            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center"
             >
-              <Users className="w-10 h-10 text-white" />
+              <Users className="w-6 h-6 text-white-600" />
             </div>
 
             {/* INFO */}

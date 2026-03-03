@@ -56,8 +56,7 @@ const mainServices: Service[] = [
     icon: BarChart3,
     title: "ANALYTICS, INSIGHTS & BUSINESS INTELLIGENCE (DIGITAL MANAGEMENT)",
     description: `We turn data into direction.
-
-Clear insights, measurable growth, and smarter decisions backed by real numbers so you can scale with confidence.`
+    Clear insights, measurable growth, and smarter decisions backed by real numbers so you can scale with confidence.`
   }
 ]
 
