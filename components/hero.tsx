@@ -6,9 +6,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const slides = [
   {
-    title: "PREMIER LIVE SELLING AGENCY IN THE PHILIPPINES",
+    title: " ECOMMERCE & DIGITAL SOLUTIONS",
     subtitle:
-      "Driving sales on TikTok, Shopee and Lazada through dynamic, interactive events",
+      "Powering brands with live selling, digital marketing, creative content, and growth-focused ecommerce solutions.",
     image: "/Clients/Logo.png",
   },
   {
