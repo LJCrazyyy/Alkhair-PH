@@ -1,8 +1,9 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react"
+import { Mail, Phone, Facebook, Instagram, X } from "lucide-react"
 
 const footerLinks = [
   { label: "HOME", href: "#home" },
@@ -15,11 +16,33 @@ const footerLinks = [
 ]
 
 export function Footer() {
+  const [modalOpen, setModalOpen] = useState(false)
+  const [activeFile, setActiveFile] = useState<{
+    type: "image" | "pdf"
+    src: string
+    alt: string
+  } | null>(null)
+
+  const files: Array<{ type: "image" | "pdf"; src: string; alt: string }> = [
+    { type: "image", src: "/Clients/Needs/CertRegistration.png", alt: "Certificate Registration" },
+    { type: "image", src: "/Clients/Needs/RegistrationCert.png", alt: "Registration Certificate" },
+    { type: "pdf", src: "/Clients/Needs/Cert.pdf", alt: "Business Certificate PDF" },
+  ]
+
+  function openModal(file: { type: "image" | "pdf"; src: string; alt: string }) {
+    setActiveFile(file)
+    setModalOpen(true)
+  }
+
+  function closeModal() {
+    setModalOpen(false)
+    setActiveFile(null)
+  }
+
   return (
     <footer className="bg-card border-t border-border py-16">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-          
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -30,13 +53,10 @@ export function Footer() {
                 height={50}
                 className="object-contain"
               />
-              <span className="text-white font-semibold text-lg">
-                Alkhair PH
-              </span>
+              <span className="text-white font-semibold text-lg">Alkhair PH</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
-              Premier live selling agency in the Philippines, driving sales on major platforms 
-              like TikTok, Shopee and Lazada through dynamic, interactive events.
+              Powering brands with live selling, digital marketing, creative content, and growth-focused ecommerce solutions.
             </p>
           </div>
 
@@ -58,7 +78,6 @@ export function Footer() {
                 <Mail className="w-5 h-5" />
                 info.alkhairph@gmail.com
               </a>
-              {/* Social */}
               <div className="flex flex-col gap-2 pt-2">
                 <a
                   href="https://www.facebook.com/alkhairph"
@@ -69,7 +88,6 @@ export function Footer() {
                   <Facebook className="w-5 h-5" />
                   Facebook
                 </a>
-
                 <a
                   href="https://www.instagram.com/alkhairph"
                   target="_blank"
@@ -83,7 +101,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Quick Links + Files */}
           <div>
             <h3 className="text-white font-semibold mb-6">Quick Links</h3>
             <nav className="grid grid-cols-2 gap-3">
@@ -97,14 +115,36 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
+
+            {/* Files thumbnails under Quick Links */}
+            <div className="flex justify-start gap-4 mt-6 flex-wrap">
+              {files.map((file) => (
+                <button
+                  key={file.src}
+                  onClick={() => openModal(file)}
+                  className="cursor-pointer focus:outline-none"
+                  aria-label={`Open ${file.alt}`}
+                >
+                  {file.type === "image" ? (
+                    <img
+                      src={file.src}
+                      alt={file.alt}
+                      className="w-12 h-12 object-contain rounded shadow-md hover:scale-110 transition-transform"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 bg-gray-700 text-white flex items-center justify-center rounded shadow-md font-semibold hover:bg-gray-600 transition-colors">
+                      PDF
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Locations */}
+        {/* Locations / Maps */}
         <div className="mt-16 pt-12 border-t border-border">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">
-            Our Locations
-          </h3>
+          <h3 className="text-2xl font-bold text-white mb-8 text-center">Our Locations</h3>
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             <div className="rounded-lg overflow-hidden shadow-lg border border-border/40">
               <iframe
@@ -128,6 +168,44 @@ export function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Modal */}
+        {modalOpen && activeFile && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+            onClick={closeModal}
+            role="dialog"
+            aria-modal="true"
+          >
+            <div
+              className="relative max-w-[90vw] max-h-[90vh] bg-white rounded shadow-lg p-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={closeModal}
+                className="absolute top-2 right-2 text-gray-700 hover:text-gray-900"
+                aria-label="Close modal"
+              >
+                <X size={24} />
+              </button>
+
+              {activeFile.type === "image" ? (
+                <img
+                  src={activeFile.src}
+                  alt={activeFile.alt}
+                  className="max-w-full max-h-[80vh] object-contain rounded"
+                />
+              ) : (
+                <iframe
+                  src={activeFile.src}
+                  className="w-[80vw] h-[80vh] rounded"
+                  title={activeFile.alt}
+                  frameBorder="0"
+                />
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Copyright */}
         <div className="border-t border-border mt-12 pt-8 text-center">
