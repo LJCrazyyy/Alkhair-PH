@@ -10,14 +10,14 @@ interface AboutProps {
 
 export function About({
   mediaType = "video",
-  mediaSrc = "/Clients/Intro.mp4",
+  mediaSrc = "/Clients/Videos/Intro.mp4",
 }: AboutProps) {
   const items = [
     { src: mediaSrc, title: 'AIRWELL', description: 'Sample Airwell Product Shoot.' },
-    { src: '/Clients/Video2.mp4', title: 'Product Shoot', description: 'Product shoot highlights and lighting setups.' },
-    { src: '/Clients/Video3.mp4', title: 'Behind the Scenes', description: 'Behind the scenes footage and team workflow.' },
-    { src: '/Clients/Video4.mp4', title: 'Creative Concepts', description: 'Innovative creative production and storytelling.' },
-    { src: '/Clients/Video5.mp4', title: 'Brand Showcase', description: 'Comprehensive brand showcase and portfolio.' },
+    { src: '/Clients/Videos/Camou.mp4', title: 'Camou', description: 'Product shoot highlights and lighting setups.' },
+    { src: '/Clients/Videos/Momilo.mp4', title: 'Momilo Mio', description: 'Behind the scenes footage and team workflow.' },
+    { src: '/Clients/Videos/Pariscents.mp4', title: 'Pariscents', description: 'Innovative creative production and storytelling.' },
+    { src: '/Clients/Videos/Topshion.mp4', title: 'Topshion', description: 'Comprehensive brand showcase and portfolio.' },
   ]
 
   const [active, setActive] = useState(0)

@@ -1,14 +1,14 @@
 "use client";
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Users, X } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Users, X } from "lucide-react";
 
 interface Leader {
-  name: string
-  position: string
-  description: string
-  bio: string
-  email: string
+  name: string;
+  position: string;
+  description: string;
+  bio: string;
+  email: string;
 }
 
 const leaders: Leader[] = [
@@ -40,7 +40,7 @@ const leaders: Leader[] = [
     bio: "Angela mentors team members and drives performance excellence.",
     email: "angela@company.com",
   },
-]
+];
 
 const teamMembers: string[] = [
   "/Clients/icons.png",
@@ -52,11 +52,13 @@ const teamMembers: string[] = [
   "/Clients/icons.png",
   "/Clients/icons.png",
   "/Clients/icons.png",
-]
+];
 
 export function Careers() {
+  const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null);
 
-  const [selectedLeader, setSelectedLeader] = useState<Leader | null>(null)
+  const ceo = leaders[0];
+  const managers = leaders.slice(1);
 
   return (
     <section id="careers" className="py-24 bg-background">
@@ -75,107 +77,75 @@ export function Careers() {
           </p>
         </div>
 
-        {/* LEADERS */}
-        <div className="relative max-w-5xl mx-auto mb-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-
-            {leaders.map((person, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedLeader(person)}
-                className="cursor-pointer group bg-card border border-border rounded-xl p-6 text-center
-                hover:border-gray-400 transition transform hover:scale-105 hover:shadow-xl"
-              >
-
-                {/* ICON */}
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center"
-                >
-                  <Users className="w-8 h-8 text-gray-600" />
-                </div>
-
-                {/* NAME */}
-                <h3 className="text-white font-semibold text-lg">
-                  {person.name}
-                </h3>
-
-                {/* POSITION */}
-                <p className="text-green-400 text-sm mb-2">
-                  {person.position}
-                </p>
-
-                {/* DESCRIPTION */}
-                <p className="text-gray-400 text-sm">
-                  {person.description}
-                </p>
-
-                {/* CONNECTOR */}
-                <div className="hidden md:block w-px h-10 bg-border mx-auto mt-6"></div>
-
-              </div>
-            ))}
-
+        {/* CEO */}
+        <div className="flex justify-center mb-16">
+          <div
+            onClick={() => setSelectedLeader(ceo)}
+            className="cursor-pointer group bg-card border border-border rounded-xl p-8 text-center
+              hover:border-gray-400 transition transform hover:scale-105 hover:shadow-xl"
+          >
+            <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+              <Users className="w-10 h-10 text-gray-600" />
+            </div>
+            <h3 className="text-white font-semibold text-xl">{ceo.name}</h3>
+            <p className="text-green-400 text-sm mb-2">{ceo.position}</p>
+            <p className="text-gray-400 text-sm">{ceo.description}</p>
           </div>
         </div>
 
+        {/* MANAGERS */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 justify-items-center mb-16">
+          {managers.map((person, index) => (
+            <div
+              key={index}
+              onClick={() => setSelectedLeader(person)}
+              className="cursor-pointer group bg-card border border-border rounded-xl p-6 text-center
+                hover:border-gray-400 transition transform hover:scale-105 hover:shadow-xl"
+            >
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
+                <Users className="w-8 h-8 text-gray-600" />
+              </div>
+              <h3 className="text-white font-semibold text-lg">{person.name}</h3>
+              <p className="text-green-400 text-sm mb-2">{person.position}</p>
+              <p className="text-gray-400 text-sm">{person.description}</p>
+            </div>
+          ))}
+        </div>
+
         {/* TEAM MEMBERS */}
-        <div className="flex flex-wrap justify-center gap-6 mb-20">
+        <div className="flex flex-wrap justify-center gap-6">
           {teamMembers.map((img, index) => (
             <img
               key={index}
               src={img}
               alt="Team Member"
-              className="w-16 h-16 rounded-full object-cover
-              border border-border
-              transition transform hover:scale-110 hover:shadow-lg"
+              className="w-16 h-16 rounded-full object-cover border border-border
+                transition transform hover:scale-110 hover:shadow-lg"
             />
           ))}
         </div>
-
       </div>
 
       {/* MODAL */}
       {selectedLeader && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-
           <div className="bg-card rounded-xl p-8 max-w-md w-full relative">
-
-            {/* CLOSE */}
             <button
               onClick={() => setSelectedLeader(null)}
               className="absolute top-4 right-4 text-white hover:text-red-400"
             >
               <X />
             </button>
-
-            {/* ICON */}
-            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center"
-            >
+            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
               <Users className="w-6 h-6 text-white-600" />
             </div>
-
-            {/* INFO */}
-            <h3 className="text-white text-xl font-semibold text-center">
-              {selectedLeader.name}
-            </h3>
-
-            <p className="text-purple-400 text-center mb-2">
-              {selectedLeader.position}
-            </p>
-
-            <p className="text-white-400 text-center mb-4">
-              {selectedLeader.bio}
-            </p>
-
-            <p className="text-white text-center text-sm">
-              📧 {selectedLeader.email}
-            </p>
-
+            <h3 className="text-white text-xl font-semibold text-center">{selectedLeader.name}</h3>
+            <p className="text-purple-400 text-center mb-2">{selectedLeader.position}</p>
+            <p className="text-white-400 text-center mb-4">{selectedLeader.bio}</p>
+            <p className="text-white text-center text-sm">📧 {selectedLeader.email}</p>
           </div>
         </div>
       )}
-
     </section>
-  )
+  );
 }
-
-

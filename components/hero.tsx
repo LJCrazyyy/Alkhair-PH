@@ -24,22 +24,22 @@ const slides = [
   {
     title: "CREATIVE PRODUCTION & CONTENT",
     subtitle: "High-quality product shoots and brand storytelling",
-    image: "/Clients/Logo.png",
+    image: "/Clients/Home/CreativeContent.png",
   },
   {
     title: "STRATEGIC DIGITAL MARKETING",
     subtitle: "Data-driven campaigns that deliver real results",
-    image: "/Clients/live2.png",
+    image: "/Clients/Home/Ads.png",
   },
   {
     title: "FULFILLMENT & LOGISTICS",
     subtitle: "Seamless order management and delivery solutions",
-    image: "/Clients/live3.png",
+    image: "/Clients/Home/CustomerSupport.png",
   },
   {
     title: "ANALYTICS & GROWTH TRACKING",
     subtitle: "Measure success and optimize for continuous growth",
-    image: "/Clients/Logo.png",
+    image: "/Clients/Home/Analytics.png",
   },
 ]
 

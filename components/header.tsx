@@ -10,8 +10,8 @@ const navItems = [
   { label: "HOME", href: "#home" },
   { label: "ABOUT US", href: "#about" },
   { label: "OUR SERVICES", href: "#services" },
-  { label: "CHANNEL PARTNERS", href: "#partners" },
   { label: "OUR CLIENTS", href: "#clients" },
+  { label: "CHANNEL PARTNERS", href: "#partners" },
   { label: "CAREERS", href: "#careers" },
   { label: "CONTACT US", href: "#contact" },
 ]
@@ -35,9 +35,9 @@ export function Header() {
           
           {/* Logo Section */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 relative">
+            <div className="w-25 h-25 relative">
               <Image
-                src="/Clients/Alkhair.png"
+                src="/Clients/Aklogo.png"
                 alt="Alkhair PH Logo"
                 fill
                 className="object-contain"

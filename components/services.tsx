@@ -16,6 +16,7 @@ type Service = {
   icon: LucideIcon
   title: string
   description: string
+  image?: string // image path
 }
 
 const mainServices: Service[] = [
@@ -23,40 +24,45 @@ const mainServices: Service[] = [
     icon: Video,
     title: "ONLINE SELLING / STREAMING SOLUTIONS",
     description: `Our Live Selling / Streaming service brings your brand to life in real time! We turn ordinary product showcases into exciting,
-     interactive shopping experiences where customers can watch, engage, ask questions, and buy instantly.
-    It’s fast, dynamic, and built to capture attention helping you boost sales, grow your online presence, and turn viewers into loyal fans.`
+interactive shopping experiences where customers can watch, engage, ask questions, and buy instantly.
+It’s fast, dynamic, and built to capture attention helping you boost sales, grow your online presence, and turn viewers into loyal fans.`,
+    image: "/Clients/Services/OnlineStreaming.png"
   },
   {
     icon: Globe,
     title: "WEBSITE DESIGN & DEVELOPMENT",
     description: `We build powerful, high-converting websites that don’t just look good, they work hard for your business.
 
- From sleek design to seamless user experience, we create fast, mobile-friendly, and sales-driven websites that turn visitors into customers and elevate your brand online.`
+From sleek design to seamless user experience, we create fast, mobile-friendly, and sales-driven websites that turn visitors into customers and elevate your brand online.`,
+    image: "/Clients/Services/WebsiteDesign.png"
   },
   {
     icon: User,
     title: "SOCIAL MEDIA MANAGEMENT & PAID ADS (DIGITAL MANAGEMENT)",
     description: `We create scroll-stopping content, manage your platforms strategically, and run high-performing paid ads that reach the right audience at the right time. 
-        More engagement, more leads, more sales that’s the goal.`
+More engagement, more leads, more sales that’s the goal.`,
+    image: "/Clients/Services/Ads.png"
   },
   {
     icon: Warehouse,
     title: "FULFILLMENT & CUSTOMER SUPPORT",
     description: `We handle order processing, coordination, and responsive customer support to ensure every buyer has a seamless experience.
-     Fast, reliable, and customer-focused we help you build trust and repeat business.`
+Fast, reliable, and customer-focused we help you build trust and repeat business.`,
+    image: "/Clients/Services/CustomerSupport.png"
   },
   {
     icon: Film,
     title: "CREATIVE CONTENT & PRODUCT SHOOTS",
     description: `Bring your brand to life with Alkhair PH’s creative content and professional product shoots.
-     From eye-catching visuals to engaging videos, we produce high-quality content that captures attention, builds credibility, and drives conversions.
-`
+From eye-catching visuals to engaging videos, we produce high-quality content that captures attention, builds credibility, and drives conversions.`,
+    image: "/Clients/Services/CreativeContent.png"
   },
   {
     icon: BarChart3,
     title: "ANALYTICS, INSIGHTS & BUSINESS INTELLIGENCE (DIGITAL MANAGEMENT)",
     description: `We turn data into direction.
-    Clear insights, measurable growth, and smarter decisions backed by real numbers so you can scale with confidence.`
+Clear insights, measurable growth, and smarter decisions backed by real numbers so you can scale with confidence.`,
+    image: "/Clients/Services/Analytics.png"
   }
 ]
 
@@ -66,7 +72,6 @@ export function Services() {
   return (
     <section id="services" className="py-24 bg-background">
       <div className="container mx-auto px-4">
-
         <div className="text-center mb-16">
           <p className="text-gray-500 uppercase tracking-widest mb-4">
             OUR SERVICES
@@ -81,13 +86,27 @@ export function Services() {
             <div
               key={index}
               onClick={() => setSelectedService(service)}
-              className="cursor-pointer group bg-card border border-border rounded-xl p-8 text-center hover:bg-accent transition-all duration-300 hover:border-gray-600"
+              className="cursor-pointer group bg-card border border-border rounded-xl overflow-hidden hover:bg-accent transition-all duration-300 hover:border-gray-600"
             >
-              <div className="w-16 h-16 mx-auto mb-6 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-colors">
-                <service.icon className="w-8 h-8 text-white" />
+              {/* Image */}
+              <div className="w-full h-48 overflow-hidden mb-6">
+                {service.image && (
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                )}
               </div>
 
-              <h3 className="text-white font-semibold text-base leading-tight">
+              {/* Icon fallback */}
+              {!service.image && (
+                <div className="w-16 h-16 mx-auto mb-6 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                  <service.icon className="w-8 h-8 text-white" />
+                </div>
+              )}
+
+              <h3 className="text-white font-semibold text-base leading-tight px-4 pb-6">
                 {service.title}
               </h3>
             </div>
@@ -115,10 +134,20 @@ export function Services() {
                 <X size={24} />
               </button>
 
-              {/* Icon */}
-              <div className="w-20 h-20 mb-8 bg-white/10 rounded-full flex items-center justify-center">
-                <selectedService.icon className="w-10 h-10 text-white" />
-              </div>
+              {/* Image */}
+              {selectedService.image ? (
+                <div className="w-full h-64 mb-8 overflow-hidden rounded-xl">
+                  <img
+                    src={selectedService.image}
+                    alt={selectedService.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="w-20 h-20 mb-8 bg-white/10 rounded-full flex items-center justify-center">
+                  <selectedService.icon className="w-10 h-10 text-white" />
+                </div>
+              )}
 
               {/* Title */}
               <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
