@@ -16,73 +16,83 @@ export function About({
     { src: mediaSrc, title: 'AIRWELL', description: 'Sample Airwell Product Shoot.' },
     { src: '/Clients/Video2.mp4', title: 'Product Shoot', description: 'Product shoot highlights and lighting setups.' },
     { src: '/Clients/Video3.mp4', title: 'Behind the Scenes', description: 'Behind the scenes footage and team workflow.' },
+    { src: '/Clients/Video4.mp4', title: 'Creative Concepts', description: 'Innovative creative production and storytelling.' },
+    { src: '/Clients/Video5.mp4', title: 'Brand Showcase', description: 'Comprehensive brand showcase and portfolio.' },
   ]
 
   const [active, setActive] = useState(0)
 
   return (
-    <section id="about" className="py-24 bg-card">
-      <div className="container mx-auto px-4">
+    <section id="about" className="py-16 md:py-24 bg-card">
+      <div className="container mx-auto px-4 md:px-6">
 
-        {/* HEADER */}
-        <div className="text-center mb-20">
-          <p className="text-gray-500 uppercase tracking-[0.3em] mb-4">
-            ABOUT US
-          </p>
+        {/* === TEXT & HEADING SECTION === */}
+        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-start mb-16 md:mb-24">
 
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-8">
-            WHY CHOOSE ALKHAIR PH?
-          </h2>
-
-          <div className="max-w-4xl mx-auto text-gray-300 text-lg leading-relaxed space-y-6">
-            <p>
-              <span className="text-white font-semibold">Alkhair PH </span> 
-              helps brands grow, sell smarter, and scale online. We build digital systems that turn attention into real sales.
-
-From Live Selling & Streaming, high-converting Websites, and strategic Social Media & Paid Ads, to Creative Content, Product Shoots, Fulfillment, and Analytics. We provide complete solutions designed to drive measurable results.
-
-We focus on one thing: building systems that sell and strategies that scale.
+          {/* LEFT: Body text */}
+          <div className="space-y-6">
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              <span className="text-white font-semibold">Alkhair PH</span> helps brands grow, sell smarter, and scale online. We build digital systems that turn attention into real sales.
             </p>
 
-            <p className="text-white font-semibold text-xl pt-4">
-              Systems that sell. Strategies that scale. Partnerships that last.
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              From Live Selling & Streaming, high-converting Websites, and strategic Social Media & Paid Ads, to Creative Content, Product Shoots, Fulfillment, and Analytics. We provide complete solutions designed to drive measurable results.
+            </p>
+
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              Professional photos and videos that showcase your brand, build credibility, and drive engagement and conversions. From front-end visibility to backend operations, we handle the full ecosystem helping you scale efficiently and sustainably.
             </p>
           </div>
+
+          {/* RIGHT: Big heading */}
+          <div className="flex items-center">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+              CREATIVE<br />
+              PRODUCTION<br />
+              & PRODUCT<br />
+              SHOOT
+            </h2>
+          </div>
+
         </div>
 
-          {/* LOWER GRID */}
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-
-          {/* LEFT CARD (MEDIA) */}
-          <div>
-            {mediaType === "image" ? (
-              <img
-                src={mediaSrc}
-                alt="About Media"
-                className="rounded-3xl shadow-2xl border border-white/5 w-full h-auto object-contain"
-              />
-            ) : (
-              <VideoCarousel videos={items} onSlideChange={(i) => setActive(i)} />
-            )}
-          </div>
-
-          {/* RIGHT TEXT */}
-          <div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              CREATIVE PRODUCTION & PRODUCT SHOOT
+        {/* === VIDEO / INNOVATION SECTION === */}
+        <div className="space-y-8">
+          <div className="text-center">
+            <h3 className="text-3xl md:text-5xl font-black text-white">
+              Where Technology meets <span className="italic">Innovation</span>
             </h3>
-
-            <p className="text-gray-400 text-lg leading-relaxed">
-             Professional photos and videos that showcase your brand, build credibility, and drive engagement and conversions.
-              From front-end visibility to backend operations, we handle the
-              full ecosystem helping you scale efficiently and sustainably.
-            </p>
-
-            <p className="text-white font-semibold text-lg mt-6">{items[active]?.title}</p>
-            <p className="text-gray-400 text-sm mt-2">{items[active]?.description}</p>
           </div>
 
+          {/* Video Carousel */}
+          <div className="relative overflow-hidden border border-white/10 rounded-3xl shadow-2xl">
+            <div className="w-full bg-black aspect-video">
+              {mediaType === "image" ? (
+                <img
+                  src={mediaSrc}
+                  alt="About Media"
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <VideoCarousel
+                  videos={items}
+                  onSlideChange={(i) => setActive(i)}
+                />
+              )}
+            </div>
+          </div>
+
+          {/* Active slide info */}
+          <div className="text-center">
+            <p className="text-white font-semibold text-xl md:text-2xl">
+              {items[active]?.title}
+            </p>
+            <p className="text-gray-400 text-base md:text-lg mt-2">
+              {items[active]?.description}
+            </p>
+          </div>
         </div>
+
       </div>
     </section>
   )

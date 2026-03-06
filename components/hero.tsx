@@ -21,6 +21,26 @@ const slides = [
     subtitle: "Expertise in storytelling and audience engagement",
     image: "/Clients/live3.png",
   },
+  {
+    title: "CREATIVE PRODUCTION & CONTENT",
+    subtitle: "High-quality product shoots and brand storytelling",
+    image: "/Clients/Logo.png",
+  },
+  {
+    title: "STRATEGIC DIGITAL MARKETING",
+    subtitle: "Data-driven campaigns that deliver real results",
+    image: "/Clients/live2.png",
+  },
+  {
+    title: "FULFILLMENT & LOGISTICS",
+    subtitle: "Seamless order management and delivery solutions",
+    image: "/Clients/live3.png",
+  },
+  {
+    title: "ANALYTICS & GROWTH TRACKING",
+    subtitle: "Measure success and optimize for continuous growth",
+    image: "/Clients/Logo.png",
+  },
 ]
 
 export function Hero() {
@@ -46,9 +66,13 @@ export function Hero() {
     >
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center transition-all duration-700"
+        className="absolute inset-0 bg-center bg-no-repeat transition-all duration-700"
         style={{
           backgroundImage: `url(${slides[currentSlide].image})`,
+          backgroundSize: "contain",
+          backgroundPosition: "center",
+          backgroundAttachment: "scroll",
+          backgroundColor: "#1a1a1a",
         }}
       />
 
