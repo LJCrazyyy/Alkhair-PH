@@ -53,6 +53,10 @@ const youLingYouShi = "You Ling You Shi is a dynamic e-commerce brand that speci
 
 
 const clientBrands = [
+  { name: "CAMOU", image: "/Clients/CAMOU.png", description: camou },
+  { name: "Momilo Mio", image: "/Clients/Momilo-Mio.png", description: momiloMio },
+
+
   { name: "Best Deals", image: "/Clients/Best-Deals.png", description: bestDeals },
   { name: "TOPSHION", image: "/Clients/Topshion.png", description: topshion },
   { name: "The Glitter Cart", image: "/Clients/The-Glitter-Cart.png", description: theglitterCart },
@@ -62,8 +66,6 @@ const clientBrands = [
   { name: "Airwell", image: "/Clients/Airwell.png", description: airwell },
   { name: "The Sprinkler Cart", image: "/Clients/The-Sprinkle-Cart.png", description: theSprinklerCart },
   { name: "LactaGlow", image: "/Clients/LactaGlow.png", description: lactaGlow },
-  { name: "Momilo Mio", image: "/Clients/Momilo-Mio.png", description: momiloMio },
-  { name: "CAMOU", image: "/Clients/CAMOU.png", description: camou },
   { name: "JPS Philippines", image: "/Clients/JPS.png", description: jpsPhilippines },
   { name: "Pariscents", image: "/Clients/Pariscents.png", description: pariscents },
   { name: "STAY24", image: "/Clients/Stay24.png", description: stay24 },
@@ -100,6 +102,12 @@ const clientBrands = [
   { name: "You Ling You Shi.", image: "/Clients/Zone.png", description: zone },
 ];
 
+
+const biggestLogos = [
+  "CAMOU",
+  "Momilo Mio",
+];
+
 const bigLogos = [
   "Best Deals",
   "TOPSHION",
@@ -110,18 +118,21 @@ const bigLogos = [
   "Airwell",
   "The Sprinkler Cart",
   "LactaGlow",
-  "Momilo Mio",
-  "CAMOU",
   "JPS Philippines",  
   "Pariscents",
   "STAY24",
   "Hey Skin!",
 ];
 
+const isBiggestLogo = (name: string) => biggestLogos.includes(name);
 const isBigLogo = (name: string) => bigLogos.includes(name);
 
 export default function Clients() {
   const [selectedBrand, setSelectedBrand] = useState<Brand | null>(null);
+
+  const biggestBrandItems = clientBrands.filter(brand => isBiggestLogo(brand.name));
+  const bigBrandItems = clientBrands.filter(brand => isBigLogo(brand.name) && !isBiggestLogo(brand.name));
+  const normalBrandItems = clientBrands.filter(brand => !isBigLogo(brand.name) && !isBiggestLogo(brand.name));
 
   return (
     <section id="clients" className="py-24 bg-card">
@@ -130,32 +141,51 @@ export default function Clients() {
           OUR CLIENTS
         </p>
 
-        {/* GRID */}
-        <div className="grid grid-cols-10 gap-4">
-          {clientBrands.map((brand) => (
+        {/* BIGGEST LOGOS - SUPER LARGE CENTER TOP */}
+        <div className="flex flex-wrap justify-center gap-16 mb-12">
+          {biggestBrandItems.map(brand => (
             <div
               key={brand.name}
               onClick={() => setSelectedBrand(brand)}
-              className={`cursor-pointer bg-background border border-border rounded-lg p-4 flex items-center justify-center aspect-square hover:border-gray-500 transition-colors
-                ${isBigLogo(brand.name) ? "col-span-2" : "col-span-1"}
-              `}
+              className="cursor-pointer flex flex-col items-center justify-center w-60 h-60 bg-background border border-border rounded-lg p-4 hover:border-gray-500 transition-colors"
+            >
+              <div className="w-52 h-52 rounded-lg bg-white flex items-center justify-center overflow-hidden mb-2 shadow-md">
+                <img src={brand.image} alt={brand.name} className="w-full h-full object-contain" />
+              </div>
+              <p className="text-gray-400 text-lg font-medium text-center truncate">{brand.name}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* BIG LOGOS - SLIGHTLY LARGER */}
+        <div className="flex flex-wrap justify-center gap-12 mb-12">
+          {bigBrandItems.map(brand => (
+            <div
+              key={brand.name}
+              onClick={() => setSelectedBrand(brand)}
+              className="cursor-pointer flex flex-col items-center justify-center w-36 h-36 bg-background border border-border rounded-lg p-4 hover:border-gray-500 transition-colors"
+            >
+              <div className="w-28 h-28 rounded-lg bg-white flex items-center justify-center overflow-hidden mb-2 shadow-md">
+                <img src={brand.image} alt={brand.name} className="w-full h-full object-contain" />
+              </div>
+              <p className="text-gray-400 text-sm font-medium text-center truncate">{brand.name}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* NORMAL LOGOS - GRID */}
+        <div className="grid grid-cols-10 gap-4">
+          {normalBrandItems.map(brand => (
+            <div
+              key={brand.name}
+              onClick={() => setSelectedBrand(brand)}
+              className="cursor-pointer bg-background border border-border rounded-lg p-4 flex items-center justify-center aspect-square hover:border-gray-500 transition-colors"
             >
               <div className="text-center">
-                <div
-                  className={`mx-auto mb-2 rounded-lg flex items-center justify-center overflow-hidden bg-white
-                    ${isBigLogo(brand.name) ? "w-24 h-24" : "w-12 h-12"}
-                  `}
-                >
-                  <img
-                    src={brand.image}
-                    alt={brand.name}
-                    className="w-full h-full object-contain"
-                  />
+                <div className="w-12 h-12 mx-auto mb-2 rounded-lg bg-white flex items-center justify-center overflow-hidden">
+                  <img src={brand.image} alt={brand.name} className="w-full h-full object-contain" />
                 </div>
-
-                <p className="text-gray-400 text-xs font-medium truncate">
-                  {brand.name}
-                </p>
+                <p className="text-gray-400 text-xs font-medium truncate">{brand.name}</p>
               </div>
             </div>
           ))}
@@ -175,21 +205,13 @@ export default function Clients() {
 
             <div className="flex items-center gap-8 mb-8">
               <div className="w-28 h-28 rounded-xl bg-white flex items-center justify-center overflow-hidden shadow-md">
-                <img
-                  src={selectedBrand.image}
-                  alt={selectedBrand.name}
-                  className="w-full h-full object-contain"
-                />
+                <img src={selectedBrand.image} alt={selectedBrand.name} className="w-full h-full object-contain" />
               </div>
 
-              <h3 className="text-2xl font-bold text-white">
-                {selectedBrand.name}
-              </h3>
+              <h3 className="text-2xl font-bold text-white">{selectedBrand.name}</h3>
             </div>
 
-            <p className="text-base text-gray-300 leading-relaxed">
-              {selectedBrand.description}
-            </p>
+            <p className="text-base text-gray-300 leading-relaxed">{selectedBrand.description}</p>
           </div>
         </div>
       )}
