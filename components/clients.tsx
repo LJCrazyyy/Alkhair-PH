@@ -142,15 +142,15 @@ export default function Clients() {
         </p>
 
         {/* BIGGEST LOGOS - SUPER LARGE CENTER TOP */}
-        <div className="flex flex-wrap justify-center gap-16 mb-12">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-16 mb-12">
           {biggestBrandItems.map(brand => (
             <div
               key={brand.name}
               onClick={() => setSelectedBrand(brand)}
-              className="cursor-pointer flex flex-col items-center justify-center w-60 h-60 bg-background border border-border rounded-lg p-4 hover:border-gray-500 transition-colors"
+              className="cursor-pointer flex flex-col items-center justify-center w-36 h-36 sm:w-44 sm:h-44 md:w-60 md:h-60"
             >
               <div className="w-52 h-52 rounded-lg bg-white flex items-center justify-center overflow-hidden mb-2 shadow-md">
-                <img src={brand.image} alt={brand.name} className="w-full h-full object-contain" />
+                <img src={brand.image} loading="lazy" alt={brand.name} className="w-full h-full object-contain" />
               </div>
               <p className="text-gray-400 text-lg font-medium text-center truncate">{brand.name}</p>
             </div>
@@ -158,15 +158,15 @@ export default function Clients() {
         </div>
 
         {/* BIG LOGOS - SLIGHTLY LARGER */}
-        <div className="flex flex-wrap justify-center gap-12 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 mb-12">
           {bigBrandItems.map(brand => (
             <div
               key={brand.name}
               onClick={() => setSelectedBrand(brand)}
-              className="cursor-pointer flex flex-col items-center justify-center w-36 h-36 bg-background border border-border rounded-lg p-4 hover:border-gray-500 transition-colors"
+              className="cursor-pointer flex flex-col items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36"
             >
               <div className="w-28 h-28 rounded-lg bg-white flex items-center justify-center overflow-hidden mb-2 shadow-md">
-                <img src={brand.image} alt={brand.name} className="w-full h-full object-contain" />
+                <img src={brand.image} loading="lazy" alt={brand.name} className="w-full h-full object-contain" />
               </div>
               <p className="text-gray-400 text-sm font-medium text-center truncate">{brand.name}</p>
             </div>
@@ -174,7 +174,7 @@ export default function Clients() {
         </div>
 
         {/* NORMAL LOGOS - GRID */}
-        <div className="grid grid-cols-10 gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4">
           {normalBrandItems.map(brand => (
             <div
               key={brand.name}
@@ -183,7 +183,7 @@ export default function Clients() {
             >
               <div className="text-center">
                 <div className="w-12 h-12 mx-auto mb-2 rounded-lg bg-white flex items-center justify-center overflow-hidden">
-                  <img src={brand.image} alt={brand.name} className="w-full h-full object-contain" />
+                  <img src={brand.image} loading="lazy" alt={brand.name} className="w-full h-full object-contain" />
                 </div>
                 <p className="text-gray-400 text-xs font-medium truncate">{brand.name}</p>
               </div>
@@ -195,7 +195,7 @@ export default function Clients() {
       {/* MODAL */}
       {selectedBrand && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
-          <div className="bg-background max-w-3xl w-full rounded-2xl p-10 relative shadow-2xl">
+          <div className="bg-background max-w-3xl w-full rounded-2xl p-6 sm:p-10 relative shadow-2xl max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => setSelectedBrand(null)}
               className="absolute top-5 right-5 text-gray-400 hover:text-white text-2xl"

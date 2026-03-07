@@ -25,25 +25,29 @@ const features = [
   {
     id: 1,
     title: "Professional",
-    description: "Offers professional ecommerce and digital marketing services with expert knowledge, skills, and years of industry experience.",
+    description:
+      "Offers professional ecommerce and digital marketing services with expert knowledge, skills, and years of industry experience.",
     icon: Briefcase,
   },
   {
     id: 2,
     title: "Reliable",
-    description: "Reliable solutions backed by professional staff experienced in digital growth strategies and consistent service excellence.",
+    description:
+      "Reliable solutions backed by professional staff experienced in digital growth strategies and consistent service excellence.",
     icon: ShieldCheck,
   },
   {
     id: 3,
     title: "Timely",
-    description: "Timely delivery of campaigns, content, and sales support with professional handling and efficient digital solutions.",
+    description:
+      "Timely delivery of campaigns, content, and sales support with professional handling and efficient digital solutions.",
     icon: Clock,
   },
   {
     id: 4,
     title: "Satisfying",
-    description: "Satisfying results from skilled, experienced staff focused on driving conversions, engagement, and measurable business growth.",
+    description:
+      "Satisfying results from skilled, experienced staff focused on driving conversions, engagement, and measurable business growth.",
     icon: Smile,
   },
 ]
@@ -108,29 +112,32 @@ ${formData.message}`
   }
 
   return (
-    <section id="contact" className="py-20 bg-background">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-16 md:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-foreground leading-tight">
             Contact us by Call or WhatsApp to schedule your ecommerce consultation
           </h2>
         </div>
 
-        {/* Features Grid - icons now white */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {/* Features */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-14 md:mb-16">
           {features.map((feature) => {
             const Icon = feature.icon
             return (
               <div key={feature.id} className="text-center">
                 <div className="mb-4 flex justify-center">
-                  <div className="w-16 h-16 bg-muted/70 rounded-full flex items-center justify-center border border-border/60 backdrop-blur-sm">
-                    <Icon className="w-9 h-9 text-white" strokeWidth={2.2} />
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-muted/70 rounded-full flex items-center justify-center border border-border/60 backdrop-blur-sm">
+                    <Icon className="w-7 h-7 sm:w-9 sm:h-9 text-white" strokeWidth={2.2} />
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-foreground">
+
+                <h3 className="text-lg sm:text-xl font-semibold mb-2 text-foreground">
                   {feature.title}
                 </h3>
+
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {feature.description}
                 </p>
@@ -139,15 +146,15 @@ ${formData.message}`
           })}
         </div>
 
-        {/* Testimonials Section */}
-        <div className="bg-muted/40 rounded-lg p-12 mb-16 border border-border/50">
+        {/* Testimonials */}
+        <div className="bg-muted/40 rounded-lg p-6 sm:p-8 md:p-12 mb-14 md:mb-16 border border-border/50">
           <div className="flex justify-center">
-            <div className="flex gap-5">
+            <div className="flex gap-4 sm:gap-5">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentTestimonial(index)}
-                  className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 ${
                     index === currentTestimonial
                       ? "bg-primary scale-125 shadow-lg shadow-primary/40"
                       : "bg-muted-foreground/50 hover:bg-muted-foreground/80"
@@ -158,9 +165,10 @@ ${formData.message}`
           </div>
         </div>
 
-        {/* Form / Scale Section */}
-        <div className="relative bg-card text-card-foreground rounded-2xl p-10 md:p-14 overflow-hidden border border-border shadow-2xl">
-          {/* Background Image with overlay */}
+        {/* Contact Card */}
+        <div className="relative bg-card text-card-foreground rounded-2xl p-6 sm:p-8 md:p-14 overflow-hidden border border-border shadow-2xl">
+
+          {/* Background */}
           <div className="absolute inset-0">
             <img
               src="/Clients/Live2.png"
@@ -170,57 +178,60 @@ ${formData.message}`
             <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/80 to-black/70" />
           </div>
 
-          <div className="relative grid md:grid-cols-2 gap-12 items-center z-10">
-            {/* Left text column */}
+          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12 items-center z-10">
+
+            {/* LEFT */}
             <div>
-              <h3 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-foreground">
+              <h3 className="text-3xl sm:text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight text-foreground">
                 READY TO SCALE?
               </h3>
 
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-medium">
+              <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-6 md:mb-8 font-medium">
                 MAKE YOUR NEXT MOVE COUNT, LET'S LEVEL UP RESULTS
               </p>
 
-              <p className="text-lg text-muted-foreground mb-4">
+              <p className="text-base sm:text-lg text-muted-foreground mb-4">
                 Fill the form below or contact us directly at
               </p>
 
-              <p className="text-3xl md:text-4xl font-bold tracking-wide text-white">
+              <p className="text-xl sm:text-2xl md:text-4xl font-bold tracking-wide text-white break-words">
                 info.alkhairph@gmail.com
               </p>
             </div>
 
-            {/* Right form column */}
-            <div className="bg-background/80 backdrop-blur-xl border border-border rounded-2xl p-8 md:p-10 shadow-xl">
+            {/* FORM */}
+            <div className="bg-background/80 backdrop-blur-xl border border-border rounded-2xl p-6 sm:p-8 md:p-10 shadow-xl">
+
               {submitted ? (
-                <div className="text-center py-12">
-                  <p className="text-hover-green text-2xl font-semibold">
+                <div className="text-center py-10">
+                  <p className="text-hover-green text-xl font-semibold">
                     Thank you! We'll get back to you soon.
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+
+                <form onSubmit={handleSubmit} className="space-y-5">
+
                   {error && (
                     <div className="bg-destructive/20 border border-destructive/40 rounded-lg p-4 text-destructive text-center">
                       {error}
                     </div>
                   )}
 
-                  <div className="grid md:grid-cols-2 gap-5">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <Input
                       name="firstName"
                       placeholder="First Name"
                       value={formData.firstName}
                       onChange={handleChange}
-                      className="bg-input border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/30"
                       required
                     />
+
                     <Input
                       name="lastName"
                       placeholder="Last Name"
                       value={formData.lastName}
                       onChange={handleChange}
-                      className="bg-input border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/30"
                       required
                     />
                   </div>
@@ -231,7 +242,6 @@ ${formData.message}`
                     placeholder="Email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="bg-input border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/30"
                     required
                   />
 
@@ -240,14 +250,14 @@ ${formData.message}`
                     placeholder="Company (optional)"
                     value={formData.company}
                     onChange={handleChange}
-                    className="bg-input border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/30"
                   />
 
                   <Select value={formData.service} onValueChange={handleServiceChange}>
-                    <SelectTrigger className="bg-input border-input text-foreground data-[placeholder]:text-muted-foreground focus:border-ring focus:ring-ring/30">
+                    <SelectTrigger>
                       <SelectValue placeholder="Service Inquiry" />
                     </SelectTrigger>
-                    <SelectContent className="bg-popover text-popover-foreground border-border">
+
+                    <SelectContent>
                       <SelectItem value="livestream">Livestreaming Services</SelectItem>
                       <SelectItem value="account">Account Management</SelectItem>
                       <SelectItem value="content">Content Creation</SelectItem>
@@ -262,7 +272,6 @@ ${formData.message}`
                     value={formData.message}
                     onChange={handleChange}
                     rows={5}
-                    className="bg-input border-input text-foreground placeholder:text-muted-foreground focus:border-ring focus:ring-ring/30 resize-none"
                     required
                   />
 
@@ -273,6 +282,7 @@ ${formData.message}`
                   >
                     {loading ? "Sending..." : "INQUIRE NOW"}
                   </Button>
+
                 </form>
               )}
             </div>
