@@ -18,18 +18,19 @@ const footerLinks = [
 export function Footer() {
   const [modalOpen, setModalOpen] = useState(false)
   const [activeFile, setActiveFile] = useState<{
-    type: "image" | "pdf"
+    type: "image"
     src: string
     alt: string
   } | null>(null)
 
-  const files: Array<{ type: "image" | "pdf"; src: string; alt: string }> = [
+  // ✅ Only images now, PDF removed
+  const files: Array<{ type: "image"; src: string; alt: string }> = [
     { type: "image", src: "/Clients/Needs/CertRegistration.png", alt: "Certificate Registration" },
     { type: "image", src: "/Clients/Needs/RegistrationCert.png", alt: "Registration Certificate" },
-    { type: "pdf", src: "/Clients/Needs/Cert.pdf", alt: "Business Certificate PDF" },
+    { type: "image", src: "/Clients/Needs/Cert.png", alt: "Certificate Business" },
   ]
 
-  function openModal(file: { type: "image" | "pdf"; src: string; alt: string }) {
+  function openModal(file: { type: "image"; src: string; alt: string }) {
     setActiveFile(file)
     setModalOpen(true)
   }
@@ -116,7 +117,7 @@ export function Footer() {
               ))}
             </nav>
 
-            {/* Files thumbnails under Quick Links */}
+            {/* Only image thumbnails now */}
             <div className="flex justify-start gap-4 mt-6 flex-wrap">
               {files.map((file) => (
                 <button
@@ -125,17 +126,11 @@ export function Footer() {
                   className="cursor-pointer focus:outline-none"
                   aria-label={`Open ${file.alt}`}
                 >
-                  {file.type === "image" ? (
-                    <img
-                      src={file.src}
-                      alt={file.alt}
-                      className="w-12 h-12 object-contain rounded shadow-md hover:scale-110 transition-transform"
-                    />
-                  ) : (
-                    <div className="w-12 h-12 bg-gray-700 text-white flex items-center justify-center rounded shadow-md font-semibold hover:bg-gray-600 transition-colors">
-                      PDF
-                    </div>
-                  )}
+                  <img
+                    src={file.src}
+                    alt={file.alt}
+                    className="w-12 h-12 object-contain rounded shadow-md hover:scale-110 transition-transform"
+                  />
                 </button>
               ))}
             </div>
@@ -189,20 +184,11 @@ export function Footer() {
                 <X size={24} />
               </button>
 
-              {activeFile.type === "image" ? (
-                <img
-                  src={activeFile.src}
-                  alt={activeFile.alt}
-                  className="max-w-full max-h-[80vh] object-contain rounded"
-                />
-              ) : (
-                <iframe
-                  src={activeFile.src}
-                  className="w-[80vw] h-[80vh] rounded"
-                  title={activeFile.alt}
-                  frameBorder="0"
-                />
-              )}
+              <img
+                src={activeFile.src}
+                alt={activeFile.alt}
+                className="max-w-full max-h-[80vh] object-contain rounded"
+              />
             </div>
           </div>
         )}
