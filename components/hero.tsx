@@ -10,32 +10,32 @@ const slides = [
     title: "ECOMMERCE & DIGITAL SOLUTIONS",
     subtitle:
       "Powering brands with live selling, digital marketing, creative content, and growth-focused ecommerce solutions.",
-    image: "/Clients/Logo.png",
+    image: "/Clients/Home/WebsiteDesign.png",
   },
   {
     title: "ONLINE SELLING / STREAMING SOLUTIONS",
     subtitle: "Interactive live selling that boosts engagement, drives instant purchases, and turns viewers into loyal customers.",
-    image: "/Clients/live2.png",
+    image: "/Clients/Home/OnlineStreaming.png",
   },
   {
     title: "WEBSITE DESIGN & DEVELOPMENT",
     subtitle: "High-converting, mobile-friendly websites with sleek design and seamless UX that turn visitors into customers.",
-    image: "/Clients/live3.png",
+    image: "/Clients/Home/WebsiteDesign.png",
   },
   {
     title: "SOCIAL MEDIA MANAGEMENT & PAID ADS (DIGITAL MANAGEMENT)",
     subtitle: "Scroll-stopping content and targeted ads that increase engagement, generate leads, and drive more sales.",
-    image: "/Clients/Home/CreativeContent.png",
+    image: "/Clients/Home/Ads.png",
   },
   {
     title: "FULFILLMENT & CUSTOMER SUPPORT",
     subtitle: "Efficient order processing and responsive support for a seamless customer experience that builds trust and loyalty.",
-    image: "/Clients/Home/Ads.png",
+    image: "/Clients/Home/CustomerSupport.png",
   },
   {
     title: "CREATIVE CONTENT & PRODUCT SHOOTS",
     subtitle: "Professional photos and videos that showcase your brand, build credibility, and drive engagement and conversions.",
-    image: "/Clients/Home/CustomerSupport.png",
+    image: "/Clients/Home/CreativeContent.png",
   },
   {
     title: "ANALYTICS, INSIGHTS & BUSINESS INTELLIGENCE (DIGITAL MANAGEMENT)",
@@ -70,18 +70,17 @@ export function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background */}
-      <div
-        className="absolute inset-0 bg-center bg-no-repeat transition-all duration-700"
-        style={{
-          backgroundImage: `url(${slides[currentSlide].image})`,
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      />
+      {/* Background Image */}
+      <div className="absolute inset-0 transition-all duration-700">
+        <img
+          src={slides[currentSlide].image}
+          alt={slides[currentSlide].title}
+          className="w-full h-full object-cover"
+        />
+      </div>
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/40 md:bg-black/60" />
 
       {/* Decorative blur */}
       <div className="absolute inset-0">

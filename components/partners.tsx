@@ -1,7 +1,11 @@
+"use client"
+
+import Image from "next/image"
+
 const partners = [
-  { name: "Lazada", type: "Marketplace" },
-  { name: "Shopee", type: "Marketplace" },
-  { name: "TikTok", type: "Social Commerce" },
+  { name: "Lazada", type: "Marketplace", logo: "/Clients/lazada.png" },
+  { name: "Shopee", type: "Marketplace", logo: "/Clients/Shopee.png" },
+  { name: "TikTok", type: "Social Commerce", logo: "/Clients/TikTok.png" },
 ]
 
 export function Partners() {
@@ -19,8 +23,18 @@ export function Partners() {
               key={index}
               className="bg-background border border-border rounded-xl p-8 text-center hover:border-gray-500 transition-colors"
             >
-              <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center">
-                <span className="text-3xl font-bold text-white">{partner.name.charAt(0)}</span>
+              <div className="w-20 h-20 mx-auto mb-4 bg-white/10 rounded-xl flex items-center justify-center overflow-hidden">
+                {partner.logo ? (
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="w-full h-full object-contain p-2"
+                  />
+                ) : (
+                  <span className="text-3xl font-bold text-white">
+                    {partner.name.charAt(0)}
+                  </span>
+                )}
               </div>
               <h3 className="text-white font-semibold text-xl mb-1">{partner.name}</h3>
               <p className="text-gray-400 text-sm">{partner.type}</p>

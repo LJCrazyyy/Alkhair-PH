@@ -66,16 +66,14 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-3">Contact Us</h3>
             <div className="space-y-2">
               <a
-                href="tel:09173099519"
+                href="tel:09506645857"
                 className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                09173099519
+                09506645857
               </a>
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=info.alkhairph@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="mailto:info.alkhairph@gmail.com"
                 className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" />

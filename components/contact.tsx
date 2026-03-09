@@ -52,14 +52,6 @@ const features = [
   },
 ]
 
-const testimonials = [
-  {
-    id: 1,
-    text: "I recently purchased a 5-hour SPJ and I am honored to improve the picture quality in livestreaming and the sound to a crystal clear stream unique again SPJ",
-    author: "Client Name",
-  },
-]
-
 export function Contact() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -73,7 +65,6 @@ export function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -144,25 +135,6 @@ ${formData.message}`
               </div>
             )
           })}
-        </div>
-
-        {/* Testimonials */}
-        <div className="bg-muted/40 rounded-lg p-6 sm:p-8 md:p-12 mb-14 md:mb-16 border border-border/50">
-          <div className="flex justify-center">
-            <div className="flex gap-4 sm:gap-5">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 sm:w-4 sm:h-4 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial
-                      ? "bg-primary scale-125 shadow-lg shadow-primary/40"
-                      : "bg-muted-foreground/50 hover:bg-muted-foreground/80"
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
         </div>
 
         {/* Contact Card */}

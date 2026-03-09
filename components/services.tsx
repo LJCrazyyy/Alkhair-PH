@@ -27,34 +27,34 @@ const mainServices: Service[] = [
     description: `Our Live Selling / Streaming service brings your brand to life in real time! We turn ordinary product showcases into exciting,
 interactive shopping experiences where customers can watch, engage, ask questions, and buy instantly.
 It’s fast, dynamic, and built to capture attention helping you boost sales, grow your online presence, and turn viewers into loyal fans.`,
-    image: "/Clients/Services/OnlineStreaming.png"
+    image: "/Clients/Services/Selling.png"
   },
   {
     icon: Globe,
     title: "WEBSITE DESIGN & DEVELOPMENT",
     description: `We build powerful, high-converting websites that don’t just look good, they work hard for your business.`,
-    image: "/Clients/Services/WebsiteDesign.png"
+    image: "/Clients/Services/Web.png"
   },
   {
     icon: User,
     title: "SOCIAL MEDIA MANAGEMENT & PAID ADS (DIGITAL MANAGEMENT)",
     description: `We create scroll-stopping content, manage your platforms strategically, and run high-performing paid ads that reach the right audience at the right time. 
 More engagement, more leads, more sales that’s the goal.`,
-    image: "/Clients/Services/Ads.png"
+    image: "/Clients/Services/Paid Advertising.png"
   },
   {
     icon: Warehouse,
     title: "FULFILLMENT & CUSTOMER SUPPORT",
     description: `We handle order processing, coordination, and responsive customer support to ensure every buyer has a seamless experience.
 Fast, reliable, and customer-focused we help you build trust and repeat business.`,
-    image: "/Clients/Services/CustomerSupport.png"
+    image: "/Clients/Services/Support.png"
   },
   {
     icon: Film,
     title: "CREATIVE CONTENT & PRODUCT SHOOTS",
     description: `Bring your brand to life with Alkhair PH’s creative content and professional product shoots.
 From eye-catching visuals to engaging videos, we produce high-quality content that captures attention, builds credibility, and drives conversions.`,
-    image: "/Clients/Services/CreativeContent.png"
+    image: "/Clients/Services/Content.png"
   },
   {
     icon: BarChart3,
@@ -93,7 +93,7 @@ export function Services() {
               }}
             >
               {/* Image */}
-              <div className="w-full h-48 overflow-hidden mb-6">
+              <div className="w-full h-64 sm:h-72 md:h-80 overflow-hidden mb-6 bg-white/5 rounded-lg">
                 {service.image && (
                   <img
                     src={service.image}

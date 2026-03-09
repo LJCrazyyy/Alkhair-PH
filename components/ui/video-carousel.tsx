@@ -17,6 +17,7 @@ type VideoCarouselProps = {
 export function VideoCarousel({ videos, onSlideChange }: VideoCarouselProps) {
   const [api, setApi] = React.useState<any>(null)
   const [active, setActive] = React.useState(0)
+  const videoRefs = React.useRef<Array<HTMLVideoElement | null>>([])
 
   React.useEffect(() => {
     if (!api) return
@@ -25,6 +26,20 @@ export function VideoCarousel({ videos, onSlideChange }: VideoCarouselProps) {
       const idx = api.selectedScrollSnap()
       setActive(idx)
       onSlideChange?.(idx)
+
+      // Pause all videos and play the current one
+      videoRefs.current.forEach((video, i) => {
+        if (video) {
+          if (i === idx) {
+            video.play().catch(() => {
+              // Autoplay might be blocked by browser, ignore
+            })
+          } else {
+            video.pause()
+            video.currentTime = 0
+          }
+        }
+      })
     }
 
     // initial
@@ -47,6 +62,9 @@ export function VideoCarousel({ videos, onSlideChange }: VideoCarouselProps) {
             <CarouselItem key={i} className="w-full">
               <div className="relative rounded-2xl overflow-hidden aspect-video bg-black border border-white/5 shadow-lg">
                 <video
+                  ref={(el) => {
+                    videoRefs.current[i] = el
+                  }}
                   src={v.src}
                   controls
                   className="w-full h-full object-cover"
