@@ -141,7 +141,7 @@ export function Careers() {
             </div>
             <h3 className="text-white text-xl font-semibold text-center">{selectedLeader.name}</h3>
             <p className="text-purple-400 text-center mb-2">{selectedLeader.position}</p>
-            <p className="text-white-400 text-center mb-4">{selectedLeader.bio}</p>
+            <p className="text-gray-400 text-center mb-4">{selectedLeader.bio}</p>
             <p className="text-white text-center text-sm">📧 {selectedLeader.email}</p>
           </div>
         </div>

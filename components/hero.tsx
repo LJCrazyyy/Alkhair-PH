@@ -6,48 +6,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const slides = [
-  {
-    title: "ECOMMERCE & DIGITAL SOLUTIONS",
-    subtitle:
-      "Powering brands with live selling, digital marketing, creative content, and growth-focused ecommerce solutions.",
-    image: "/Clients/Home/WebsiteDesign.png",
-  },
-  {
-    title: "ONLINE SELLING / STREAMING SOLUTIONS",
-    subtitle:
-      "Interactive live selling that boosts engagement, drives instant purchases, and turns viewers into loyal customers.",
-    image: "/Clients/Home/OnlineStreaming.png",
-  },
-  {
-    title: "WEBSITE DESIGN & DEVELOPMENT",
-    subtitle:
-      "High-converting, mobile-friendly websites with sleek design and seamless UX that turn visitors into customers.",
-    image: "/Clients/Home/Website-Development.png",
-  },
-  {
-    title: "SOCIAL MEDIA MANAGEMENT & PAID ADS (DIGITAL MANAGEMENT)",
-    subtitle:
-      "Scroll-stopping content and targeted ads that increase engagement, generate leads, and drive more sales.",
-    image: "/Clients/Home/Ads.png",
-  },
-  {
-    title: "FULFILLMENT & CUSTOMER SUPPORT",
-    subtitle:
-      "Efficient order processing and responsive support for a seamless customer experience that builds trust and loyalty.",
-    image: "/Clients/Home/CustomerSupport.png",
-  },
-  {
-    title: "CREATIVE CONTENT & PRODUCT SHOOTS",
-    subtitle:
-      "Professional photos and videos that showcase your brand, build credibility, and drive engagement and conversions.",
-    image: "/Clients/Home/CreativeContent.png",
-  },
-  {
-    title: "ANALYTICS, INSIGHTS & BUSINESS INTELLIGENCE (DIGITAL MANAGEMENT)",
-    subtitle:
-      "Data-driven insights that reveal opportunities, improve performance, and help you scale with confidence.",
-    image: "/Clients/Home/Analytics.png",
-  },
+  { image: "/Clients/Home/WebsiteDesign.png" },
+  { image: "/Clients/Home/OnlineStreaming.png" },
+  { image: "/Clients/Home/Website-Developmet.png" },
+  { image: "/Clients/Home/Ads.png" },
+  { image: "/Clients/Home/CustomerSupport.png" },
+  { image: "/Clients/Home/CreativeContent.png" },
+  { image: "/Clients/Home/Analytics.png" },
 ]
 
 export function Hero() {
@@ -57,7 +22,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 100000)
+    }, 10000)
 
     return () => clearInterval(timer)
   }, [])
@@ -80,13 +45,10 @@ export function Hero() {
       <div className="absolute inset-0 transition-all duration-700">
         <img
           src={slides[currentSlide].image}
-          alt={slides[currentSlide].title}
+          alt="Hero Slide"
           className="w-full h-full object-cover"
         />
       </div>
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40 md:bg-black/60" />
 
       {/* Decorative blur */}
       <div className="absolute inset-0">
@@ -102,75 +64,47 @@ export function Hero() {
         />
       </div>
 
-      {/* Content */}
-      <div
-        className={`container mx-auto px-6 relative z-10 transition-all duration-1000 ${
-          heroVisible ? "animate-fade-in-up" : ""
-        }`}
-      >
-        <div className="text-center max-w-4xl mx-auto">
-          {/* Slides */}
-          <div className="relative min-h-[220px] md:min-h-[260px]">
-            {slides.map((slide, index) => (
-              <div
-                key={index}
-                className={`transition-all duration-700 ${
-                  index === currentSlide
-                    ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-4 absolute inset-0"
-                }`}
-              >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                  {slide.title}
-                </h1>
-
-                <p className="text-lg sm:text-xl md:text-2xl text-gray-300">
-                  {slide.subtitle}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* SLIDER CONTROLS (NOW FIXED AT BOTTOM) */}
-      <div
-        className={`absolute bottom-16 left-0 right-0 flex items-center justify-center gap-6 z-20 transition-all duration-500 delay-400 ${
-          heroVisible ? "animate-scale-in" : ""
-        }`}
-      >
+      {/* LEFT ARROW */}
+      <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 z-20">
         <Button
           variant="ghost"
           size="icon"
           onClick={prevSlide}
           className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-8 w-8" />
         </Button>
+      </div>
 
-        {/* Indicators */}
-        <div className="flex gap-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
-                index === currentSlide
-                  ? "bg-white scale-110"
-                  : "bg-gray-500 hover:bg-gray-300"
-              }`}
-            />
-          ))}
-        </div>
-
+      {/* RIGHT ARROW */}
+      <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 z-20">
         <Button
           variant="ghost"
           size="icon"
           onClick={nextSlide}
           className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-8 w-8" />
         </Button>
+      </div>
+
+      {/* Indicators bottom */}
+      <div
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2 z-20 transition-all duration-500 ${
+          heroVisible ? "animate-scale-in" : ""
+        }`}
+      >
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? "bg-white scale-110"
+                : "bg-gray-500 hover:bg-gray-300"
+            }`}
+          />
+        ))}
       </div>
     </section>
   )
