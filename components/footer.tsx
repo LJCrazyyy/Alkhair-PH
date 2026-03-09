@@ -41,17 +41,17 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-card border-t border-border py-16">
+    <footer className="bg-card border-t border-border py-12">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 mb-4">
               <Image
                 src="/Clients/Aklogo.png"
                 alt="Alkhair Logo"
-                width={50}
-                height={50}
+                width={40}
+                height={40}
                 className="object-contain"
               />
               <span className="text-white font-semibold text-lg">Alkhair PH</span>
@@ -62,21 +62,23 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
-            <h3 className="text-white font-semibold mb-6">Contact Us</h3>
-            <div className="space-y-4">
+          <div className="space-y-3">
+            <h3 className="text-white font-semibold mb-3">Contact Us</h3>
+            <div className="space-y-2">
               <a
                 href="tel:09173099519"
-                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4 flex-shrink-0" />
                 09173099519
               </a>
               <a
-                href="mailto:info.alkhairph@gmail.com"
-                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=info.alkhairph@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="w-4 h-4 flex-shrink-0" />
                 info.alkhairph@gmail.com
               </a>
               <div className="flex flex-col gap-2 pt-2">
@@ -84,18 +86,18 @@ export function Footer() {
                   href="https://www.facebook.com/alkhairph"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <Facebook className="w-4 h-4 flex-shrink-0" />
                   Facebook
                 </a>
                 <a
                   href="https://www.instagram.com/alkhairph"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="w-4 h-4 flex-shrink-0" />
                   Instagram
                 </a>
               </div>
@@ -103,14 +105,14 @@ export function Footer() {
           </div>
 
           {/* Quick Links + Files */}
-          <div>
-            <h3 className="text-white font-semibold mb-6">Quick Links</h3>
-            <nav className="grid grid-cols-2 gap-3">
+          <div className="space-y-4">
+            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <nav className="grid grid-cols-2 gap-2">
               {footerLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
+                  className="text-gray-400 hover:text-white text-sm transition-colors py-1"
                 >
                   {link.label}
                 </Link>
@@ -118,7 +120,7 @@ export function Footer() {
             </nav>
 
             {/* Only image thumbnails now */}
-            <div className="flex justify-start gap-4 mt-6 flex-wrap">
+            <div className="flex justify-start gap-3 mt-4 flex-wrap">
               {files.map((file) => (
                 <button
                   key={file.src}
@@ -129,7 +131,7 @@ export function Footer() {
                   <img
                     src={file.src}
                     alt={file.alt}
-                    className="w-12 h-12 object-contain rounded shadow-md hover:scale-110 transition-transform"
+                    className="w-10 h-10 object-contain rounded shadow-md hover:scale-110 transition-transform"
                   />
                 </button>
               ))}
@@ -138,14 +140,14 @@ export function Footer() {
         </div>
 
         {/* Locations / Maps */}
-        <div className="mt-16 pt-12 border-t border-border">
-          <h3 className="text-2xl font-bold text-white mb-8 text-center">Our Locations</h3>
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
+        <div className="mt-12 pt-8 border-t border-border">
+          <h3 className="text-xl font-bold text-white mb-6 text-center">Our Locations</h3>
+          <div className="grid md:grid-cols-2 gap-6 mb-8">
             <div className="rounded-lg overflow-hidden shadow-lg border border-border/40">
               <iframe
                 src="https://www.google.com/maps?q=252-C%20Swiggert%20Parañaque&output=embed"
                 width="100%"
-                height="300"
+                height="250"
                 style={{ border: 0 }}
                 loading="lazy"
                 className="w-full"
@@ -155,7 +157,7 @@ export function Footer() {
               <iframe
                 src="https://www.google.com/maps?q=Malayan%20College%20Laguna&output=embed"
                 width="100%"
-                height="300"
+                height="250"
                 style={{ border: 0 }}
                 loading="lazy"
                 className="w-full"
@@ -194,7 +196,7 @@ export function Footer() {
         )}
 
         {/* Copyright */}
-        <div className="border-t border-border mt-12 pt-8 text-center">
+        <div className="border-t border-border mt-8 pt-6 text-center">
           <p className="text-gray-500 text-sm">
             © {new Date().getFullYear()} Alkhair PH. All rights reserved.
           </p>

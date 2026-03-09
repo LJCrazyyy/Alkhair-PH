@@ -2,6 +2,7 @@
 
 import { VideoCarousel } from "@/components/ui/video-carousel"
 import { useState } from "react"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 interface AboutProps {
   mediaType?: "image" | "video"
@@ -42,13 +43,14 @@ export function About({
   ]
 
   const [active, setActive] = useState(0)
+  const { ref: aboutRef, isVisible: aboutVisible } = useScrollAnimation()
 
   return (
-    <section id="about" className="py-12 md:py-16 bg-card">
+    <section ref={aboutRef} id="about" className="py-12 md:py-16 bg-card">
       <div className="container mx-auto px-4 md:px-6">
 
         {/* ABOUT LABEL */}
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 transition-all duration-700 ${aboutVisible ? 'animate-fade-in-up' : ''}`}>
           <p className="text-sm uppercase tracking-[0.35em] text-gray-400">
             OUR ABOUT US
           </p>
@@ -58,7 +60,7 @@ export function About({
         <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-14 md:mb-20">
 
           {/* LEFT TEXT */}
-          <div className="space-y-5 text-gray-300 text-base md:text-lg leading-relaxed">
+          <div className={`space-y-5 text-gray-300 text-base md:text-lg leading-relaxed transition-all duration-700 delay-200 ${aboutVisible ? 'animate-fade-in-left' : ''}`}>
 
             <p>
               <span className="text-white font-semibold">Alkhair PH</span> helps
@@ -80,7 +82,7 @@ export function About({
           </div>
 
           {/* RIGHT HEADING */}
-          <div className="flex items-center md:justify-end">
+          <div className={`flex items-center md:justify-end transition-all duration-700 delay-400 ${aboutVisible ? 'animate-fade-in-right' : ''}`}>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
               CREATIVE<br />
               PRODUCTION<br />
@@ -92,14 +94,14 @@ export function About({
         </div>
 
         {/* INNOVATION TITLE */}
-        <div className="text-center mb-8">
+        <div className={`text-center mb-8 transition-all duration-700 delay-600 ${aboutVisible ? 'animate-fade-in-up' : ''}`}>
           <h3 className="text-2xl md:text-4xl font-black text-white">
             Where Technology meets <span className="italic">Innovation</span>
           </h3>
         </div>
 
         {/* VIDEO CAROUSEL */}
-        <div className="relative overflow-hidden border border-white/10 rounded-3xl shadow-xl mb-6">
+        <div className={`relative overflow-hidden border border-white/10 rounded-3xl shadow-xl mb-6 transition-all duration-700 delay-800 ${aboutVisible ? 'animate-scale-in' : ''}`}>
 
           <div className="w-full bg-black aspect-video">
 

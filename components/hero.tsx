@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const slides = [
   {
@@ -45,6 +46,7 @@ const slides = [
 
 export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation()
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -64,17 +66,17 @@ export function Hero() {
 
   return (
     <section
+      ref={heroRef}
       id="home"
-      className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background */}
       <div
         className="absolute inset-0 bg-center bg-no-repeat transition-all duration-700"
         style={{
           backgroundImage: `url(${slides[currentSlide].image})`,
-          backgroundSize: "contain",
           backgroundPosition: "center",
-          backgroundColor: "#1a1a1a",
+          backgroundSize: "cover",
         }}
       />
 
@@ -83,12 +85,12 @@ export function Hero() {
 
       {/* Decorative blur */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-40 md:w-72 h-40 md:h-72 bg-gray-700/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-60 md:w-96 h-60 md:h-96 bg-gray-600/10 rounded-full blur-3xl" />
+        <div className={`absolute top-20 left-10 w-40 md:w-72 h-40 md:h-72 bg-gray-700/10 rounded-full blur-3xl transition-all duration-1000 ${heroVisible ? 'animate-float' : ''}`} />
+        <div className={`absolute bottom-20 right-10 w-60 md:w-96 h-60 md:h-96 bg-gray-600/10 rounded-full blur-3xl transition-all duration-1000 delay-300 ${heroVisible ? 'animate-float' : ''}`} />
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 relative z-10">
+      <div className={`container mx-auto px-6 relative z-10 transition-all duration-1000 ${heroVisible ? 'animate-fade-in-up' : ''}`}>
         <div className="text-center max-w-4xl mx-auto">
 
           {/* Slides */}
@@ -102,11 +104,11 @@ export function Hero() {
                     : "opacity-0 translate-y-4 absolute inset-0"
                 }`}
               >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight transition-all duration-500 ${heroVisible ? 'animate-fade-in-up' : ''}`}>
                   {slide.title}
                 </h1>
 
-                <p className="text-lg sm:text-xl md:text-2xl text-gray-300">
+                <p className={`text-lg sm:text-xl md:text-2xl text-gray-300 transition-all duration-500 delay-200 ${heroVisible ? 'animate-fade-in-up' : ''}`}>
                   {slide.subtitle}
                 </p>
               </div>
@@ -114,13 +116,13 @@ export function Hero() {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center justify-center gap-6 mt-12 md:mt-16">
+          <div className={`flex items-center justify-center gap-6 mt-12 md:mt-16 transition-all duration-500 delay-400 ${heroVisible ? 'animate-scale-in' : ''}`}>
 
             <Button
               variant="ghost"
               size="icon"
               onClick={prevSlide}
-              className="text-white hover:bg-white/10"
+              className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
             >
               <ChevronLeft className="h-6 w-6" />
             </Button>
@@ -131,10 +133,10 @@ export function Hero() {
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
+                  className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
                     index === currentSlide
                       ? "bg-white scale-110"
-                      : "bg-gray-500"
+                      : "bg-gray-500 hover:bg-gray-300"
                   }`}
                 />
               ))}
@@ -144,7 +146,7 @@ export function Hero() {
               variant="ghost"
               size="icon"
               onClick={nextSlide}
-              className="text-white hover:bg-white/10"
+              className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
             >
               <ChevronRight className="h-6 w-6" />
             </Button>

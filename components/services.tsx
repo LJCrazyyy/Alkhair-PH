@@ -11,6 +11,7 @@ import {
   X,
   type LucideIcon
 } from "lucide-react"
+import { useStaggeredAnimation } from "@/hooks/use-scroll-animation"
 
 type Service = {
   icon: LucideIcon
@@ -65,10 +66,11 @@ From eye-catching visuals to engaging videos, we produce high-quality content th
 
 export function Services() {
   const [selectedService, setSelectedService] = useState<Service | null>(null)
+  const { containerRef, visibleItems } = useStaggeredAnimation(mainServices.length, 0.15)
 
   return (
     <section id="services" className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+      <div ref={containerRef} className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="text-gray-500 uppercase tracking-widest mb-4">
             OUR SERVICES
@@ -83,7 +85,12 @@ export function Services() {
             <div
               key={index}
               onClick={() => setSelectedService(service)}
-              className="cursor-pointer group bg-card border border-border rounded-xl overflow-hidden hover:bg-accent transition-all duration-300 hover:border-gray-600"
+              className={`cursor-pointer group bg-card border border-border rounded-xl overflow-hidden hover:bg-accent transition-all duration-500 hover:border-gray-600 hover:scale-105 hover:shadow-2xl ${
+                visibleItems.has(index) ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+              }`}
+              style={{
+                animationDelay: visibleItems.has(index) ? `${index * 0.15}s` : '0s'
+              }}
             >
               {/* Image */}
               <div className="w-full h-48 overflow-hidden mb-6">

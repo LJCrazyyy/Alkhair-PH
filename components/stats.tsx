@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
+import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const stats = [
   { value: 40, suffix: "+", label: "BRAND PARTNERS" },
@@ -51,6 +52,7 @@ function useCountUp(end: number, duration: number = 2000) {
 
 export function Stats() {
   const [counts, setCounts] = useState<{ count: number; suffix: string; label: string }[]>(stats.map(stat => ({ ...stat, count: 0 })))
+  const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation()
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,11 +87,11 @@ export function Stats() {
   }, [])
 
   return (
-    <section className="py-20 bg-card border-y border-border">
+    <section ref={statsRef} className="py-20 bg-card border-y border-border">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 transition-all duration-1000 ${statsVisible ? 'animate-fade-in-up' : ''}`}>
           {counts.map((stat, index) => (
-            <div key={index} className="text-center stat-item">
+            <div key={index} className={`text-center stat-item transition-all duration-700 ${statsVisible ? 'animate-scale-in' : ''}`} style={{ animationDelay: `${index * 0.2}s` }}>
               <div className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">
                 {stat.count.toLocaleString()}{stat.suffix}
               </div>

@@ -142,14 +142,14 @@ export default function Clients() {
         </p>
 
         {/* BIGGEST LOGOS - SUPER LARGE CENTER TOP */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-16 mb-12">
+        <div className="flex flex-wrap justify-center gap-8 md:gap-16 mb-12">
           {biggestBrandItems.map(brand => (
             <div
               key={brand.name}
               onClick={() => setSelectedBrand(brand)}
               className="cursor-pointer flex flex-col items-center justify-center w-36 h-36 sm:w-44 sm:h-44 md:w-60 md:h-60"
             >
-              <div className="w-52 h-52 rounded-lg bg-white flex items-center justify-center overflow-hidden mb-2 shadow-md">
+              <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 rounded-lg bg-white flex items-center justify-center overflow-hidden mb-2 shadow-md">
                 <img src={brand.image} loading="lazy" alt={brand.name} className="w-full h-full object-contain" />
               </div>
               <p className="text-gray-400 text-lg font-medium text-center truncate">{brand.name}</p>
@@ -158,12 +158,12 @@ export default function Clients() {
         </div>
 
         {/* BIG LOGOS - SLIGHTLY LARGER */}
-        <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 mb-12">
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8 md:gap-12 mb-12">
           {bigBrandItems.map(brand => (
             <div
               key={brand.name}
               onClick={() => setSelectedBrand(brand)}
-              className="cursor-pointer flex flex-col items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-36 md:h-36"
+              className="cursor-pointer flex flex-col items-center justify-center w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36"
             >
               <div className="w-28 h-28 rounded-lg bg-white flex items-center justify-center overflow-hidden mb-2 shadow-md">
                 <img src={brand.image} loading="lazy" alt={brand.name} className="w-full h-full object-contain" />

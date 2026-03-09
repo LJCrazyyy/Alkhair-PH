@@ -34,8 +34,8 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           
           {/* Logo Section */}
-          <Link href="/" className="flex items-center gap-3">
-            <div className="w-25 h-25 relative">
+          <div className="flex items-center">
+            <div className="w-32 h-32 relative">
               <Image
                 src="/Clients/Aklogo.png"
                 alt="Alkhair PH Logo"
@@ -44,10 +44,7 @@ export function Header() {
                 priority
               />
             </div>
-            <span className="text-[var(--primary-foreground)] font-semibold text-lg hidden sm:block">
-              Alkhair PH
-            </span>
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
@@ -59,13 +56,16 @@ export function Header() {
                   href={item.href}
                   onClick={() => setActiveHash(item.href)}
                   className={
-                    "text-sm font-medium transition-colors " +
+                    "relative text-sm font-medium transition-all duration-300 hover:scale-105 " +
                     (isActive
                       ? "text-[var(--hover-green-foreground)] font-semibold"
                       : "text-muted-foreground hover:text-[var(--hover-green-foreground)]")
                   }
                 >
-                  {item.label}
+                  <span className="relative z-10">{item.label}</span>
+                  {isActive && (
+                    <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[var(--hover-green-foreground)] rounded-full animate-pulse-glow"></div>
+                  )}
                 </Link>
               )
             })}

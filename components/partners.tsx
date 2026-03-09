@@ -10,7 +10,7 @@ export function Partners() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <p className="text-gray-500 uppercase tracking-widest mb-4">CHANNEL PARTNERS</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white">OUR PARTNERS</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">OUR TRUSTED PARTNERS</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
