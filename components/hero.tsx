@@ -14,32 +14,38 @@ const slides = [
   },
   {
     title: "ONLINE SELLING / STREAMING SOLUTIONS",
-    subtitle: "Interactive live selling that boosts engagement, drives instant purchases, and turns viewers into loyal customers.",
+    subtitle:
+      "Interactive live selling that boosts engagement, drives instant purchases, and turns viewers into loyal customers.",
     image: "/Clients/Home/OnlineStreaming.png",
   },
   {
     title: "WEBSITE DESIGN & DEVELOPMENT",
-    subtitle: "High-converting, mobile-friendly websites with sleek design and seamless UX that turn visitors into customers.",
-    image: "/Clients/Home/WebsiteDesign.png",
+    subtitle:
+      "High-converting, mobile-friendly websites with sleek design and seamless UX that turn visitors into customers.",
+    image: "/Clients/Home/Website-Development.png",
   },
   {
     title: "SOCIAL MEDIA MANAGEMENT & PAID ADS (DIGITAL MANAGEMENT)",
-    subtitle: "Scroll-stopping content and targeted ads that increase engagement, generate leads, and drive more sales.",
+    subtitle:
+      "Scroll-stopping content and targeted ads that increase engagement, generate leads, and drive more sales.",
     image: "/Clients/Home/Ads.png",
   },
   {
     title: "FULFILLMENT & CUSTOMER SUPPORT",
-    subtitle: "Efficient order processing and responsive support for a seamless customer experience that builds trust and loyalty.",
+    subtitle:
+      "Efficient order processing and responsive support for a seamless customer experience that builds trust and loyalty.",
     image: "/Clients/Home/CustomerSupport.png",
   },
   {
     title: "CREATIVE CONTENT & PRODUCT SHOOTS",
-    subtitle: "Professional photos and videos that showcase your brand, build credibility, and drive engagement and conversions.",
+    subtitle:
+      "Professional photos and videos that showcase your brand, build credibility, and drive engagement and conversions.",
     image: "/Clients/Home/CreativeContent.png",
   },
   {
     title: "ANALYTICS, INSIGHTS & BUSINESS INTELLIGENCE (DIGITAL MANAGEMENT)",
-    subtitle: "Data-driven insights that reveal opportunities, improve performance, and help you scale with confidence.",
+    subtitle:
+      "Data-driven insights that reveal opportunities, improve performance, and help you scale with confidence.",
     image: "/Clients/Home/Analytics.png",
   },
 ]
@@ -51,7 +57,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
+    }, 100000)
 
     return () => clearInterval(timer)
   }, [])
@@ -84,16 +90,27 @@ export function Hero() {
 
       {/* Decorative blur */}
       <div className="absolute inset-0">
-        <div className={`absolute top-20 left-10 w-40 md:w-72 h-40 md:h-72 bg-gray-700/10 rounded-full blur-3xl transition-all duration-1000 ${heroVisible ? 'animate-float' : ''}`} />
-        <div className={`absolute bottom-20 right-10 w-60 md:w-96 h-60 md:h-96 bg-gray-600/10 rounded-full blur-3xl transition-all duration-1000 delay-300 ${heroVisible ? 'animate-float' : ''}`} />
+        <div
+          className={`absolute top-20 left-10 w-40 md:w-72 h-40 md:h-72 bg-gray-700/10 rounded-full blur-3xl transition-all duration-1000 ${
+            heroVisible ? "animate-float" : ""
+          }`}
+        />
+        <div
+          className={`absolute bottom-20 right-10 w-60 md:w-96 h-60 md:h-96 bg-gray-600/10 rounded-full blur-3xl transition-all duration-1000 delay-300 ${
+            heroVisible ? "animate-float" : ""
+          }`}
+        />
       </div>
 
       {/* Content */}
-      <div className={`container mx-auto px-6 relative z-10 transition-all duration-1000 ${heroVisible ? 'animate-fade-in-up' : ''}`}>
+      <div
+        className={`container mx-auto px-6 relative z-10 transition-all duration-1000 ${
+          heroVisible ? "animate-fade-in-up" : ""
+        }`}
+      >
         <div className="text-center max-w-4xl mx-auto">
-
           {/* Slides */}
-          <div className="relative min-h-[200px] md:min-h-[250px]">
+          <div className="relative min-h-[220px] md:min-h-[260px]">
             {slides.map((slide, index) => (
               <div
                 key={index}
@@ -103,55 +120,57 @@ export function Hero() {
                     : "opacity-0 translate-y-4 absolute inset-0"
                 }`}
               >
-                <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight transition-all duration-500 ${heroVisible ? 'animate-fade-in-up' : ''}`}>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                   {slide.title}
                 </h1>
 
-                <p className={`text-lg sm:text-xl md:text-2xl text-gray-300 transition-all duration-500 delay-200 ${heroVisible ? 'animate-fade-in-up' : ''}`}>
+                <p className="text-lg sm:text-xl md:text-2xl text-gray-300">
                   {slide.subtitle}
                 </p>
               </div>
             ))}
           </div>
-
-          {/* Controls */}
-          <div className={`flex items-center justify-center gap-6 mt-12 md:mt-16 transition-all duration-500 delay-400 ${heroVisible ? 'animate-scale-in' : ''}`}>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={prevSlide}
-              className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
-
-            {/* Indicators */}
-            <div className="flex gap-2">
-              {slides.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
-                    index === currentSlide
-                      ? "bg-white scale-110"
-                      : "bg-gray-500 hover:bg-gray-300"
-                  }`}
-                />
-              ))}
-            </div>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={nextSlide}
-              className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
-
-          </div>
         </div>
+      </div>
+
+      {/* SLIDER CONTROLS (NOW FIXED AT BOTTOM) */}
+      <div
+        className={`absolute bottom-16 left-0 right-0 flex items-center justify-center gap-6 z-20 transition-all duration-500 delay-400 ${
+          heroVisible ? "animate-scale-in" : ""
+        }`}
+      >
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={prevSlide}
+          className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </Button>
+
+        {/* Indicators */}
+        <div className="flex gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 hover:scale-125 ${
+                index === currentSlide
+                  ? "bg-white scale-110"
+                  : "bg-gray-500 hover:bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
+
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={nextSlide}
+          className="text-white hover:bg-white/10 hover:scale-110 transition-all duration-300"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </Button>
       </div>
     </section>
   )

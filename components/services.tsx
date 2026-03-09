@@ -27,7 +27,7 @@ const mainServices: Service[] = [
     description: `Our Live Selling / Streaming service brings your brand to life in real time! We turn ordinary product showcases into exciting,
 interactive shopping experiences where customers can watch, engage, ask questions, and buy instantly.
 It’s fast, dynamic, and built to capture attention helping you boost sales, grow your online presence, and turn viewers into loyal fans.`,
-    image: "/Clients/Services/Selling.png"
+    image: "/Clients/Services/OnlineStreaming.png"
   },
   {
     icon: Globe,
