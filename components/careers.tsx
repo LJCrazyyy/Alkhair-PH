@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Users, X } from "lucide-react";
+import { X } from "lucide-react";
 
 interface Leader {
   name: string;
@@ -9,12 +8,14 @@ interface Leader {
   description: string;
   bio: string;
   email: string;
+  image?: string;
 }
 
 const leaders: Leader[] = [
   {
     name: "Juan Dela Cruz",
     position: "Founder & CEO",
+    image: "/Clients/Careers/Alby.png",
     description: "Leads company vision, growth, and strategic partnerships.",
     bio: "Juan founded the company with a passion for building high-performing digital commerce teams and scalable brands.",
     email: "juan@company.com",
@@ -22,6 +23,7 @@ const leaders: Leader[] = [
   {
     name: "Christian Kitch Marquez",
     position: "Chief Operating Officer",
+    image: "/Clients/Careers/Kitch.png",
     description: "Oversees daily operations and internal processes.",
     bio: "Christian ensures that all departments work efficiently and meet business goals.",
     email: "christian@company.com",
@@ -29,6 +31,7 @@ const leaders: Leader[] = [
   {
     name: "Carlos Reyes",
     position: "Creative Director",
+    image: "/Clients/Careers/Vince.png",
     description: "Heads branding, design, and creative content.",
     bio: "Carlos leads the creative team in producing visually compelling marketing assets.",
     email: "carlos@company.com",
@@ -36,6 +39,7 @@ const leaders: Leader[] = [
   {
     name: "Angela Lopez",
     position: "Team Supervisor",
+    image: "/Clients/Careers/Pia.png",
     description: "Manages teams and ensures performance targets.",
     bio: "Angela mentors team members and drives performance excellence.",
     email: "angela@company.com",
@@ -43,15 +47,23 @@ const leaders: Leader[] = [
 ];
 
 const teamMembers: string[] = [
-  "/Clients/icons.png",
-  "/Clients/icons.png",
-  "/Clients/icons.png",
-  "/Clients/icons.png",
-  "/Clients/icons.png",
-  "/Clients/icons.png",
-  "/Clients/icons.png",
-  "/Clients/icons.png",
-  "/Clients/icons.png",
+  "/Clients/Careers/Live1.png",
+  "/Clients/Careers/Live2.png",
+  "/Clients/Careers/Live3.png",
+  "/Clients/Careers/Live4.png",
+  "/Clients/Careers/Live5.png",
+  "/Clients/Careers/Live6.png",
+  "/Clients/Careers/Girl1.png",
+  "/Clients/Careers/Girl2.png",
+  "/Clients/Careers/Girl3.png",
+  "/Clients/Careers/Girl4.png",
+  "/Clients/Careers/Girl5.png",
+  "/Clients/Careers/Girl6.png",
+  "/Clients/Careers/Girl7.png",
+  "/Clients/Careers/Girl8.png",
+  "/Clients/Careers/Girl9.png",
+  "/Clients/Careers/Girl10.png",
+  "/Clients/Careers/Girl11.png",
 ];
 
 export function Careers() {
@@ -82,10 +94,14 @@ export function Careers() {
           <div
             onClick={() => setSelectedLeader(ceo)}
             className="cursor-pointer group bg-card border border-border rounded-xl p-8 text-center
-              hover:border-gray-400 transition transform hover:scale-105 hover:shadow-xl"
+            hover:border-gray-400 transition transform hover:scale-105 hover:shadow-xl"
           >
-            <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-              <Users className="w-10 h-10 text-gray-600" />
+            <div className="w-28 h-28 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-600">
+              <img
+                src={ceo.image || "/Clients/icons.png"}
+                alt={ceo.name}
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <h3 className="text-white font-semibold text-xl">{ceo.name}</h3>
             <p className="text-green-400 text-sm mb-2">{ceo.position}</p>
@@ -100,10 +116,14 @@ export function Careers() {
               key={index}
               onClick={() => setSelectedLeader(person)}
               className="cursor-pointer group bg-card border border-border rounded-xl p-6 text-center
-                hover:border-gray-400 transition transform hover:scale-105 hover:shadow-xl"
+              hover:border-gray-400 transition transform hover:scale-105 hover:shadow-xl"
             >
-              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-                <Users className="w-8 h-8 text-gray-600" />
+              <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border border-gray-600">
+                <img
+                  src={person.image || "/Clients/icons.png"}
+                  alt={person.name}
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               <h3 className="text-white font-semibold text-lg">{person.name}</h3>
               <p className="text-green-400 text-sm mb-2">{person.position}</p>
@@ -113,36 +133,62 @@ export function Careers() {
         </div>
 
         {/* TEAM MEMBERS */}
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 justify-items-center">
           {teamMembers.map((img, index) => (
-            <img
+            <div
               key={index}
-              src={img}
-              alt="Team Member"
-              className="w-16 h-16 rounded-full object-cover border border-border
-                transition transform hover:scale-110 hover:shadow-lg"
-            />
+              className="w-20 h-20 rounded-full overflow-hidden border border-gray-600 shadow-md
+              transition transform hover:scale-110 hover:shadow-xl"
+            >
+              <img
+                src={img}
+                alt={`Team Member ${index + 1}`}
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
           ))}
         </div>
       </div>
 
       {/* MODAL */}
       {selectedLeader && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50">
-          <div className="bg-card rounded-xl p-8 max-w-md w-full relative">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-6">
+          <div className="bg-card rounded-2xl p-12 max-w-3xl w-full relative shadow-2xl border border-border">
+
             <button
               onClick={() => setSelectedLeader(null)}
-              className="absolute top-4 right-4 text-white hover:text-red-400"
+              className="absolute top-6 right-6 text-white hover:text-red-400"
             >
-              <X />
+              <X size={32} />
             </button>
-            <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-gray-200 flex items-center justify-center">
-              <Users className="w-6 h-6 text-white-600" />
+
+            <div className="flex flex-col items-center text-center">
+
+              <div className="w-40 h-40 mb-6 rounded-full overflow-hidden border-4 border-gray-600 shadow-lg">
+                <img
+                  src={selectedLeader.image || "/Clients/icons.png"}
+                  alt={selectedLeader.name}
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+
+              <h3 className="text-white text-3xl font-bold mb-2">
+                {selectedLeader.name}
+              </h3>
+
+              <p className="text-green-400 text-lg mb-4">
+                {selectedLeader.position}
+              </p>
+
+              <p className="text-gray-400 text-lg leading-relaxed max-w-xl mb-6">
+                {selectedLeader.bio}
+              </p>
+
+              <p className="text-white text-base">
+                📧 {selectedLeader.email}
+              </p>
+
             </div>
-            <h3 className="text-white text-xl font-semibold text-center">{selectedLeader.name}</h3>
-            <p className="text-purple-400 text-center mb-2">{selectedLeader.position}</p>
-            <p className="text-gray-400 text-center mb-4">{selectedLeader.bio}</p>
-            <p className="text-white text-center text-sm">📧 {selectedLeader.email}</p>
           </div>
         </div>
       )}
