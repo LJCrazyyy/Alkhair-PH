@@ -49,7 +49,6 @@ const willowPetFood = "Willow PetFood is a premium e-commerce brand that special
 const usej = "USEJ is a dynamic e-commerce brand that specializes in providing high-quality products across various categories, including electronics, fashion, home goods, and more. With a commitment to customer satisfaction and competitive pricing, USEJ offers a wide range of items that cater to diverse consumer needs. The brand is known for its user-friendly online platform, secure payment options, and efficient delivery services, making it a preferred choice for shoppers looking for a convenient and reliable online shopping experience. With a focus on quality and customer service, USEJ continues to grow its loyal customer base and establish itself as a trusted name in the e-commerce market.";
 const yatengPH = "YATENG PH is a leading e-commerce brand that specializes in providing high-quality products across various categories, including electronics, fashion, home goods, and more. With a commitment to customer satisfaction and competitive pricing, YATENG PH offers a wide range of items that cater to diverse consumer needs. The brand is known for its user-friendly online platform, secure payment options, and efficient delivery services, making it a preferred choice for shoppers looking for a convenient and reliable online shopping experience. With a focus on quality and customer service, YATENG PH continues to grow its loyal customer base and establish itself as a trusted name in the e-commerce market.";
 const zone = "ZONE. is a vibrant e-commerce brand that specializes in providing high-quality products designed to enhance everyday life. From trendy apparel and accessories to innovative gadgets and home decor, ZONE. caters to customers seeking both style and functionality. The brand is committed to offering unique and thoughtfully designed products that enhance the lifestyle of its customers while maintaining a focus on customer satisfaction. With a strong online presence and a dedication to delivering exceptional products, ZONE. has become a go-to destination for those looking to elevate their lifestyle with distinctive and practical items.";
-const youLingYouShi = "You Ling You Shi is a dynamic e-commerce brand that specializes in providing high-quality products across various categories, including electronics, fashion, home goods, and more. With a commitment to customer satisfaction and competitive pricing, You Ling You Shi offers a wide range of items that cater to diverse consumer needs. The brand is known for its user-friendly online platform, secure payment options, and efficient delivery services, making it a preferred choice for shoppers looking for a convenient and reliable online shopping experience. With a focus on quality and customer service, You Ling You Shi continues to grow its loyal customer base and establish itself as a trusted name in the e-commerce market.";
 
 
 const clientBrands = [
@@ -99,7 +98,6 @@ const clientBrands = [
   { name: "USEJ", image: "/Clients/USEJ.png", description: usej },
   { name: "YATENG PH", image: "/Clients/Yateng-PH.png", description: yatengPH },
   { name: "ZONE.", image: "/Clients/Zone.png", description: zone },
-  { name: "You Ling You Shi.", image: "/Clients/Zone.png", description: zone },
 ];
 
 
@@ -138,7 +136,7 @@ export default function Clients() {
     <section id="clients" className="py-24 bg-card">
       <div className="container mx-auto px-4">
         <p className="text-center text-gray-500 uppercase tracking-widest mb-12">
-          OUR CLIENTS
+          OUR TRUSTED CLIENTS
         </p>
 
         {/* BIGGEST LOGOS - SUPER LARGE CENTER TOP */}
@@ -179,7 +177,7 @@ export default function Clients() {
             <div
               key={brand.name}
               onClick={() => setSelectedBrand(brand)}
-              className="cursor-pointer bg-background border border-border rounded-lg p-4 flex items-center justify-center aspect-square hover:border-gray-500 transition-colors"
+              className="cursor-pointer rounded-lg p-4 flex items-center justify-center aspect-square hover:border-gray-500 transition-colors"
             >
               <div className="text-center">
                 <div className="w-12 h-12 mx-auto mb-2 rounded-lg bg-white flex items-center justify-center overflow-hidden">

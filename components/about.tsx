@@ -15,125 +15,111 @@ export function About({
 }: AboutProps) {
 
   const items = [
-    {
-      src: mediaSrc,
-      title: "AIRWELL",
-      description: "Sample Airwell Product Shoot.",
-    },
-    {
-      src: "/Clients/Videos/Camou.mp4",
-      title: "Camou",
-      description: "Product shoot highlights and lighting setups.",
-    },
-    {
-      src: "/Clients/Videos/Momilo.mp4",
-      title: "Momilo Mio",
-      description: "Behind the scenes footage and team workflow.",
-    },
-    {
-      src: "/Clients/Videos/Pariscents.mp4",
-      title: "Pariscents",
-      description: "Innovative creative production and storytelling.",
-    },
-    {
-      src: "/Clients/Videos/Topshion.mp4",
-      title: "Topshion",
-      description: "Comprehensive brand showcase and portfolio.",
-    },
+    { src: mediaSrc, title: "AIRWELL", description: "Sample Airwell Product Shoot." },
+    { src: "/Clients/Videos/Camou.mp4", title: "Camou", description: "Product shoot highlights and lighting setups." },
+    { src: "/Clients/Videos/Momilo.mp4", title: "Momilo Mio", description: "Behind the scenes footage and team workflow." },
+    { src: "/Clients/Videos/Pariscents.mp4", title: "Pariscents", description: "Innovative creative production and storytelling." },
+    { src: "/Clients/Videos/Topshion.mp4", title: "Topshion", description: "Comprehensive brand showcase and portfolio." },
+  ]
+
+  const files: Array<{ type: "image"; src: string; alt: string }> = [
+    { type: "image", src: "/Clients/Needs/CertRegistration.png", alt: "Certificate Registration" },
+    { type: "image", src: "/Clients/Needs/RegistrationCert.png", alt: "Registration Certificate" },
+    { type: "image", src: "/Clients/Needs/Cert.png", alt: "Certificate Business" },
   ]
 
   const [active, setActive] = useState(0)
-  const { ref: aboutRef, isVisible: aboutVisible } = useScrollAnimation()
+  const [modalOpen, setModalOpen] = useState(false)
+  const [modalImage, setModalImage] = useState<string | null>(null)
+  const { ref: aboutRef } = useScrollAnimation()
+
+  const openModal = (src: string) => {
+    setModalImage(src)
+    setModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalOpen(false)
+    setModalImage(null)
+  }
 
   return (
     <section ref={aboutRef} id="about" className="py-12 md:py-16 bg-card">
       <div className="container mx-auto px-4 md:px-6">
 
         {/* ABOUT LABEL */}
-        <div className={`text-center mb-12 transition-all duration-700 ${aboutVisible ? 'animate-fade-in-up' : ''}`}>
-          <p className="text-sm uppercase tracking-[0.35em] text-gray-400">
-            OUR ABOUT US
-          </p>
+        <div className="text-center mb-12">
+          <p className="text-sm uppercase tracking-[0.35em] text-gray-400">ABOUT US</p>
         </div>
 
-        {/* TEXT + HEADING */}
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center mb-14 md:mb-20">
+        {/* TEXT + IMAGES GRID */}
+        <div className="grid md:grid-cols-2 gap-12 items-start mb-14 md:mb-20">
 
           {/* LEFT TEXT */}
-          <div className={`space-y-5 text-gray-300 text-base md:text-lg leading-relaxed transition-all duration-700 delay-200 ${aboutVisible ? 'animate-fade-in-left' : ''}`}>
-
+          <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed md:leading-loose">
             <p>
-              <span className="text-white font-semibold">Alkhair PH</span> helps
+              <span className="text-white font-semibold text-xl md:text-2xl">Alkhair PH</span> helps
               brands grow, sell smarter, and scale online. We build digital
               systems that turn attention into real sales.
             </p>
-
-            <p>
+            <p className="text-lg md:text-xl">
               From Live Selling & Streaming, high-converting Websites, and
               strategic Social Media & Paid Ads, to Creative Content, Product
               Shoots, Fulfillment, and Analytics.
             </p>
-
-            <p>
+            <p className="text-lg md:text-xl">
               Professional photos and videos that showcase your brand,
               build credibility, and drive engagement and conversions.
             </p>
-
           </div>
 
-          {/* RIGHT HEADING */}
-          <div className={`flex items-center md:justify-end transition-all duration-700 delay-400 ${aboutVisible ? 'animate-fade-in-right' : ''}`}>
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
-              CREATIVE<br />
-              PRODUCTION<br />
-              & PRODUCT<br />
-              SHOOT
-            </h2>
+          {/* RIGHT SIDE - 3 COLUMNS IMAGES */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {files.map(({ src, alt }, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={alt}
+                className="w-full rounded-lg shadow-lg object-cover cursor-pointer max-h-65"
+                onClick={() => openModal(src)}
+              />
+            ))}
           </div>
-
         </div>
 
-        {/* INNOVATION TITLE */}
-        <div className={`text-center mb-8 transition-all duration-700 delay-600 ${aboutVisible ? 'animate-fade-in-up' : ''}`}>
-          <h3 className="text-2xl md:text-4xl font-black text-white">
-            Where Technology meets <span className="italic">Innovation</span>
+        {/* CREATIVE PRODUCTION & PRODUCT SHOOT */}
+        <div className="text-center mb-8">
+          <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
+            CREATIVE PRODUCTION & PRODUCT SHOOT
           </h3>
         </div>
 
         {/* VIDEO CAROUSEL */}
-        <div className={`relative overflow-hidden border border-white/10 rounded-3xl shadow-xl mb-6 transition-all duration-700 delay-800 ${aboutVisible ? 'animate-scale-in' : ''}`}>
-
-          <div className="w-full bg-black aspect-video">
-
+        <div className="relative overflow-hidden border border-white/10 rounded-3xl shadow-xl mb-6">
+          <div className="w-full bg-black aspect-video rounded-3xl">
             {mediaType === "image" ? (
-              <img
-                src={mediaSrc}
-                alt="About Media"
-                className="w-full h-full object-cover"
-              />
+              <img src={mediaSrc} alt="About Media" className="w-full h-full object-cover rounded-3xl" />
             ) : (
-              <VideoCarousel
-                videos={items}
-                onSlideChange={(i) => setActive(i)}
-              />
+              <VideoCarousel videos={items} onSlideChange={(i) => setActive(i)} />
             )}
-
           </div>
-
         </div>
 
         {/* ACTIVE VIDEO INFO */}
         <div className="text-center">
-
-          <p className="text-white font-semibold text-lg md:text-2xl">
-            {items[active]?.title}
-          </p>
-
-          <p className="text-gray-400 text-sm md:text-lg mt-2 max-w-xl mx-auto">
-            {items[active]?.description}
-          </p>
-
+          <p className="text-white font-semibold text-lg md:text-2xl">{items[active]?.title}</p>
+          <p className="text-gray-400 text-sm md:text-lg mt-2 max-w-xl mx-auto">{items[active]?.description}</p>
         </div>
+
+        {/* MODAL */}
+        {modalOpen && modalImage && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4"
+            onClick={closeModal}
+          >
+            <img src={modalImage} alt="Modal" className="max-h-full max-w-full rounded-lg shadow-lg" />
+          </div>
+        )}
 
       </div>
     </section>

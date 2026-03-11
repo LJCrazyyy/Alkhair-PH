@@ -250,7 +250,7 @@ ${formData.message}`
                   <Button
                     type="submit"
                     disabled={loading}
-                    className="w-full text-primary-foreground font-bold py-6 text-lg transition-all disabled:opacity-50 hover:bg-hover-green hover:text-hover-green-foreground"
+                    className="w-full text-primary-foreground font-bold py-6 text-lg disabled:opacity-50"
                   >
                     {loading ? "Sending..." : "INQUIRE NOW"}
                   </Button>

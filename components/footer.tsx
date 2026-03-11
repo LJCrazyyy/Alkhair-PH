@@ -23,7 +23,6 @@ export function Footer() {
     alt: string
   } | null>(null)
 
-  // ✅ Only images now, PDF removed
   const files: Array<{ type: "image"; src: string; alt: string }> = [
     { type: "image", src: "/Clients/Needs/CertRegistration.png", alt: "Certificate Registration" },
     { type: "image", src: "/Clients/Needs/RegistrationCert.png", alt: "Registration Certificate" },
@@ -67,14 +66,14 @@ export function Footer() {
             <div className="space-y-2">
               <a
                 href="tel:09506645857"
-                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+                className="flex items-center gap-2 text-gray-400 hover:text-white text-sm"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 09506645857
               </a>
               <a
                 href="mailto:info.alkhairph@gmail.com"
-                className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+                className="flex items-center gap-2 text-gray-400 hover:text-white text-sm"
               >
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 info.alkhairph@gmail.com
@@ -84,7 +83,7 @@ export function Footer() {
                   href="https://www.facebook.com/alkhairph"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white text-sm"
                 >
                   <Facebook className="w-4 h-4 flex-shrink-0" />
                   Facebook
@@ -93,7 +92,7 @@ export function Footer() {
                   href="https://www.instagram.com/alkhairph"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+                  className="flex items-center gap-2 text-gray-400 hover:text-white text-sm"
                 >
                   <Instagram className="w-4 h-4 flex-shrink-0" />
                   Instagram
@@ -110,14 +109,14 @@ export function Footer() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="text-gray-400 hover:text-white text-sm transition-colors py-1"
+                  className="text-gray-400 hover:text-white text-sm py-1"
                 >
                   {link.label}
                 </Link>
               ))}
             </nav>
 
-            {/* Only image thumbnails now */}
+            {/* Image thumbnails */}
             <div className="flex justify-start gap-3 mt-4 flex-wrap">
               {files.map((file) => (
                 <button
@@ -129,7 +128,7 @@ export function Footer() {
                   <img
                     src={file.src}
                     alt={file.alt}
-                    className="w-10 h-10 object-contain rounded shadow-md hover:scale-110 transition-transform"
+                    className="w-10 h-10 object-contain rounded shadow-md hover:scale-110"
                   />
                 </button>
               ))}
