@@ -7,42 +7,41 @@ interface Leader {
   position: string;
   description: string;
   bio: string;
-  email: string;
   image?: string;
 }
 
 const leaders: Leader[] = [
   {
-    name: "Alby Abalado",
+    name: "Mrs. Alby Abalado",
     position: "Founder & CEO",
-    image: "/Clients/Careers/Alby.png",
+    image: "/Clients/Careers/S3.png",
     description: "Leads the company with a vision for innovation and growth.",
     bio: "Mrs. Alby is the visionary behind our success, driving innovation and fostering key relationships.",
-    email: "alby@gmail.com",
+
   },
   {
-    name: "Christian Kitch Marquez",
+    name: "Mr. Christian Kitch Marquez",
     position: "Chief Operating Officer",
-    image: "/Clients/Careers/Kitch.png",
+    image: "/Clients/Careers/S2.png",
     description: "Oversees daily operations and internal processes.",
     bio: "Mr. Christian ensures that all departments work efficiently and meet business goals.",
-    email: "christian@gmail.com",
+
   },
   {
-    name: "Vincent Sapurco",
+    name: "Mr. Vincent Sapurco",
     position: "Creative Content Producer",
-    image: "/Clients/Careers/Vince.png",
+    image: "/Clients/Careers/S1.png",
     description: "Heads branding, design, and creative content.",
     bio: "Mr. Vincent leads the creative team in producing visually compelling marketing assets.",
-    email: "vincent@gmail.com",
+
   },
   {
-    name: "Kia Borja",
+    name: "Ms. Kia Borja",
     position: "Sales & Marketing Officer",
-    image: "/Clients/Careers/Pia.png",
+    image: "/Clients/Careers/S4.png",
     description: "Manages teams and ensures performance targets.",
     bio: "Ms. Kia mentors team members and drives performance excellence.",
-    email: "kia@gmail.com",
+
   },
 ];
 
@@ -183,11 +182,6 @@ export function Careers() {
               <p className="text-gray-400 text-lg leading-relaxed max-w-xl mb-6">
                 {selectedLeader.bio}
               </p>
-
-              <p className="text-white text-base">
-                📧 {selectedLeader.email}
-              </p>
-
             </div>
           </div>
         </div>

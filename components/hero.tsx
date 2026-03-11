@@ -6,13 +6,9 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const slides = [
-  { image: "/Clients/Home/WebsiteDesign.png" },
-  { image: "/Clients/Home/OnlineStreaming.png" },
+
   { image: "/Clients/Home/Website-Developmet.png" },
-  { image: "/Clients/Home/Ads.png" },
-  { image: "/Clients/Home/CustomerSupport.png" },
-  { image: "/Clients/Home/CreativeContent.png" },
-  { image: "/Clients/Home/Analytics.png" },
+
 ]
 
 export function Hero() {
