@@ -106,11 +106,21 @@ ${formData.message}`
     <section id="contact" className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
 
+        {/* ABOUT LABEL */}
+        <div className="text-center mb-6">
+          <p className="text-sm uppercase tracking-[0.35em] text-gray-400">
+            CONTACT US
+          </p>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-foreground leading-tight">
-            Contact us by Call or WhatsApp to schedule your ecommerce consultation
+            Via Call or Message us on our Socials.
           </h2>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
+            To schedule your ecommerce consultation.
+          </p>
         </div>
 
         {/* Features */}
@@ -172,7 +182,7 @@ ${formData.message}`
             </div>
 
             {/* FORM */}
-            <div className="bg-background/80 backdrop-blur-xl border border-border rounded-2xl p-6 sm:p-8 md:p-10 shadow-xl">
+            <div className="bg-transparent rounded-2xl p-6 sm:p-8 md:p-10 shadow-xl">
 
               {submitted ? (
                 <div className="text-center py-10">
@@ -197,6 +207,7 @@ ${formData.message}`
                       value={formData.firstName}
                       onChange={handleChange}
                       required
+                      className="bg-white text-black"
                     />
 
                     <Input
@@ -205,6 +216,7 @@ ${formData.message}`
                       value={formData.lastName}
                       onChange={handleChange}
                       required
+                      className="bg-white text-black"
                     />
                   </div>
 
@@ -215,6 +227,7 @@ ${formData.message}`
                     value={formData.email}
                     onChange={handleChange}
                     required
+                    className="bg-white text-black"
                   />
 
                   <Input
@@ -222,11 +235,13 @@ ${formData.message}`
                     placeholder="Company (optional)"
                     value={formData.company}
                     onChange={handleChange}
+                    className="bg-white text-black"
                   />
 
-                  <Select value={formData.service} onValueChange={handleServiceChange}>
+                  {/* <Select value={formData.service} onValueChange={handleServiceChange}>
                     <SelectTrigger>
                       <SelectValue placeholder="Service Inquiry" />
+                      
                     </SelectTrigger>
 
                     <SelectContent>
@@ -236,7 +251,7 @@ ${formData.message}`
                       <SelectItem value="combo">Combo Packages</SelectItem>
                       <SelectItem value="general">General Inquiry</SelectItem>
                     </SelectContent>
-                  </Select>
+                  </Select> */}
 
                   <Textarea
                     name="message"
@@ -245,6 +260,7 @@ ${formData.message}`
                     onChange={handleChange}
                     rows={5}
                     required
+                    className="bg-white text-black"
                   />
 
                   <Button

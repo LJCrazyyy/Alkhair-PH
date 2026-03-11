@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const slides = [
-  { image: "/Clients/Home/Website-Developmet.png" },
+  { image: "/Clients/Home/Website-Developmet.png", width: 1920, height: 1080 },
 ]
 
 export function Hero() {
@@ -37,17 +37,18 @@ export function Hero() {
       id="home"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-full h-[30vh] md:h-screen flex items-center justify-center overflow-hidden mt-16 md:mt-0"
+      className="relative w-full flex items-center justify-center overflow-hidden mt-16 md:mt-0"
     >
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
+      {/* Responsive Image */}
+      <div className="w-full max-w-[1920px]">
         <Image
           src={slides[currentSlide].image}
           alt="Hero Slide"
-          fill
-          priority
+          width={slides[currentSlide].width}
+          height={slides[currentSlide].height}
           sizes="100vw"
-          className="object-cover object-top transition-opacity duration-700"
+          className="w-full h-auto object-contain"
+          priority
         />
       </div>
 
@@ -58,7 +59,6 @@ export function Hero() {
             heroVisible ? "animate-float" : ""
           }`}
         />
-
         <div
           className={`absolute bottom-10 right-4 sm:right-10 w-40 sm:w-64 md:w-96 h-40 sm:h-64 md:h-96 bg-gray-600/10 rounded-full blur-3xl transition-all duration-1000 delay-300 ${
             heroVisible ? "animate-float" : ""
@@ -69,9 +69,7 @@ export function Hero() {
       {/* LEFT ARROW */}
       <button
         onClick={prevSlide}
-        className="absolute left-2 sm:left-4 md:left-10 top-1/2 -translate-y-1/2 z-20 
-        text-white opacity-90 hover:opacity-100 hover:scale-110 transition-all duration-300
-        bg-transparent border-none outline-none shadow-none p-0"
+        className="absolute left-2 sm:left-4 md:left-10 top-1/2 -translate-y-1/2 z-20 p-0 outline-none bg-transparent border-none"
       >
         <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
       </button>
@@ -79,9 +77,7 @@ export function Hero() {
       {/* RIGHT ARROW */}
       <button
         onClick={nextSlide}
-        className="absolute right-2 sm:right-4 md:right-10 top-1/2 -translate-y-1/2 z-20 
-        text-white opacity-90 hover:opacity-100 hover:scale-110 transition-all duration-300
-        bg-transparent border-none outline-none shadow-none p-0"
+        className="absolute right-2 sm:right-4 md:right-10 top-1/2 -translate-y-1/2 z-20 p-0 outline-none bg-transparent border-none"
       >
         <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
       </button>

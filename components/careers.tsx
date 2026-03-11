@@ -43,15 +43,15 @@ const leaders: Leader[] = [
   },
   {
     name: "Mr. Johnro Malitic",
-    position: "Consultant",
-    image: "/Clients/Careers/1.png",
+    position: "Web Developer Consultant",
+    image: "/Clients/Careers/Johnro.png",
     description: "Manages teams and ensures performance targets.",
     bio: "Mr. Johnro ensures that all systems and support operations run smoothly.",
   },
   {
     name: "Mr. Lawrence Jumamoy",
-    position: "Consultant",
-    image: "/Clients/Careers/1.png",
+    position: "Web Developer Consultant",
+    image: "/Clients/Careers/Lawrence.png",
     description: "Manages teams and ensures performance targets.",
     bio: "Mr. Lawrence oversees the development and maintenance of our website and content.",
   },
@@ -110,7 +110,7 @@ export function Careers() {
             size="large"
           />
 
-          {/* Group Photo */}
+          {/* Group Photo
           <div
             className="relative w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden border-4 border-gray-600 cursor-pointer"
             onClick={() => setIsGroupModalOpen(true)}
@@ -122,7 +122,7 @@ export function Careers() {
               className="object-cover"
               priority
             />
-          </div>
+          </div> */}
 
           {/* Mr Kitch */}
           <LeaderCard
