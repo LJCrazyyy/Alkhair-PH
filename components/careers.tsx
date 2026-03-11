@@ -29,14 +29,14 @@ const leaders: Leader[] = [
   },
   {
     name: "Mr. Vincent Sapurco",
-    position: "Creative Content Producer",
+    position: "Diretor of Creative Production",
     image: "/Clients/Careers/S1.png",
     description: "Heads branding, design, and creative content.",
     bio: "Mr. Vincent leads the creative team in producing visually compelling marketing assets.",
   },
   {
     name: "Ms. Kia Borja",
-    position: "Sales & Marketing Officer",
+    position: "Executive Sales and Marketing",
     image: "/Clients/Careers/Kia.png",
     description: "Manages teams and ensures performance targets.",
     bio: "Ms. Kia mentors team members and drives performance excellence.",
@@ -116,7 +116,7 @@ export function Careers() {
             onClick={() => setIsGroupModalOpen(true)}
           >
             <Image
-              src="/Clients/Careers/Group.png"
+              src="/Clients/Careers/"
               alt="Group Photo"
               fill
               className="object-cover"

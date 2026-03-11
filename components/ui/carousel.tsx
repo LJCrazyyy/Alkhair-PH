@@ -7,7 +7,6 @@ import useEmblaCarousel, {
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-import { Button } from '@/components/ui/button'
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -58,6 +57,7 @@ function Carousel({
     },
     plugins,
   )
+
   const [canScrollPrev, setCanScrollPrev] = React.useState(false)
   const [canScrollNext, setCanScrollNext] = React.useState(false)
 
@@ -173,19 +173,15 @@ function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
 
 function CarouselPrevious({
   className,
-  variant = 'ghost',
-  size = 'icon',
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<'button'>) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
-    <Button
+    <button
       data-slot="carousel-previous"
-      variant={variant}
-      size={size}
       className={cn(
-        'absolute text-white flex items-center justify-center w-6 h-6 bg-transparent opacity-90 hover:opacity-100',
+        'absolute text-white opacity-90 hover:opacity-100 bg-transparent border-none p-0 cursor-pointer',
         orientation === 'horizontal'
           ? 'top-1/2 left-4 -translate-y-1/2'
           : 'left-1/2 -top-10 -translate-x-1/2 rotate-90',
@@ -195,27 +191,23 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft />
+      <ArrowLeft className="w-6 h-6" />
       <span className="sr-only">Previous slide</span>
-    </Button>
+    </button>
   )
 }
 
 function CarouselNext({
   className,
-  variant = 'ghost',
-  size = 'icon',
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<'button'>) {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
-    <Button
+    <button
       data-slot="carousel-next"
-      variant={variant}
-      size={size}
       className={cn(
-        'absolute text-white flex items-center justify-center w-6 h-6 bg-transparent opacity-90 hover:opacity-100',
+        'absolute text-white opacity-90 hover:opacity-100 bg-transparent border-none p-0 cursor-pointer',
         orientation === 'horizontal'
           ? 'top-1/2 right-4 -translate-y-1/2'
           : 'left-1/2 -bottom-10 -translate-x-1/2 rotate-90',
@@ -225,9 +217,9 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight />
+      <ArrowRight className="w-6 h-6" />
       <span className="sr-only">Next slide</span>
-    </Button>
+    </button>
   )
 }
 

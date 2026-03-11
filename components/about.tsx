@@ -23,8 +23,8 @@ export function About({
   ]
 
   const files: Array<{ type: "image"; src: string; alt: string }> = [
-    { type: "image", src: "/Clients/Needs/CertRegistration.png", alt: "Certificate Registration" },
     { type: "image", src: "/Clients/Needs/RegistrationCert.png", alt: "Registration Certificate" },
+    { type: "image", src: "/Clients/Needs/CertRegistration.png", alt: "Certificate Registration" },
     { type: "image", src: "/Clients/Needs/Cert.png", alt: "Certificate Business" },
   ]
 

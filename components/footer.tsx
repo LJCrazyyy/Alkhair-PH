@@ -72,6 +72,13 @@ export function Footer() {
                 09173099519
               </a>
               <a
+                href="tel:09506645857"
+                className="flex items-center gap-2 text-gray-400 hover:text-white text-sm"
+              >
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                09506645857
+              </a>
+              <a
                 href="mailto:info.alkhairph@gmail.com"
                 className="flex items-center gap-2 text-gray-400 hover:text-white text-sm"
               >
