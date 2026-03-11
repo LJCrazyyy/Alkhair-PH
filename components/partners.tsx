@@ -5,7 +5,7 @@ import Image from "next/image"
 const partners = [
   { name: "Lazada", type: "Marketplace", logo: "/Clients/lazada.png" },
   { name: "Shopee", type: "Marketplace", logo: "/Clients/Shopee.png" },
-  { name: "TikTok", type: "Social Commerce", logo: "/Clients/TikTok.png" },
+  { name: "TikTok", type: "Social Commerce", logo: "/Clients/Tiktok.png" },
 ]
 
 export function Partners() {

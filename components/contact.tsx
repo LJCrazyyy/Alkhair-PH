@@ -143,7 +143,7 @@ ${formData.message}`
           {/* Background */}
           <div className="absolute inset-0">
             <img
-              src="/Clients/Live2.png"
+              src="/Clients/live2.png"
               alt="background"
               className="w-full h-full object-cover"
             />
