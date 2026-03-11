@@ -58,22 +58,22 @@ const leaders: Leader[] = [
 ];
 
 const teamMembers: string[] = [
-  "/Clients/Careers/Live1.png",
-  "/Clients/Careers/Live2.png",
-  "/Clients/Careers/Live3.png",
   "/Clients/Careers/Live4.png",
+  "/Clients/Careers/Girl9.png",
   "/Clients/Careers/Live5.png",
-  "/Clients/Careers/Live6.png",
-  "/Clients/Careers/Girl1.png",
-  "/Clients/Careers/Girl2.png",
   "/Clients/Careers/Girl3.png",
+  "/Clients/Careers/Live6.png",
+  "/Clients/Careers/Girl10.png",
+  "/Clients/Careers/Live1.png",
+  "/Clients/Careers/Girl6.png",
+  "/Clients/Careers/Girl8.png",
+  "/Clients/Careers/Live2.png",
+  "/Clients/Careers/Girl2.png",
+  "/Clients/Careers/Live3.png",
+  "/Clients/Careers/Girl1.png",
   "/Clients/Careers/Girl4.png",
   "/Clients/Careers/Girl5.png",
-  "/Clients/Careers/Girl6.png",
   "/Clients/Careers/Girl7.png",
-  "/Clients/Careers/Girl8.png",
-  "/Clients/Careers/Girl9.png",
-  "/Clients/Careers/Girl10.png",
   "/Clients/Careers/Girl11.png",
 ];
 

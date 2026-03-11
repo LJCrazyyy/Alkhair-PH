@@ -96,7 +96,7 @@ Message:
 ${formData.message}`
     )
 
-    window.location.href = `mailto:alkhair.live@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:info.alkhairph@gmail.com?subject=${subject}&body=${body}`
 
     setSubmitted(true)
     setLoading(false)
