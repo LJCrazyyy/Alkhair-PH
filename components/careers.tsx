@@ -43,14 +43,14 @@ const leaders: Leader[] = [
   },
   {
     name: "Mr. Johnro Malitic",
-    position: "Systems and Support Manager",
+    position: "Consultant",
     image: "/Clients/Careers/1.png",
     description: "Manages teams and ensures performance targets.",
     bio: "Mr. Johnro ensures that all systems and support operations run smoothly.",
   },
   {
     name: "Mr. Lawrence Jumamoy",
-    position: "Website and Content Manager",
+    position: "Consultant",
     image: "/Clients/Careers/1.png",
     description: "Manages teams and ensures performance targets.",
     bio: "Mr. Lawrence oversees the development and maintenance of our website and content.",
