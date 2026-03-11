@@ -82,7 +82,7 @@ const clientBrands = [
   { name: "DRAGON Trading", image: "/Clients/Dragon-Trading.png", description: dragonTrading },
   { name: "DermaBalm", image: "/Clients/DermaBalm.png", description: dermaBalm },
   { name: "euroo", image: "/Clients/euroo.png", description: euroo },
-  { name: "Family Fus", image: "/Clients/Family-Fus.png", description: familyFus },
+  { name: "Family Fus", image: "/Clients/Family-fus.png", description: familyFus },
   { name: "Goli", image: "/Clients/Goli.png", description: goli },
   { name: "Gretha Ukay-Ukay", image: "/Clients/Gretha-Ukay-Ukay.png", description: grethaUkayUkay },
   { name: "HARMONY & WELLNESS", image: "/Clients/Harmone-&-Wellness.png", description: harmonyAndWellness },
