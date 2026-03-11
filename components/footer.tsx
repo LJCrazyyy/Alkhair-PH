@@ -65,11 +65,11 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-3">Contact Us</h3>
             <div className="space-y-2">
               <a
-                href="tel:09506645857"
+                href="tel:09173099519"
                 className="flex items-center gap-2 text-gray-400 hover:text-white text-sm"
               >
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                09506645857
+                09173099519
               </a>
               <a
                 href="mailto:info.alkhairph@gmail.com"

@@ -52,10 +52,22 @@ export function About({
           <p className="text-sm uppercase tracking-[0.35em] text-gray-400">ABOUT US</p>
         </div>
 
-        {/* TEXT + IMAGES GRID */}
+        {/* IMAGES + TEXT GRID */}
         <div className="grid md:grid-cols-2 gap-12 items-start mb-14 md:mb-20">
+          {/* LEFT SIDE - 3 COLUMNS IMAGES */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {files.map(({ src, alt }, idx) => (
+              <img
+                key={idx}
+                src={src}
+                alt={alt}
+                className="w-full rounded-lg shadow-lg object-cover cursor-pointer max-h-65"
+                onClick={() => openModal(src)}
+              />
+            ))}
+          </div>
 
-          {/* LEFT TEXT */}
+          {/* RIGHT TEXT */}
           <div className="space-y-6 text-gray-300 text-lg md:text-xl leading-relaxed md:leading-loose">
             <p>
               <span className="text-white font-semibold text-xl md:text-2xl">Alkhair PH</span> helps
@@ -72,43 +84,36 @@ export function About({
               build credibility, and drive engagement and conversions.
             </p>
           </div>
+        </div>
 
-          {/* RIGHT SIDE - 3 COLUMNS IMAGES */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {files.map(({ src, alt }, idx) => (
-              <img
-                key={idx}
-                src={src}
-                alt={alt}
-                className="w-full rounded-lg shadow-lg object-cover cursor-pointer max-h-65"
-                onClick={() => openModal(src)}
-              />
-            ))}
+        {/* CREATIVE PRODUCTION & PRODUCT SHOOT + VIDEO */}
+        <div className="grid md:grid-cols-2 items-center gap-12 mb-14 md:mb-20">
+          {/* LEFT - Heading */}
+          <div className="flex justify-center md:justify-start items-center">
+            <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white text-center md:text-left leading-tight tracking-tight">
+              CREATIVE PRODUCTION & PRODUCT SHOOT
+            </h3>
           </div>
-        </div>
 
-        {/* CREATIVE PRODUCTION & PRODUCT SHOOT */}
-        <div className="text-center mb-8">
-          <h3 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight">
-            CREATIVE PRODUCTION & PRODUCT SHOOT
-          </h3>
-        </div>
-
-        {/* VIDEO CAROUSEL */}
-        <div className="relative overflow-hidden border border-white/10 rounded-3xl shadow-xl mb-6">
-          <div className="w-full bg-black aspect-video rounded-3xl">
-            {mediaType === "image" ? (
-              <img src={mediaSrc} alt="About Media" className="w-full h-full object-cover rounded-3xl" />
-            ) : (
-              <VideoCarousel videos={items} onSlideChange={(i) => setActive(i)} />
-            )}
+          {/* RIGHT - Smaller Video */}
+          <div className="w-full md:w-10/10 lg:w-10/10 mx-auto md:mx-0 relative overflow-hidden border border-white/10 rounded-3xl shadow-xl">
+            <div className="w-full bg-black aspect-video rounded-3xl">
+              {mediaType === "image" ? (
+                <img src={mediaSrc} alt="About Media" className="w-full h/full object-cover rounded-3xl" />
+              ) : (
+                <VideoCarousel videos={items} onSlideChange={(i) => setActive(i)} />
+              )}
+            </div>
+            {/* carousel title/description */}
+            <div className="text-center mt-4">
+              <p className="text-white font-semibold text-lg md:text-2xl">
+                {items[active]?.title}
+              </p>
+              <p className="text-gray-400 text-sm md:text-lg mt-1">
+                {items[active]?.description}
+              </p>
+            </div>
           </div>
-        </div>
-
-        {/* ACTIVE VIDEO INFO */}
-        <div className="text-center">
-          <p className="text-white font-semibold text-lg md:text-2xl">{items[active]?.title}</p>
-          <p className="text-gray-400 text-sm md:text-lg mt-2 max-w-xl mx-auto">{items[active]?.description}</p>
         </div>
 
         {/* MODAL */}

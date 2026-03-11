@@ -30,20 +30,25 @@ export function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--primary)]/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-4">
+      
+      {/* Container with left & right margin */}
+      <div className="max-w-8xl mx-auto px-6 lg:px-16">
         <div className="flex items-center justify-between h-20">
           
           {/* Logo Section */}
-          <div className="flex items-center">
-            <div className="w-32 h-32 relative">
+          <div className="flex items-center gap-3">
+            <div className="w-12 h-12 relative">
               <Image
-                src="/Clients/Aklogo.png"
+                src="/Clients/Logo.png"
                 alt="Alkhair PH Logo"
                 fill
                 className="object-contain"
                 priority
               />
             </div>
+            <span className="text-white text-lg font-semibold tracking-wide">
+              Alkhair Philippines
+            </span>
           </div>
 
           {/* Desktop Navigation */}
@@ -63,6 +68,7 @@ export function Header() {
                   }
                 >
                   <span className="relative z-10">{item.label}</span>
+
                   {isActive && (
                     <div className="absolute bottom-0 left-0 w-full h-0.5 bg-[var(--hover-green-foreground)] rounded-full animate-pulse-glow"></div>
                   )}

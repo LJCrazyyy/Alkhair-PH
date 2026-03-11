@@ -37,9 +37,23 @@ const leaders: Leader[] = [
   {
     name: "Ms. Kia Borja",
     position: "Sales & Marketing Officer",
-    image: "/Clients/Careers/S4.png",
+    image: "/Clients/Careers/Kia.png",
     description: "Manages teams and ensures performance targets.",
     bio: "Ms. Kia mentors team members and drives performance excellence.",
+  },
+  {
+    name: "Mr. Johnro Malitic",
+    position: "Systems and Support Manager",
+    image: "/Clients/Careers/1.png",
+    description: "Manages teams and ensures performance targets.",
+    bio: "Mr. Johnro ensures that all systems and support operations run smoothly.",
+  },
+  {
+    name: "Mr. Lawrence Jumamoy",
+    position: "Website and Content Manager",
+    image: "/Clients/Careers/1.png",
+    description: "Manages teams and ensures performance targets.",
+    bio: "Mr. Lawrence oversees the development and maintenance of our website and content.",
   },
 ];
 
@@ -76,45 +90,80 @@ export function Careers() {
           <p className="text-gray-500 uppercase tracking-widest mb-4">
             JOIN OUR TEAM
           </p>
+
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             MEET OUR TEAM
           </h2>
+
           <p className="text-gray-400 max-w-2xl mx-auto">
             Bring the Drive. We'll Provide the Platform.
           </p>
         </div>
 
-        {/* LEADERS + CENTERED GROUP PHOTO */}
-        <div className="flex justify-center flex-wrap gap-16 mb-12 relative">
-          {/* Left Column */}
-          <div className="flex flex-col items-center gap-12">
-            <LeaderCard leader={leaders[0]} onClick={setSelectedLeader} size="large" />
-            <LeaderCard leader={leaders[3]} onClick={setSelectedLeader} size="large" />
-          </div>
+        {/* TOP ROW */}
+        <div className="flex flex-wrap justify-center items-center gap-10 mb-12">
 
-          {/* Center: Group Photo */}
+          {/* Mrs Alby */}
+          <LeaderCard
+            leader={leaders[0]}
+            onClick={setSelectedLeader}
+            size="large"
+          />
+
+          {/* Group Photo */}
           <div
-            className="w-80 h-80 rounded-lg overflow-hidden relative border-4 border-gray-600 cursor-pointer self-center order-last md:order-none"
+            className="relative w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden border-4 border-gray-600 cursor-pointer"
             onClick={() => setIsGroupModalOpen(true)}
           >
             <Image
               src="/Clients/Careers/Group.png"
               alt="Group Photo"
               fill
-              className="object-cover object-center"
+              className="object-cover"
               priority
             />
           </div>
 
-          {/* Right Column */}
-          <div className="flex flex-col items-center gap-12">
-            <LeaderCard leader={leaders[1]} onClick={setSelectedLeader} size="large" />
-            <LeaderCard leader={leaders[2]} onClick={setSelectedLeader} size="large" />
-          </div>
+          {/* Mr Kitch */}
+          <LeaderCard
+            leader={leaders[1]}
+            onClick={setSelectedLeader}
+            size="large"
+          />
+
         </div>
 
-        {/* TEAM MEMBERS */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 justify-items-center">
+        {/* BOTTOM ROW (RESPONSIVE FIX) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 justify-items-center">
+
+          <LeaderCard
+            leader={leaders[3]}
+            onClick={setSelectedLeader}
+            size="medium"
+          />
+
+          <LeaderCard
+            leader={leaders[2]}
+            onClick={setSelectedLeader}
+            size="medium"
+          />
+
+          <LeaderCard
+            leader={leaders[4]}
+            onClick={setSelectedLeader}
+            size="medium"
+          />
+
+          <LeaderCard
+            leader={leaders[5]}
+            onClick={setSelectedLeader}
+            size="medium"
+          />
+
+        </div>
+
+        {/* TEAM MEMBERS GRID */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-6 justify-items-center mt-12">
           {teamMembers.map((img, index) => (
             <div
               key={index}
@@ -131,6 +180,7 @@ export function Careers() {
             </div>
           ))}
         </div>
+
       </div>
 
       {/* LEADER MODAL */}
@@ -142,7 +192,7 @@ export function Careers() {
             name={selectedLeader.name}
             position={selectedLeader.position}
             bio={selectedLeader.bio}
-            priority // load immediately in modal
+            priority
           />
         </Modal>
       )}
@@ -155,17 +205,17 @@ export function Careers() {
               src="/Clients/Careers/Group.png"
               alt="Group Photo"
               fill
-              className="object-cover object-center"
+              className="object-cover"
               priority
             />
           </div>
         </Modal>
       )}
+
     </section>
   );
 }
 
-// Leader Card Component
 interface LeaderCardProps {
   leader: Leader;
   onClick: (leader: Leader) => void;
@@ -173,30 +223,44 @@ interface LeaderCardProps {
 }
 
 function LeaderCard({ leader, onClick, size = "medium" }: LeaderCardProps) {
-  const dimension = size === "large" ? "w-36 h-36 md:w-40 md:h-40" : "w-24 h-24";
+
+  const dimension =
+    size === "large"
+      ? "w-36 h-36 md:w-40 md:h-40"
+      : "w-24 h-24";
 
   return (
     <div
       onClick={() => onClick(leader)}
-      className="cursor-pointer bg-card border border-border rounded-xl p-8 text-center"
+      className="cursor-pointer bg-card border border-border rounded-xl p-4 md:p-8 text-center"
     >
+
       <div className={`relative ${dimension} mx-auto mb-5 rounded-full overflow-hidden border-2 border-gray-600`}>
         <Image
           src={leader.image}
           alt={leader.name}
           fill
           className="object-cover object-top"
-          priority 
+          priority
         />
       </div>
-      <h3 className="text-white font-semibold text-xl">{leader.name}</h3>
-      <p className="text-green-400 text-sm mb-2">{leader.position}</p>
-      <p className="text-gray-400 text-sm">{leader.description}</p>
+
+      <h3 className="text-white font-semibold text-lg md:text-xl">
+        {leader.name}
+      </h3>
+
+      <p className="text-green-400 text-sm mb-2">
+        {leader.position}
+      </p>
+
+      <p className="text-gray-400 text-sm">
+        {leader.description}
+      </p>
+
     </div>
   );
 }
 
-// Generic Modal Component
 interface ModalProps {
   children: React.ReactNode;
   onClose: () => void;
@@ -205,20 +269,26 @@ interface ModalProps {
 function Modal({ children, onClose }: ModalProps) {
   return (
     <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-6">
+
       <div className="bg-card rounded-2xl p-6 md:p-12 relative shadow-2xl border border-border w-full max-w-3xl">
+
         <button
           onClick={onClose}
           className="absolute top-6 right-6 text-white"
         >
           <X size={32} />
         </button>
-        <div className="flex flex-col items-center">{children}</div>
+
+        <div className="flex flex-col items-center">
+          {children}
+        </div>
+
       </div>
+
     </div>
   );
 }
 
-// Leader / Image Modal Content
 interface ImageModalContentProps {
   src: string;
   alt: string;
@@ -228,7 +298,15 @@ interface ImageModalContentProps {
   priority?: boolean;
 }
 
-function ImageModalContent({ src, alt, name, position, bio, priority = false }: ImageModalContentProps) {
+function ImageModalContent({
+  src,
+  alt,
+  name,
+  position,
+  bio,
+  priority = false,
+}: ImageModalContentProps) {
+
   return (
     <>
       <div className="relative w-40 h-40 mb-6 rounded-full overflow-hidden border-4 border-gray-600 shadow-lg">
@@ -240,9 +318,24 @@ function ImageModalContent({ src, alt, name, position, bio, priority = false }: 
           priority={priority}
         />
       </div>
-      {name && <h3 className="text-white text-3xl font-bold mb-2">{name}</h3>}
-      {position && <p className="text-green-400 text-lg mb-4">{position}</p>}
-      {bio && <p className="text-gray-400 text-lg leading-relaxed max-w-xl">{bio}</p>}
+
+      {name && (
+        <h3 className="text-white text-3xl font-bold mb-2">
+          {name}
+        </h3>
+      )}
+
+      {position && (
+        <p className="text-green-400 text-lg mb-4">
+          {position}
+        </p>
+      )}
+
+      {bio && (
+        <p className="text-gray-400 text-lg leading-relaxed max-w-xl">
+          {bio}
+        </p>
+      )}
     </>
   );
 }
