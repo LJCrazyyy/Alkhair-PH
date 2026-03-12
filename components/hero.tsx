@@ -8,6 +8,7 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 const slides = [
   { image: "/Clients/Home/TSP.jpg", width: 1920, height: 1080 },
   { image: "/Clients/Home/Website-Developmet.png", width: 1920, height: 1080 },
+  { image: "/Clients/Home/Slider3.png", width: 1920, height: 1080 },
 ]
 
 export function Hero() {
@@ -40,8 +41,9 @@ export function Hero() {
       onMouseLeave={() => setIsPaused(false)}
       className="relative w-full flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Responsive Image */}
-      <div className="w-full max-w-[1920px]">
+      {/* IMAGE CONTAINER */}
+      <div className="relative w-full max-w-[1920px]">
+
         <Image
           src={slides[currentSlide].image}
           alt="Hero Slide"
@@ -51,6 +53,23 @@ export function Hero() {
           className="w-full h-auto object-contain"
           priority
         />
+
+        {/* LEFT ARROW */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-2 sm:left-4 md:left-10 top-1/2 -translate-y-1/2 z-20 p-0 bg-transparent border-none"
+        >
+          <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
+        </button>
+
+        {/* RIGHT ARROW */}
+        <button
+          onClick={nextSlide}
+          className="absolute right-2 sm:right-4 md:right-10 top-1/2 -translate-y-1/2 z-20 p-0 bg-transparent border-none"
+        >
+          <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
+        </button>
+
       </div>
 
       {/* Decorative Blur Effects */}
@@ -66,22 +85,6 @@ export function Hero() {
           }`}
         />
       </div>
-
-      {/* LEFT ARROW */}
-      <button
-        onClick={prevSlide}
-        className="absolute left-2 sm:left-4 md:left-10 top-1/2 -translate-y-1/2 z-20 p-0 outline-none bg-transparent border-none"
-      >
-        <ChevronLeft className="h-6 w-6 md:h-8 md:w-8" />
-      </button>
-
-      {/* RIGHT ARROW */}
-      <button
-        onClick={nextSlide}
-        className="absolute right-2 sm:right-4 md:right-10 top-1/2 -translate-y-1/2 z-20 p-0 outline-none bg-transparent border-none"
-      >
-        <ChevronRight className="h-6 w-6 md:h-8 md:w-8" />
-      </button>
 
       {/* Indicators */}
       <div
