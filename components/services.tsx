@@ -33,7 +33,7 @@ It’s fast, dynamic, and built to capture attention helping you boost sales, gr
     icon: Globe,
     title: "WEBSITE DESIGN & DEVELOPMENT",
     description: `We build powerful, high-converting websites that don’t just look good, they work hard for your business.`,
-    image: "/Clients/Services/WebsiteDesign.png"
+    image: "/Clients/Services/Web.png"
   },
   {
     icon: User,

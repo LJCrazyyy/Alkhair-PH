@@ -2,15 +2,17 @@ import React from "react"
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import Image from "next/image"
 import './globals.css'
-// import { LoadingScreen } from '@/components/loading-screen'
 
 const geist = Geist({ subsets: ["latin"] });
 const geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Alkhair PH | Premier Live Selling Agency',
-  description: 'Premier live selling agency in the Philippines - eCommerce and livestreaming solutions for Lazada, Shopee, and TikTok',
+  title: 'Alkhair PH',
+  icons: {
+    icon: '/Clients/Logo.png',
+  },
 }
 
 export default function RootLayout({
@@ -23,8 +25,9 @@ export default function RootLayout({
       <body
         className={`${geist.className} antialiased bg-[hsl(var(--background))] text-[hsl(var(--foreground))]`}
       >
-        {/* <LoadingScreen /> */}
+
         {children}
+
         <Analytics />
       </body>
     </html>
