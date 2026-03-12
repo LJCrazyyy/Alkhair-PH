@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 
 const slides = [
+  { image: "/Clients/Home/TSP.jpg", width: 1920, height: 1080 },
   { image: "/Clients/Home/Website-Developmet.png", width: 1920, height: 1080 },
 ]
 
@@ -37,7 +38,7 @@ export function Hero() {
       id="home"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-full flex items-center justify-center overflow-hidden mt-16 md:mt-0"
+      className="relative w-full flex items-center justify-center overflow-hidden pt-20"
     >
       {/* Responsive Image */}
       <div className="w-full max-w-[1920px]">
