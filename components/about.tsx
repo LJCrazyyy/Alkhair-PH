@@ -20,7 +20,9 @@ export function About({
     { src: "/Clients/Videos/Momilo.mp4", title: "Momilo Mio", description: "Behind the scenes footage and team workflow." },
     { src: "/Clients/Videos/Pariscents.mp4", title: "Pariscents", description: "Innovative creative production and storytelling." },
     { src: "/Clients/Videos/Topshion.mp4", title: "Topshion", description: "Comprehensive brand showcase and portfolio." },
+    { src: "/Clients/Videos/Newyork.mp4", title: "New York Army", description: "Showcase of New York army fashion." },
   ]
+  
 
   const files: Array<{ type: "image"; src: string; alt: string }> = [
     { type: "image", src: "/Clients/Needs/RegistrationCert.png", alt: "Registration Certificate" },
@@ -45,7 +47,7 @@ export function About({
 
   return (
     <section ref={aboutRef} id="about" className="py-12 md:py-16 bg-card">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-4 md:px-6 max-w-screen-xl">
 
         {/* ABOUT LABEL */}
         <div className="text-center mb-12">
@@ -61,7 +63,7 @@ export function About({
                 key={idx}
                 src={src}
                 alt={alt}
-                className="w-full rounded-lg shadow-lg object-cover cursor-pointer max-h-65"
+                className="w-full rounded-lg shadow-lg object-cover cursor-pointer max-h-80"
                 onClick={() => openModal(src)}
               />
             ))}
@@ -119,10 +121,15 @@ export function About({
         {/* MODAL */}
         {modalOpen && modalImage && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4"
+            className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-8"
             onClick={closeModal}
           >
-            <img src={modalImage} alt="Modal" className="max-h-full max-w-full rounded-lg shadow-lg" />
+            <img
+              src={modalImage}
+              alt="Modal"
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg shadow-lg"
+            />
           </div>
         )}
 
