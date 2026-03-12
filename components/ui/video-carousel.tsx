@@ -34,12 +34,20 @@ export function VideoCarousel({ videos, onSlideChange }: VideoCarouselProps) {
             video.play().catch(() => {
               // Autoplay might be blocked by browser, ignore
             })
+            
+            // Add ended event listener to advance to next slide
+            video.addEventListener('ended', handleVideoEnded)
           } else {
             video.pause()
             video.currentTime = 0
+            video.removeEventListener('ended', handleVideoEnded)
           }
         }
       })
+    }
+
+    const handleVideoEnded = () => {
+      api.scrollNext()
     }
 
     // initial
@@ -51,6 +59,12 @@ export function VideoCarousel({ videos, onSlideChange }: VideoCarouselProps) {
     return () => {
       api.off('select', update)
       api.off('reInit', update)
+      // Cleanup event listeners
+      videoRefs.current.forEach((video) => {
+        if (video) {
+          video.removeEventListener('ended', handleVideoEnded)
+        }
+      })
     }
   }, [api, onSlideChange])
 
@@ -67,7 +81,7 @@ export function VideoCarousel({ videos, onSlideChange }: VideoCarouselProps) {
                   }}
                   src={v.src}
                   controls
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   playsInline
                 />
               </div>
