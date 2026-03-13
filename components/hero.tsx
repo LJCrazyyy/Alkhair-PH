@@ -8,7 +8,12 @@ import { useScrollAnimation } from "@/hooks/use-scroll-animation"
 const slides = [
   { image: "/Clients/Home/TSP.jpg", width: 1920, height: 1080 },
   { image: "/Clients/Home/Website-Developmet.png", width: 1920, height: 1080 },
-  { image: "/Clients/Home/Slider3.png", width: 1920, height: 1080 },
+  { image: "/Clients/Home/Social.png", width: 1920, height: 1080 },
+  { image: "/Clients/Home/Fulfillment.png", width: 1920, height: 1080 },
+  { image: "/Clients/Home/Content.png", width: 1920, height: 1080 },
+  { image: "/Clients/Home/Analytics.png", width: 1920, height: 1080 },
+
+
 ]
 
 export function Hero() {
