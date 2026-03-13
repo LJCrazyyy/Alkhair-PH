@@ -17,7 +17,7 @@ type Service = {
   icon: LucideIcon
   title: string
   description: string
-  image?: string // image path
+  image?: string
 }
 
 const mainServices: Service[] = [
