@@ -52,6 +52,9 @@ export function About({
         {/* ABOUT LABEL */}
         <div className="text-center mb-12">
           <p className="text-sm uppercase tracking-[0.35em] text-gray-400">ABOUT US</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+                Who We Are
+              </h2>
         </div>
 
         {/* IMAGES + TEXT GRID */}
