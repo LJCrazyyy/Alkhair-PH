@@ -36,10 +36,10 @@ const leaders: Leader[] = [
   },
   {
     name: "Kia Borja",
-    position: "Executive Sales and Marketing",
+    position: "Executive Sales and Marketing Director",
     image: "/Clients/Careers/Kia.png",
     description: "Leads sales and marketing initiatives.",
-    bio: "Kia drives sales and marketing strategies.",
+    bio: "Kia drives sales and marketing strategies, she has a proven track record of success in the industry.",
   },
   {
     name: "Johnro Malitic",
@@ -132,7 +132,7 @@ export function Careers() {
                 fill
                 sizes="80px"
                 className="object-cover object-top"
-                quality={90}   // High quality for clarity
+                quality={90} 
               />
             </div>
           ))}
