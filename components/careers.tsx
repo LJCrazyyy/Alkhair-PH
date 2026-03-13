@@ -14,46 +14,46 @@ interface Leader {
 
 const leaders: Leader[] = [
   {
-    name: "Mrs. Alby Abalado",
+    name: "Alby Abalado",
     position: "Founder & CEO",
     image: "/Clients/Careers/S3.png",
     description: "Leads the company with a vision for innovation and growth.",
-    bio: "Mrs. Alby is the visionary behind our success, driving innovation and fostering key relationships.",
+    bio: "Alby is the visionary behind our success, driving innovation and fostering key relationships.",
   },
   {
-    name: "Mr. Christian Kitch Marquez",
+    name: "Kitch Marquez",
     position: "Chief Operating Officer",
     image: "/Clients/Careers/S2.png",
     description: "Oversees daily operations and internal processes.",
-    bio: "Mr. Christian ensures that all departments work efficiently and meet business goals.",
+    bio: "Christian ensures that all departments work efficiently and meet business goals.",
   },
   {
-    name: "Mr. Vincent Sapurco",
+    name: "Vincent Sapurco",
     position: "Director of Creative Production",
     image: "/Clients/Careers/S1.png",
     description: "Leads the creative team in producing visually compelling marketing assets.",
-    bio: "Mr. Vincent leads the creative team in producing visually compelling marketing assets.",
+    bio: "Vincent leads the creative team in producing visually compelling marketing assets.",
   },
   {
-    name: "Ms. Kia Borja",
+    name: "Kia Borja",
     position: "Executive Sales and Marketing",
     image: "/Clients/Careers/Kia.png",
     description: "Leads sales and marketing initiatives.",
-    bio: "Ms. Kia drives sales and marketing strategies.",
+    bio: "Kia drives sales and marketing strategies.",
   },
   {
-    name: "Mr. Johnro Malitic",
+    name: "Johnro Malitic",
     position: "Web Developer Consultant",
     image: "/Clients/Careers/John.png",
     description: "Provides expert consultation on web development projects.",
-    bio: "Mr. Johnro brings extensive experience in web development and digital solutions.",
+    bio: "Johnro brings extensive experience in web development and digital solutions.",
   },
   {
-    name: "Mr. Lawrence Jumamoy",
+    name: "Lawrence Jumamoy",
     position: "Web Developer Consultant",
     image: "/Clients/Careers/Lawr.png",
     description: "Provides expert consultation on web development projects.",
-    bio: "Mr. Lawrence brings extensive experience in web development and digital solutions.",
+    bio: "Lawrence brings extensive experience in web development and digital solutions.",
   },
 ];
 
