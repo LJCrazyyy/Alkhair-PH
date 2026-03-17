@@ -47,20 +47,20 @@ More engagement, more leads, more sales that’s the goal.`,
     title: "FULFILLMENT & CUSTOMER SUPPORT",
     description: `We handle order processing, coordination, and responsive customer support to ensure every buyer has a seamless experience.
 Fast, reliable, and customer-focused we help you build trust and repeat business.`,
-    image: "/Clients/Services/Support.png"
+    image: "/Clients/Services/SupportV2.png"
   },
   {
     icon: Film,
     title: "CREATIVE CONTENT & PRODUCT SHOOTS",
     description: `Bring your brand to life with Alkhair PH’s creative content and professional product shoots.
 From eye-catching visuals to engaging videos, we produce high-quality content that captures attention, builds credibility, and drives conversions.`,
-    image: "/Clients/Services/Content.png"
+    image: "/Clients/Services/ContentV2.png"
   },
   {
     icon: BarChart3,
     title: "ANALYTICS, INSIGHTS & BUSINESS INTELLIGENCE (DIGITAL MANAGEMENT)",
     description: `We turn data into direction. Our analytics and business intelligence solutions help you understand performance, identify opportunities, and make smarter decisions. Clear insights, measurable growth, and strategies backed by real numbers so you can scale with confidence.`,
-    image: "/Clients/Services/Analytics.png"
+    image: "/Clients/Services/AnalyticsV2.png"
   }
 ]
 
