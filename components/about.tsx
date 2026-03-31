@@ -101,8 +101,8 @@ export function About({
           </div>
 
           {/* RIGHT - Smaller Video */}
-          <div className="w-full md:w-10/10 lg:w-10/10 mx-auto md:mx-0 relative overflow-hidden border border-white/10 rounded-3xl shadow-xl">
-            <div className="w-full bg-black aspect-video rounded-3xl">
+          <div className="w-full max-w-[420px] mx-auto md:mx-0 relative overflow-hidden border border-white/10 rounded-3xl shadow-xl">
+            <div className="w-full bg-black aspect-[4/5] max-h-[600px] rounded-3xl">
               {mediaType === "image" ? (
                 <img src={mediaSrc} alt="About Media" className="w-full h/full object-cover rounded-3xl" />
               ) : (

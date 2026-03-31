@@ -17,8 +17,8 @@ type VideoCarouselProps = {
 export function VideoCarousel({ videos, onSlideChange }: VideoCarouselProps) {
   const [api, setApi] = React.useState<any>(null)
   const [active, setActive] = React.useState(0)
+  const [isFullscreen, setIsFullscreen] = React.useState(false)
   const videoRefs = React.useRef<Array<HTMLVideoElement | null>>([])
-
   React.useEffect(() => {
     if (!api) return
 
@@ -68,20 +68,41 @@ export function VideoCarousel({ videos, onSlideChange }: VideoCarouselProps) {
     }
   }, [api, onSlideChange])
 
+  React.useEffect(() => {
+    const handleFullscreenChange = () => {
+      const fullscreenElement = document.fullscreenElement ?? (document as any).webkitFullscreenElement ?? (document as any).mozFullScreenElement ?? (document as any).msFullscreenElement
+      setIsFullscreen(
+        videoRefs.current.some((video) => video ? video === fullscreenElement : false)
+      )
+    }
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange)
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange)
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange)
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange)
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange)
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange)
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange)
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange)
+    }
+  }, [])
+
   return (
     <div className="relative">
       <Carousel opts={{ loop: true }} setApi={setApi}>
         <CarouselContent className="flex">
           {videos.map((v, i) => (
             <CarouselItem key={i} className="w-full">
-              <div className="relative rounded-2xl overflow-hidden aspect-video bg-black border border-white/5 shadow-lg">
+              <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-black border border-white/5 shadow-lg">
                 <video
                   ref={(el) => {
                     videoRefs.current[i] = el
                   }}
                   src={v.src}
                   controls
-                  className="w-full h-full object-contain"
+                  className={"w-full h-full " + (isFullscreen ? 'object-contain' : 'object-cover')}
                   playsInline
                 />
               </div>
