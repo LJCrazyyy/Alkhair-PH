@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-
 import {
   Carousel,
   CarouselContent,
@@ -9,32 +8,31 @@ import {
   CarouselPrevious,
   CarouselNext
 } from "@/components/ui/carousel"
-
+import { CarouselApi } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 
 export function News() {
-
-  const [api, setApi] = useState(null)
-  const [current, setCurrent] = useState(0)
+  const [api, setApi] = useState<CarouselApi | null>(null)
+  const [current, setCurrent] = useState<number>(0)
 
   const newsData = [
     {
-      img: "/Clients/News/ceo.JPG",
+      img: "/Clients/News/ceo.jpg",
       title: "Leadership in Vision",
       desc: "Led by Founder and CEO Mrs. Alby Abalado, Alkhair PH focuses on strategy, storytelling, and building strong brand presence in the digital landscape."
     },
     {
-      img: "/Clients/News/office.JPG",
+      img: "/Clients/News/office.jpg",
       title: "Expansion & Growth",
       desc: "Alkhair Philippines is currently expanding its headquarters to support a growing team and improve service delivery for partners and brands."
     },
     {
-      img: "/Clients/News/camp.JPG",
+      img: "/Clients/News/camp.jpg",
       title: "LuminoStudios | ModelCamp",
       desc: "Powered by Alkhair Philippines, LuminoStudios | ModelCamp is scouting aspiring models and content creators."
     },
     {
-      img: "/Clients/News/hiring.JPG",
+      img: "/Clients/News/hiring.jpg",
       title: "Join Our Team: E-Commerce Live Sellers",
       desc: "We are looking for confident and driven live sellers who are passionate about engaging audiences and driving sales."
     }
@@ -137,3 +135,4 @@ export function News() {
     </section>
   )
 }
+
