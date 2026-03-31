@@ -1,47 +1,139 @@
-// import { Button } from "@/components/ui/button"
+"use client"
 
-// export function News() {
-//   return (
-//     <section className="py-24 bg-background">
-//       <div className="container mx-auto px-4">
-//         <div className="text-center mb-12">
-//           <h2 className="text-3xl md:text-4xl font-bold text-white">NEWS AND EVENTS</h2>
-//         </div>
+import { useState, useEffect } from "react"
 
-//         <div className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
-//           <div className="bg-card border border-border rounded-2xl p-8 aspect-square flex items-center justify-center">
-//             <div className="text-center">
-//               <div className="w-32 h-32 mx-auto mb-4 bg-white/10 rounded-full flex items-center justify-center">
-//                 <span className="text-5xl text-white font-bold">AK</span>
-//               </div>
-//               <p className="text-gray-400">Alkhair PH</p>
-//             </div>
-//           </div>
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from "@/components/ui/carousel"
 
-//           <div className="space-y-6">
-//             <div>
-//               <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
-//                 ACCREDITED TSP PROVIDER
-//               </h3>
-//               <p className="text-xl text-gray-400">
-//                 FOR LAZADA, SHOPEE AND TIKTOK
-//               </p>
-//             </div>
+import Autoplay from "embla-carousel-autoplay"
 
-//             <blockquote className="text-gray-400 text-lg leading-relaxed border-l-4 border-white pl-4">
-//               &ldquo;Proud to be an accredited Third Party Service provider enabling brands 
-//               to maximize their eCommerce potential through professional livestreaming 
-//               and account management services.&rdquo;
-//             </blockquote>
+export function News() {
 
-//             <div className="text-gray-500">
-//               By <span className="text-white font-semibold">Christian Kitch Marquez</span>
-//               <br />
-//               Chief Operating Officer
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
+  const [api, setApi] = useState(null)
+  const [current, setCurrent] = useState(0)
+
+  const newsData = [
+    {
+      img: "/Clients/News/ceo.JPG",
+      title: "Leadership in Vision",
+      desc: "Led by Founder and CEO Mrs. Alby Abalado, Alkhair PH focuses on strategy, storytelling, and building strong brand presence in the digital landscape."
+    },
+    {
+      img: "/Clients/News/office.JPG",
+      title: "Expansion & Growth",
+      desc: "Alkhair Philippines is currently expanding its headquarters to support a growing team and improve service delivery for partners and brands."
+    },
+    {
+      img: "/Clients/News/camp.JPG",
+      title: "LuminoStudios | ModelCamp",
+      desc: "Powered by Alkhair Philippines, LuminoStudios | ModelCamp is scouting aspiring models and content creators."
+    },
+    {
+      img: "/Clients/News/hiring.JPG",
+      title: "Join Our Team: E-Commerce Live Sellers",
+      desc: "We are looking for confident and driven live sellers who are passionate about engaging audiences and driving sales."
+    }
+  ]
+
+  useEffect(() => {
+    if (!api) return
+
+    const onSelect = () => {
+      setCurrent(api.selectedScrollSnap())
+    }
+
+    api.on("select", onSelect)
+    onSelect()
+
+    return () => {
+      api.off("select", onSelect)
+    }
+  }, [api])
+
+  return (
+    <section className="py-14 bg-background">
+      <div className="container mx-auto px-4">
+
+        {/* TITLE */}
+        <div className="text-center mb-5">
+          <h2 className="text-2xl md:text-3xl font-bold text-white">
+            NEWS AND EVENTS
+          </h2>
+        </div>
+
+        {/* CAROUSEL */}
+        <div className="max-w-md mx-auto">
+
+          <Carousel
+            setApi={setApi}
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 4000 })]}
+            className="w-full"
+          >
+
+            <CarouselContent>
+
+              {newsData.map((item, index) => (
+                <CarouselItem key={index}>
+
+                  <div className="bg-card border border-border rounded-lg overflow-hidden">
+
+                    {/* IMAGE */}
+                    <div className="w-full flex justify-center bg-black/5">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-auto max-w-full h-auto"
+                      />
+                    </div>
+
+                    {/* TEXT */}
+                    <div className="p-3 space-y-1.5">
+
+                      <h3 className="text-sm md:text-base font-semibold text-white leading-snug">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-xs md:text-sm text-gray-300 leading-relaxed">
+                        {item.desc}
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                </CarouselItem>
+              ))}
+
+            </CarouselContent>
+
+            <CarouselPrevious className="left-1 scale-75" />
+            <CarouselNext className="right-1 scale-75" />
+
+          </Carousel>
+
+          {/* DOT INDICATORS */}
+          <div className="flex justify-center gap-2 mt-3">
+            {newsData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  current === index
+                    ? "w-6 bg-white"
+                    : "w-2 bg-gray-500"
+                }`}
+              />
+            ))}
+          </div>
+
+        </div>
+      </div>
+    </section>
+  )
+}
