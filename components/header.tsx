@@ -11,6 +11,7 @@ const navItems = [
   { label: "ABOUT US", href: "#about" },
   { label: "OUR SERVICES", href: "#services" },
   { label: "OUR CLIENTS", href: "#clients" },
+  { label: "NEWS", href: "#news" },
   { label: "CHANNEL PARTNERS", href: "#partners" },
   { label: "CAREERS", href: "#careers" },
   { label: "CONTACT US", href: "#contact" },
