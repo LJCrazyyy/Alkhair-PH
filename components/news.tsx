@@ -183,7 +183,7 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
 
         </div>
 
-         {/* MODAL */}
+        {/* MODAL */}
         {selectedNews && (
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
 
