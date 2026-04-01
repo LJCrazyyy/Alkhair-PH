@@ -215,8 +215,6 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
             </div>
           </div>
         )}
-
-
       </div>
     </section>
   )
