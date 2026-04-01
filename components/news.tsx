@@ -6,33 +6,17 @@ import {
   CarouselContent,
   CarouselItem,
   CarouselPrevious,
-  CarouselNext,
+  CarouselNext
 } from "@/components/ui/carousel"
 import { CarouselApi } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 
 export function News() {
   const [api, setApi] = useState<CarouselApi | null>(null)
-  const [current, setCurrent] = useState(0)
-  const [filteredNews, setFilteredNews] = useState<any[]>([])
-
-  // 👉 helper: get YYYY-MM-DD
-  const formatDate = (date: Date) => {
-    return date.toISOString().split("T")[0]
-  }
-
-  const today = new Date()
-
-  // 👉 next Wednesday
-  const getNextWednesday = () => {
-    const d = new Date()
-    const day = d.getDay()
-    const diff = (3 - day + 7) % 7 || 7 // 3 = Wednesday
-    d.setDate(d.getDate() + diff)
-    return formatDate(d)
-  }
+  const [current, setCurrent] = useState<number>(0)
 
   const newsData = [
+
     {
       date: formatDate(today), // ✅ today (Wednesday hiring)
       img: "/Clients/News/hiring.jpg",
@@ -42,30 +26,27 @@ export function News() {
     {
       date: formatDate(new Date(today.setDate(today.getDate() + (7 - today.getDay())))), // Sunday
       img: "/Clients/News/ceo.jpg",
-      title: "Word from the CEO",
-      desc: "Led by Founder and CEO Mrs. Alby Abalado, Alkhair PH focuses on strategy and growth.",
+      title: "Leadership in Vision",
+      desc: "Led by Founder and CEO Mrs. Alby Abalado, Alkhair PH focuses on strategy, storytelling, and building strong brand presence in the digital landscape."
     },
     {
       date: getNextWednesday(), // ❗ next Wednesday only
       img: "/Clients/News/office.jpg",
       title: "Expansion & Growth",
-      desc: "Alkhair Philippines is expanding its headquarters to support a growing team.",
+      desc: "Alkhair Philippines is currently expanding its headquarters to support a growing team and improve service delivery for partners and brands."
     },
     {
       date: formatDate(new Date(today.setDate(today.getDate() + (6 - today.getDay())))), // Saturday
       img: "/Clients/News/camp.jpg",
       title: "LuminoStudios | ModelCamp",
-      desc: "Scouting aspiring models and content creators.",
+      desc: "Powered by Alkhair Philippines, LuminoStudios | ModelCamp is scouting aspiring models and content creators."
     },
+    {
+      img: "/Clients/News/hiring.jpg",
+      title: "Join Our Team: E-Commerce Live Sellers",
+      desc: "We are looking for confident and driven live sellers who are passionate about engaging audiences and driving sales."
+    }
   ]
-
-  useEffect(() => {
-    const todayStr = formatDate(new Date())
-
-    const todayNews = newsData.filter(item => item.date === todayStr)
-
-    setFilteredNews(todayNews)
-  }, [])
 
   useEffect(() => {
     if (!api) return
@@ -83,80 +64,83 @@ export function News() {
   }, [api])
 
   return (
-    <section id="news" className="py-16 bg-background">
+<section id="news" className="py-14 bg-background">
       <div className="container mx-auto px-4">
 
-        <div className="text-center mb-8">
-          <h2 className="text-2xl md:text-4xl font-bold text-white">
-            TODAY'S NEWS
+        {/* TITLE */}
+        <div className="text-center mb-5">
+          <h2 className="text-2xl md:text-3xl font-bold text-white">
+            NEWS AND EVENTS
           </h2>
         </div>
 
-        {filteredNews.length === 0 ? (
-          <p className="text-center text-gray-400">
-            No news scheduled for today.
-          </p>
-        ) : (
-          <div className="max-w-lg mx-auto">
+        {/* CAROUSEL */}
+        <div className="max-w-md mx-auto">
 
-            <Carousel
-              setApi={setApi}
-              opts={{ loop: true }}
-              plugins={[
-                Autoplay({
-                  delay: 4000,
-                  stopOnInteraction: false,
-                }),
-              ]}
-            >
-              <CarouselContent>
-                {filteredNews.map((item, index) => (
-                  <CarouselItem key={index}>
-                    <div className="bg-card border border-border rounded-xl overflow-hidden">
+          <Carousel
+            setApi={setApi}
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 4000 })]}
+            className="w-full"
+          >
 
-                      <div className="w-full bg-black/10 flex justify-center items-center p-2">
-                        <img
-                          src={item.img}
-                          alt={item.title}
-                          className="w-full h-auto object-contain"
-                        />
-                      </div>
+            <CarouselContent>
 
-                      <div className="p-4 space-y-2">
-                        <h3 className="text-lg font-semibold text-white">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-gray-300">
-                          {item.desc}
-                        </p>
-                      </div>
+              {newsData.map((item, index) => (
+                <CarouselItem key={index}>
+
+                  <div className="bg-card border border-border rounded-lg overflow-hidden">
+
+                    {/* IMAGE */}
+                    <div className="w-full flex justify-center bg-black/5">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-auto max-w-full h-auto"
+                      />
+                    </div>
+
+                    {/* TEXT */}
+                    <div className="p-3 space-y-1.5">
+
+                      <h3 className="text-sm md:text-base font-semibold text-white leading-snug">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-xs md:text-sm text-gray-300 leading-relaxed">
+                        {item.desc}
+                      </p>
 
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
 
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
+                  </div>
 
-            <div className="flex justify-center gap-2 mt-4">
-              {filteredNews.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => api?.scrollTo(index)}
-                  className={`h-2 rounded-full transition-all ${
-                    current === index
-                      ? "w-6 bg-white"
-                      : "w-2 bg-gray-500"
-                  }`}
-                />
+                </CarouselItem>
               ))}
-            </div>
 
+            </CarouselContent>
+
+            <CarouselPrevious className="left-1 scale-75" />
+            <CarouselNext className="right-1 scale-75" />
+
+          </Carousel>
+
+          {/* DOT INDICATORS */}
+          <div className="flex justify-center gap-2 mt-3">
+            {newsData.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => api?.scrollTo(index)}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  current === index
+                    ? "w-6 bg-white"
+                    : "w-2 bg-gray-500"
+                }`}
+              />
+            ))}
           </div>
-        )}
 
+        </div>
       </div>
     </section>
   )
