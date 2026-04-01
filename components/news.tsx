@@ -130,9 +130,9 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
       itemDate.setHours(0, 0, 0, 0)
       return itemDate <= today
     })
-    .sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate))
+    .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
 
-  const [selectedNews, setSelectedNews] = useState(null)
+  const [selectedNews, setSelectedNews] = useState<typeof featured | typeof newsData[0] | null>(null)
 
   return (
     <section id="news" className="py-16 bg-background">
