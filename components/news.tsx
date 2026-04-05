@@ -1,14 +1,15 @@
 "use client"
-import { useState } from "react"
+import { useState, useCallback } from "react"
+import useEmblaCarousel from "embla-carousel-react"
 
 export function News() {
-
-  const featured = {
-    img: "/Clients/News/hiring.jpg",
-    date: "April 1, 2026 (Wednesday)",
-    publishDate: "2026-04-01",
-    title: "We're Hiring!",
-    desc: `Join Our Team: E-Commerce Live Seller
+  const newsData = [
+    {
+      img: "/Clients/News/hiring.jpg",
+      date: "April 1, 2026 (Wednesday)",
+      publishDate: "2026-04-01",
+      title: "Join Our Team",
+      desc: `Join Our Team: E-Commerce Live Seller
 Are you confident on camera, love engaging with people, and have a passion for selling? This is your chance to turn your personality into profit.
 
 Alkhair PH is looking for dynamic and driven E-Commerce Live Sellers to join our growing team. Be part of a fast-paced digital environment where creativity, energy, and sales skills come together.
@@ -35,15 +36,12 @@ At Alkhair PH, we don’t just build sellers. We build personal brands and high-
 
 Ready to go live and earn?
 Apply now and be part of the next wave of e-commerce success.`
-  }
-
-  const newsData = [
-
+    },
     {
       img: "/Clients/News/ceo.jpg",
       date: "April 5, 2026 (Sunday)",
       publishDate: "2026-04-05",
-      title: "A Message From Our CEO",
+      title: "CEO Message",
       desc: `Leadership in Vision: A Word From Our CEO
 At the heart of Alkhair Philippines is a commitment to redefining how brands navigate and thrive in the modern digital landscape. Leading this mission is our Founder and Chief Executive Officer, Mrs. Alby Abalado.
 
@@ -67,12 +65,11 @@ Learn more about our approach and how we can help your brand thrive at Website: 
 Follow us on our Socials:
 Facebook and Instagram: ALKHAIRPH`
     },
-
     {
       img: "/Clients/News/office.jpg",
       date: "April 8, 2026 (Wednesday)",
       publishDate: "2026-04-08",
-      title: "New Headquarters Expansion",
+      title: "Office Expansion",
       desc: `Exciting Updates: Alkhair Philippines is Growing to Serve You Better!
 
 New Walls = Better Service
@@ -94,12 +91,11 @@ Stay Tuned for the Reveal! APRIL 2026!
 Website: www.alkhairphilippines.com
 Facebook and Instagram: ALKHAIRPH`
     },
-
     {
       img: "/Clients/News/camp.jpg",
       date: "April 11, 2026 (Saturday)",
       publishDate: "2026-04-11",
-      title: "LuminoStudios | ModelCamp is Now Scouting!",
+      title: "ModelCamp",
       desc: `Unleash Your Potential: LuminoStudios | ModelCamp is Now Scouting!
 
 Are you ready to step into the spotlight? LuminoStudios | ModelCamp, powered by Alkhair Philippines, is officially calling for fresh talent!
@@ -118,105 +114,87 @@ This is more than just a casting call. It’s an opportunity to grow under Alkha
 Ready to Join Us?
 Message us now via AlkhairPH or LuminoStudiosPH.`
     }
-
   ]
 
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
+  const [selectedNews, setSelectedNews] = useState<typeof newsData[0] | null>(null)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps", dragFree: true })
 
-  const publishedNews = newsData
-    .filter(item => {
-      const itemDate = new Date(item.publishDate)
-      itemDate.setHours(0, 0, 0, 0)
-      return itemDate <= today
-    })
-    .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
-
-  const [selectedNews, setSelectedNews] = useState<typeof featured | typeof newsData[0] | null>(null)
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
 
   return (
     <section id="news" className="py-16 bg-background">
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-white">News</h2>
+        {/* HEADER */}
+        <div className="text-center mb-12">
+          <p className="text-gray-500 uppercase tracking-widest mt-2">Latest News</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white">Our Latest News</h2>
         </div>
 
-        {/* FEATURED */}
-        <div className="relative mb-14">
-          <img src={featured.img} className="w-full aspect-[16/9] object-contain" />
-
-          <div className="absolute left-6 top-1/2 -translate-y-1/2 bg-black/40 p-6 max-w-md">
-            <p className="text-xs text-white/70">{featured.date}</p>
-            <h3 className="text-3xl text-white font-bold leading-tight">
-              {featured.title}
-            </h3>
-
-            <p className="text-sm text-white whitespace-pre-line line-clamp-2 mt-2">
-              {featured.desc}
-            </p>
-
-            <button
-              onClick={() => setSelectedNews(featured)}
-              className="text-xs text-white underline mt-3"
-            >
-              See more
-            </button>
-          </div>
-        </div>
-
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-          {publishedNews.map((item, index) => (
-            <div key={index} onClick={() => setSelectedNews(item)} className="cursor-pointer">
-
-              <img src={item.img} className="w-full aspect-[3/4] object-contain" />
-
-              <p className="text-xs text-white/70 mt-2">{item.date}</p>
-              <h3 className="text-white font-semibold">{item.title}</h3>
-
-              <p className="text-sm text-white/80 line-clamp-2 whitespace-pre-line">
-                {item.desc}
-              </p>
-
+        {/* CAROUSEL */}
+        <div className="relative">
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex gap-6 py-4">
+              {newsData.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex-[0_0_80%] md:flex-[0_0_32%] min-w-0 bg-white/5 border border-white/10 rounded-lg shadow cursor-pointer flex flex-col"
+                  onClick={() => setSelectedNews(item)}
+                >
+                  <div className="w-full aspect-[10/12] overflow-hidden rounded-t-lg">
+                    <img src={item.img} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <p className="text-xs text-white/70">{item.date}</p>
+                    <h3 className="text-white font-semibold mt-2">{item.title}</h3>
+                    <p className="text-sm text-white/80 line-clamp-2 mt-2 whitespace-pre-line">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
 
+          {/* NAV BUTTONS (ARROWS ONLY, BLACK, NO BG) */}
+          <button
+            onClick={scrollPrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 text-black text-3xl z-10 bg-transparent p-0 m-0 border-0"
+          >
+            ◀
+          </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 text-black text-3xl z-10 bg-transparent p-0 m-0 border-0"
+          >
+            ▶
+          </button>
         </div>
 
         {/* MODAL */}
         {selectedNews && (
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
-
-            <div className="bg-background w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-xl shadow-lg relative">
-
+            <div className="bg-background w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl shadow-lg relative">
               <button
                 onClick={() => setSelectedNews(null)}
                 className="absolute top-3 right-3 text-white text-xl z-10"
               >
                 ✕
               </button>
-
-              <div className="w-full h-[250px] md:h-[350px] overflow-hidden rounded-t-xl">
-                <img src={selectedNews.img} className="w-full h-full object-cover" />
+              <div className="w-full bg-black flex items-center justify-center rounded-t-xl p-2">
+                <img
+                  src={selectedNews.img}
+                  className="max-h-[60vh] w-auto object-contain"
+                />
               </div>
-
               <div className="p-6">
                 <p className="text-xs text-white/70">{selectedNews.date}</p>
-
-                <h3 className="text-2xl font-bold text-white mt-2">
-                  {selectedNews.title}
-                </h3>
-
-                <p className="text-white whitespace-pre-line mt-4">
-                  {selectedNews.desc}
-                </p>
+                <h3 className="text-2xl font-bold text-white mt-2">{selectedNews.title}</h3>
+                <p className="text-white whitespace-pre-line mt-4">{selectedNews.desc}</p>
               </div>
-
             </div>
           </div>
         )}
+
       </div>
     </section>
   )
