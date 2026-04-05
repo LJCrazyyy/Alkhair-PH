@@ -70,6 +70,7 @@ const teamMembers: string[] = [
   "/Clients/Careers/Live2.png",
   "/Clients/Careers/Girl2.png",
   "/Clients/Careers/Live3.png",
+  "/Clients/Careers/Girl12.png",
   "/Clients/Careers/Girl4.png",
   "/Clients/Careers/Girl5.png",
   "/Clients/Careers/Girl7.png",

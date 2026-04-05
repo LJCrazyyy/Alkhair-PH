@@ -1,11 +1,12 @@
 "use client"
-import { useState, useCallback } from "react"
+import { useState, useCallback, useEffect } from "react"
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi"
 import useEmblaCarousel from "embla-carousel-react"
 
 export function News() {
   const newsData = [
     {
+      slug: "join-our-team",
       img: "/Clients/News/hiring.jpg",
       date: "April 1, 2026 (Wednesday)",
       publishDate: "2026-04-01",
@@ -39,6 +40,7 @@ Ready to go live and earn?
 Apply now and be part of the next wave of e-commerce success.`
     },
     {
+      slug: "ceo-message",
       img: "/Clients/News/ceo.jpg",
       date: "April 5, 2026 (Sunday)",
       publishDate: "2026-04-05",
@@ -67,6 +69,7 @@ Follow us on our Socials:
 Facebook and Instagram: ALKHAIRPH`
     },
     {
+      slug: "office-expansion",
       img: "/Clients/News/office.jpg",
       date: "April 8, 2026 (Wednesday)",
       publishDate: "2026-04-08",
@@ -93,6 +96,7 @@ Website: www.alkhairphilippines.com
 Facebook and Instagram: ALKHAIRPH`
     },
     {
+      slug: "modelcamp",
       img: "/Clients/News/camp.jpg",
       date: "April 11, 2026 (Saturday)",
       publishDate: "2026-04-11",
@@ -117,14 +121,12 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
     }
   ]
 
-  // ✅ FILTER BASED SA TODAY (PH SAFE)
   const today = new Date().toISOString().split("T")[0]
 
   const filteredNews = newsData.filter(item => {
     return item.publishDate <= today
   })
 
-  // ✅ OPTIONAL: newest first
   filteredNews.sort((a, b) => b.publishDate.localeCompare(a.publishDate))
 
   const [selectedNews, setSelectedNews] = useState<typeof newsData[0] | null>(null)
@@ -136,6 +138,19 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+
+  // ✅ AUTO OPEN FROM LINK (works even for upcoming)
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const slug = params.get("news")
+
+    if (slug) {
+      const found = newsData.find(n => n.slug === slug)
+      if (found) {
+        setSelectedNews(found)
+      }
+    }
+  }, [])
 
   return (
     <section id="news" className="py-16 bg-background">
@@ -153,14 +168,22 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
                 <div
                   key={idx}
                   className="flex-[0_0_90%] sm:flex-[0_0_70%] md:flex-[0_0_32%] min-w-0 bg-white/5 border border-white/10 rounded-lg shadow cursor-pointer flex flex-col"
-                  onClick={() => setSelectedNews(item)}
+                  onClick={() => {
+                    setSelectedNews(item)
+                    window.history.pushState(null, "", `?news=${item.slug}`)
+                  }}
                 >
                   <div className="w-full aspect-[10/12] overflow-hidden rounded-t-lg">
                     <img src={item.img} className="w-full h-full object-cover" />
                   </div>
 
                   <div className="p-6 flex flex-col flex-grow">
-                    <p className="text-xs text-white/70">{item.date}</p>
+                    <p className="text-xs text-white/70">
+                      {item.date}
+                      {item.publishDate > today && (
+                        <span className="ml-2 text-yellow-400">(Upcoming)</span>
+                      )}
+                    </p>
                     <h3 className="text-white font-semibold mt-2">{item.title}</h3>
                     <p className="text-sm text-white/80 line-clamp-2 mt-2 whitespace-pre-line">
                       {item.desc}
@@ -171,7 +194,7 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
             </div>
           </div>
 
-         <button
+          <button
             onClick={scrollPrev}
             className="absolute left-1 md:left-0 top-1/2 -translate-y-1/2 text-white text-3xl z-10 bg-transparent p-0 m-0 border-0"
           >
@@ -190,7 +213,10 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
             <div className="bg-background w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl shadow-lg relative">
               <button
-                onClick={() => setSelectedNews(null)}
+                onClick={() => {
+                  setSelectedNews(null)
+                  window.history.pushState(null, "", window.location.pathname)
+                }}
                 className="absolute top-3 right-3 text-white text-xl z-10"
               >
                 ✕
