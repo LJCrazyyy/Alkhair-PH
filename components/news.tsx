@@ -1,5 +1,6 @@
 "use client"
 import { useState, useCallback } from "react"
+import { FiArrowLeft, FiArrowRight } from "react-icons/fi"
 import useEmblaCarousel from "embla-carousel-react"
 
 export function News() {
@@ -116,8 +117,22 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
     }
   ]
 
+  // ✅ FILTER BASED SA TODAY (PH SAFE)
+  const today = new Date().toISOString().split("T")[0]
+
+  const filteredNews = newsData.filter(item => {
+    return item.publishDate <= today
+  })
+
+  // ✅ OPTIONAL: newest first
+  filteredNews.sort((a, b) => b.publishDate.localeCompare(a.publishDate))
+
   const [selectedNews, setSelectedNews] = useState<typeof newsData[0] | null>(null)
-  const [emblaRef, emblaApi] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps", dragFree: true })
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    align: "start",
+    containScroll: "trimSnaps",
+    dragFree: true
+  })
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi])
@@ -126,51 +141,51 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
     <section id="news" className="py-16 bg-background">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* HEADER */}
         <div className="text-center mb-12">
           <p className="text-gray-500 uppercase tracking-widest mt-2">Latest News</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Our Latest News</h2>
         </div>
 
-        {/* CAROUSEL */}
         <div className="relative">
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex gap-6 py-4">
-              {newsData.map((item, idx) => (
+            <div className="flex gap-4 md:gap-6 py-4">
+              {filteredNews.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_80%] md:flex-[0_0_32%] min-w-0 bg-white/5 border border-white/10 rounded-lg shadow cursor-pointer flex flex-col"
+                  className="flex-[0_0_90%] sm:flex-[0_0_70%] md:flex-[0_0_32%] min-w-0 bg-white/5 border border-white/10 rounded-lg shadow cursor-pointer flex flex-col"
                   onClick={() => setSelectedNews(item)}
                 >
                   <div className="w-full aspect-[10/12] overflow-hidden rounded-t-lg">
                     <img src={item.img} className="w-full h-full object-cover" />
                   </div>
+
                   <div className="p-6 flex flex-col flex-grow">
                     <p className="text-xs text-white/70">{item.date}</p>
                     <h3 className="text-white font-semibold mt-2">{item.title}</h3>
-                    <p className="text-sm text-white/80 line-clamp-2 mt-2 whitespace-pre-line">{item.desc}</p>
+                    <p className="text-sm text-white/80 line-clamp-2 mt-2 whitespace-pre-line">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* NAV BUTTONS (ARROWS ONLY, BLACK, NO BG) */}
-          <button
+         <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 text-black text-3xl z-10 bg-transparent p-0 m-0 border-0"
+            className="absolute left-1 md:left-0 top-1/2 -translate-y-1/2 text-white text-3xl z-10 bg-transparent p-0 m-0 border-0"
           >
-            ◀
+            <FiArrowLeft />
           </button>
+
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 text-black text-3xl z-10 bg-transparent p-0 m-0 border-0"
+            className="absolute right-1 md:right-0 top-1/2 -translate-y-1/2 text-white text-3xl z-10 bg-transparent p-0 m-0 border-0"
           >
-            ▶
+            <FiArrowRight />
           </button>
         </div>
 
-        {/* MODAL */}
         {selectedNews && (
           <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-4 z-50">
             <div className="bg-background w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-xl shadow-lg relative">
@@ -180,12 +195,14 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
               >
                 ✕
               </button>
+
               <div className="w-full bg-black flex items-center justify-center rounded-t-xl p-2">
                 <img
                   src={selectedNews.img}
                   className="max-h-[60vh] w-auto object-contain"
                 />
               </div>
+
               <div className="p-6">
                 <p className="text-xs text-white/70">{selectedNews.date}</p>
                 <h3 className="text-2xl font-bold text-white mt-2">{selectedNews.title}</h3>
