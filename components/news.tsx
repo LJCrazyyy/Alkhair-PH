@@ -53,14 +53,14 @@ Mrs. Abalado stands at the helm of Alkhair E-Commerce with a focus that goes bey
 
 The Signature Standard
 Under her guidance, leadership is defined by:
-Precision and Excellence: Bringing together creative direction and strategic digital execution into one seamless ecosystem.
-Innovation in Real-Time: Leading the way in live selling innovation to connect brands directly with their audiences.
-Intentional Results: Ensuring every collaboration is elevated, results-driven, and meaningful.
+  Precision and Excellence: Bringing together creative direction and strategic digital execution into one seamless ecosystem.
+  Innovation in Real-Time: Leading the way in live selling innovation to connect brands directly with their audiences.
+  Intentional Results: Ensuring every collaboration is elevated, results-driven, and meaningful.
 
 Building Legacies
 For Mrs. Abalado, success is not just about the numbers; it is about the legacy of the brands she helps shape. Under her direction, Alkhair PH has become a trusted partner for discerning local and international brands seeking to transform their market presence into lasting influence.
 
-"True brand power lies not in being seen everywhere, but in being remembered distinctly, deliberately, and with purpose."
+"True brand power lies not in being seen everywhere, but in being remembered distinctly, deliberately, and with purpose." — Mrs. Alby Abalado
 
 Connect With Us
 Learn more about our approach and how we can help your brand thrive at Website: www.alkhairphilippines.com
