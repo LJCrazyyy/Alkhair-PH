@@ -46,10 +46,10 @@ Apply now and be part of the next wave of e-commerce success.`
       publishDate: "2026-04-05",
       title: "CEO Message",
       desc: `Leadership in Vision: A Word From Our CEO
-At the heart of Alkhair Philippines is a commitment to redefining how brands navigate and thrive in the modern digital landscape. Leading this mission is our Founder and Chief Executive Officer, Mrs. Alby Abalado.
+At the heart of Alkhair Philippines is a commitment to redefining how brands navigate and thrive in the modern digital landscape. Leading this mission is our Founder and Chief Executive Officer, Mrs. Alby Alabado.
 
 A Refined Vision for Brand Growth
-Mrs. Abalado stands at the helm of Alkhair E-Commerce with a focus that goes beyond standard growth metrics. With an innate sense for strategy and storytelling, she has cultivated a company that delivers curated experiences designed to position brands at the very forefront of their industries.
+Mrs. Alabado stands at the helm of Alkhair E-Commerce with a focus that goes beyond standard growth metrics. With an innate sense for strategy and storytelling, she has cultivated a company that delivers curated experiences designed to position brands at the very forefront of their industries.
 
 The Signature Standard
 Under her guidance, leadership is defined by:
@@ -58,9 +58,9 @@ Under her guidance, leadership is defined by:
   Intentional Results: Ensuring every collaboration is elevated, results-driven, and meaningful.
 
 Building Legacies
-For Mrs. Abalado, success is not just about the numbers; it is about the legacy of the brands she helps shape. Under her direction, Alkhair PH has become a trusted partner for discerning local and international brands seeking to transform their market presence into lasting influence.
+For Mrs. Alabado, success is not just about the numbers; it is about the legacy of the brands she helps shape. Under her direction, Alkhair PH has become a trusted partner for discerning local and international brands seeking to transform their market presence into lasting influence.
 
-"True brand power lies not in being seen everywhere, but in being remembered distinctly, deliberately, and with purpose." — Mrs. Alby Abalado
+"True brand power lies not in being seen everywhere, but in being remembered distinctly, deliberately, and with purpose." — Mrs. Alby Alabado
 
 Connect With Us
 Learn more about our approach and how we can help your brand thrive at Website: www.alkhairphilippines.com
