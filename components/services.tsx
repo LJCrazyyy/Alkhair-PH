@@ -30,6 +30,13 @@ It’s fast, dynamic, and built to capture attention helping you boost sales, gr
     image: "/Clients/Services/Selling.png"
   },
   {
+    icon: Video,
+    title: "ACCOUNTS MANAGEMENT",
+    description: ` Our Account Management service is your brand’s personal assistant in the digital world. We handle everything from product listings and inventory management to customer interactions and performance optimization.
+With our expert team managing your accounts, you can focus on growing your business while we ensure your online presence is polished, professional, and profitable.`,
+    image: "/Clients/Services/AccountsManagement.png"
+  },
+  {
     icon: Globe,
     title: "WEBSITE DESIGN & DEVELOPMENT",
     description: `We build powerful, high-converting websites that don’t just look good, they work hard for your business.`,
@@ -61,6 +68,13 @@ From eye-catching visuals to engaging videos, we produce high-quality content th
     title: "ANALYTICS, INSIGHTS & BUSINESS INTELLIGENCE (DIGITAL MANAGEMENT)",
     description: `We turn data into direction. Our analytics and business intelligence solutions help you understand performance, identify opportunities, and make smarter decisions. Clear insights, measurable growth, and strategies backed by real numbers so you can scale with confidence.`,
     image: "/Clients/Services/AnalyticsV2.png"
+  },
+  {
+    icon: BarChart3,
+    title: "SEMINAR & TRAINING PROGRAMS",
+    description: ` Our Seminar & Training service is designed to empower your team with the knowledge and skills needed to excel in the digital marketplace. We offer comprehensive training sessions covering everything from e-commerce best practices and digital marketing strategies to customer service excellence and data analytics. 
+Whether you’re looking to upskill your staff or provide ongoing education, our expert-led seminars will equip your team with the tools they need to drive success and stay ahead in the competitive online landscape.`,
+    image: "/Clients/Services/Seminar.png"
   }
 ]
 

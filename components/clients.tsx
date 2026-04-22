@@ -21,7 +21,7 @@ const camou = "CAMOU is a cutting-edge e-commerce brand that specializes in camo
 const jpsPhilippines = "JPS Philippines is a leading e-commerce brand that offers a wide range of products.";
 const pariscents = "Pariscents is a luxurious e-commerce brand that specializes in high-end fragrances.";
 const stay24 = "STAY24 provides high-quality travel and lifestyle products.";
-const heySkin = "Hey Skin! specializes in fun and effective skincare products.";
+// const heySkin = "Hey Skin! specializes in fun and effective skincare products.";
 
 const bananaSisters = "Banana Sisters offers quirky lifestyle and fashion items.";
 const beautyChoice = "Beauty Choice provides high-quality beauty products.";
@@ -67,7 +67,7 @@ const clientBrands = [
   { name: "JPS Philippines", image: "/Clients/JPS.png", description: jpsPhilippines },
   { name: "Pariscents", image: "/Clients/Pariscents.png", description: pariscents },
   { name: "STAY24", image: "/Clients/Stay24.png", description: stay24 },
-  { name: "Hey Skin!", image: "/Clients/Hey-Skin!.png", description: heySkin },
+  // { name: "Hey Skin!", image: "/Clients/Hey-Skin!.png", description: heySkin },
 
   { name: "Banana Sisters", image: "/Clients/Banana-Sisters.png", description: bananaSisters },
   { name: "Beauty choice", image: "/Clients/Beauty-Choice.png", description: beautyChoice },
@@ -100,7 +100,7 @@ const clientBrands = [
 
 const bigLogos = [
   "CAMOU","Momilo Mio","Best Deals","TOPSHION","The Glitter Cart","MC PET BOTIQUE","Wow Happy",
-  "NEW YORK ARMY","Airwell","The Sprinkler Cart","LactaGlow","JPS Philippines","Pariscents","STAY24","Hey Skin!"
+  "NEW YORK ARMY","Airwell","The Sprinkler Cart","LactaGlow","JPS Philippines","Pariscents","STAY24"
 ];
 
 const isBigLogo = (name: string) => bigLogos.includes(name);
