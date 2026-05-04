@@ -55,9 +55,12 @@ export function Hero() {
           width={slides[currentSlide].width}
           height={slides[currentSlide].height}
           sizes="100vw"
-          className="w-full h-auto object-contain"
+          className="w-full h-[72vh] md:h-[80vh] lg:h-[88vh] object-cover rounded-sm shadow-md"
           priority
         />
+
+        {/* subtle dark overlay for contrast */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/20 pointer-events-none" />
 
         {/* LEFT ARROW */}
         <button

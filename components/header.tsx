@@ -1,36 +1,29 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 const navItems = [
-  { label: "HOME", href: "#home" },
-  { label: "ABOUT US", href: "#about" },
-  { label: "OUR SERVICES", href: "#services" },
-  { label: "OUR CLIENTS", href: "#clients" },
-  { label: "NEWS", href: "#news" },
-  { label: "CHANNEL PARTNERS", href: "#partners" },
-  { label: "CAREERS", href: "#careers" },
-  { label: "CONTACT US", href: "#contact" },
+  { label: "HOME", href: "/" },
+  { label: "ABOUT US", href: "/about" },
+  { label: "OUR SERVICES", href: "/services" },
+  { label: "OUR CLIENTS", href: "/clients" },
+  { label: "NEWS", href: "/news" },
+  { label: "CHANNEL PARTNERS", href: "/partners" },
+  { label: "CAREERS", href: "/careers" },
+  { label: "CONTACT US", href: "/contact" },
 ]
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeHash, setActiveHash] = useState("")
-
-  useEffect(() => {
-    if (typeof window === "undefined") return
-    const updateHash = () => setActiveHash(window.location.hash || "")
-    updateHash()
-    window.addEventListener("hashchange", updateHash)
-    return () => window.removeEventListener("hashchange", updateHash)
-  }, [])
+  const pathname = usePathname()
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--primary)]/95 backdrop-blur-sm border-b border-border">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(7,16,41,0.6)] backdrop-blur-sm border-b border-border">
       
       {/* Container with left & right margin */}
       <div className="max-w-8xl mx-auto px-6 lg:px-16">
@@ -47,25 +40,25 @@ export function Header() {
                 priority
               />
             </div>
-            <span className="text-white text-lg font-semibold tracking-wide">
+            <span className="text-[var(--foreground)] text-lg font-semibold tracking-wide">
               Alkhair Philippines
             </span>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => {
-              const isActive = activeHash === item.href
+              const isActive = pathname === item.href
               return (
                 <Link
                   key={item.label}
                   href={item.href}
-                  onClick={() => setActiveHash(item.href)}
+                  onClick={() => setIsOpen(false)}
                   className={
                     "relative text-sm font-medium transition-all duration-300 hover:scale-105 " +
                     (isActive
-                      ? "text-[var(--hover-green-foreground)] font-semibold"
-                      : "text-muted-foreground hover:text-[var(--hover-green-foreground)]")
+                      ? "text-[var(--primary)] font-semibold"
+                      : "text-muted-foreground hover:text-[var(--primary)]")
                   }
                 >
                   <span className="relative z-10">{item.label}</span>
@@ -82,7 +75,7 @@ export function Header() {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden text-[var(--primary-foreground)]"
+            className="lg:hidden text-[var(--foreground)]"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -98,14 +91,13 @@ export function Header() {
           <nav className="lg:hidden py-4 border-t border-border">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => {
-                const isActive = activeHash === item.href
+                const isActive = pathname === item.href
                 return (
                   <Link
                     key={item.label}
                     href={item.href}
                     onClick={() => {
                       setIsOpen(false)
-                      setActiveHash(item.href)
                     }}
                     className={
                       "text-sm font-medium transition-colors " +

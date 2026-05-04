@@ -6,13 +6,13 @@ import Image from "next/image"
 import { Mail, Phone, Facebook, Instagram, X } from "lucide-react"
 
 const footerLinks = [
-  { label: "HOME", href: "#home" },
-  { label: "ABOUT US", href: "#about" },
-  { label: "OUR SERVICES", href: "#services" },
-  { label: "CHANNEL PARTNERS", href: "#partners" },
-  { label: "OUR CLIENTS", href: "#clients" },
-  { label: "CAREERS", href: "#careers" },
-  { label: "CONTACT US", href: "#contact" },
+  { label: "HOME", href: "/" },
+  { label: "ABOUT US", href: "/about" },
+  { label: "OUR SERVICES", href: "/services" },
+  { label: "CHANNEL PARTNERS", href: "/partners" },
+  { label: "OUR CLIENTS", href: "/clients" },
+  { label: "CAREERS", href: "/careers" },
+  { label: "CONTACT US", href: "/contact" },
 ]
 
 export function Footer() {
@@ -40,7 +40,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="bg-card border-t border-border py-12">
+    <footer className="bg-[var(--secondary)] border-t border-border py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand */}
@@ -53,7 +53,7 @@ export function Footer() {
                 height={40}
                 className="object-contain"
               />
-              <span className="text-white font-semibold text-lg">Alkhair PH</span>
+                <span className="text-[var(--foreground)] font-semibold text-lg">Alkhair PH</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Powering brands with live selling, digital marketing, creative content, and growth-focused ecommerce solutions.
@@ -62,7 +62,7 @@ export function Footer() {
 
           {/* Contact */}
           <div className="space-y-3">
-            <h3 className="text-white font-semibold mb-3">Contact Us</h3>
+            <h3 className="text-[var(--foreground)] font-semibold mb-3">Contact Us</h3>
             <div className="space-y-2">
               <a
                 href="tel:09173099519"
@@ -110,7 +110,7 @@ export function Footer() {
 
           {/* Quick Links + Files */}
           <div className="space-y-4">
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-[var(--foreground)] font-semibold mb-4">Quick Links</h3>
             <nav className="grid grid-cols-2 gap-2">
               {footerLinks.map((link) => (
                 <Link
