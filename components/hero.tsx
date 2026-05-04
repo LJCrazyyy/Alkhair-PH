@@ -55,7 +55,7 @@ export function Hero() {
           width={slides[currentSlide].width}
           height={slides[currentSlide].height}
           sizes="100vw"
-          className="w-full h-[72vh] md:h-[80vh] lg:h-[88vh] object-cover rounded-sm shadow-md"
+          className="w-full h-[50vh] sm:h-[60vh] md:h-[72vh] lg:h-[88vh] object-cover rounded-sm shadow-md"
           priority
         />
 

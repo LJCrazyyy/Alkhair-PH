@@ -26,12 +26,12 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[rgba(7,16,41,0.6)] backdrop-blur-sm border-b border-border">
       
       {/* Container with left & right margin */}
-      <div className="max-w-8xl mx-auto px-6 lg:px-16">
-        <div className="flex items-center justify-between h-20">
+      <div className="max-w-full mx-auto px-3 sm:px-6 lg:px-16">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           
           {/* Logo Section */}
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 relative">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 relative">
               <Image
                 src="/Clients/Logo.png"
                 alt="Alkhair PH Logo"
@@ -40,7 +40,7 @@ export function Header() {
                 priority
               />
             </div>
-            <span className="text-[var(--foreground)] text-lg font-semibold tracking-wide">
+            <span className="text-[var(--foreground)] text-sm sm:text-lg font-semibold tracking-wide">
               Alkhair Philippines
             </span>
           </div>
