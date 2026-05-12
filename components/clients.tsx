@@ -10,6 +10,9 @@ type Brand = {
 const topshion = "TOPSHION is a leading e-commerce brand specializing in trendy fashion and lifestyle products. With a commitment to quality and customer satisfaction, TOPSHION offers a wide range of stylish apparel, accessories, and home goods.";
 const bestDeals = "Best Deals is a premier online shopping destination that offers unbeatable discounts on a wide variety of products.";
 const newyorkArmy = "NEW YORK ARMY is a dynamic e-commerce brand that caters to the urban fashion scene.";
+const Women = "BW Women offers a curated collection of perfumes, lotions, facial wash, lip balm, hair mist, and other beauty essentials.";
+const Blackwater = "Blackwater offers a curated collection of perfumes, lotions, facial wash, lip balm, hair mist, and other beauty essentials.";
+const Techno= " Techno Tamashi is a cutting-edge e-commerce brand that specializes in innovative tech gadgets and accessories.";
 const wowHappy = "Wow Happy is a vibrant e-commerce brand that specializes in fun and unique products.";
 const airwell = "Airwell is a leading e-commerce brand specializing in high-quality air purifiers and wellness products.";
 const theglitterCart = "The Glitter Cart is a vibrant e-commerce brand that specializes in providing high-quality glitter and craft supplies.";
@@ -54,9 +57,13 @@ const zone = "ZONE. provides stylish lifestyle products.";
 const clientBrands = [
   { name: "CAMOU", image: "/Clients/CAMOU.png", description: camou },
   { name: "Momilo Mio", image: "/Clients/Momilo-Mio.png", description: momiloMio },
+  { name: "Blackwater", image: "/Clients/bw3.png", description: Blackwater },
+  { name: "Women", image: "/Clients/bw1.png", description: Women },
+  { name: "Techno", image: "/Clients/Techno.png", description: Techno },
+
 
   { name: "Best Deals", image: "/Clients/Best-Deals.png", description: bestDeals },
-  { name: "TOPSHION", image: "/Clients/Topshion.png", description: topshion },
+  { name: "TOPSHION", image: "/Clients/Top.png", description: topshion },
   { name: "The Glitter Cart", image: "/Clients/The-Glitter-Cart.png", description: theglitterCart },
   { name: "NEW YORK ARMY", image: "/Clients/Newyork-Army.png", description: newyorkArmy },
   { name: "MC PET BOTIQUE", image: "/Clients/MC-Pet.png", description: mcPetBotique },
@@ -99,7 +106,7 @@ const clientBrands = [
 ];
 
 const bigLogos = [
-  "CAMOU","Momilo Mio","Best Deals","TOPSHION","The Glitter Cart","MC PET BOTIQUE","Wow Happy",
+  "CAMOU","Momilo Mio","Blackwater","Women","Techno","Best Deals","TOPSHION","The Glitter Cart","MC PET BOTIQUE","Wow Happy",
   "NEW YORK ARMY","Airwell","The Sprinkler Cart","LactaGlow","JPS Philippines","Pariscents","STAY24", "Hey Skin!"
 ];
 
@@ -127,7 +134,7 @@ export default function Clients() {
           {topBigLogos.map(brand => (
             <div key={brand.name} onClick={()=>setSelectedBrand(brand)} className="cursor-pointer flex flex-col items-center w-32">
               <div className="w-28 h-28 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-md mb-2">
-                <img src={brand.image} className="w-full h-full object-contain"/>
+                <img src={brand.image} className={`w-full h-full ${["TOPSHION", "The Glitter Cart"].includes(brand.name) ? "object-cover" : "object-contain"}`}/>
               </div>
               <p className="text-gray-400 text-sm text-center">{brand.name}</p>
             </div>
@@ -139,7 +146,7 @@ export default function Clients() {
           {bottomBigLogos.map(brand => (
             <div key={brand.name} onClick={()=>setSelectedBrand(brand)} className="cursor-pointer flex flex-col items-center w-32">
               <div className="w-28 h-28 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-md mb-2">
-                <img src={brand.image} className="w-full h-full object-contain"/>
+                <img src={brand.image} className={`w-full h-full ${["TOPSHION", "The Glitter Cart"].includes(brand.name) ? "object-cover" : "object-contain"}`}/>
               </div>
               <p className="text-gray-400 text-sm text-center">{brand.name}</p>
             </div>

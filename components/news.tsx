@@ -167,7 +167,7 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
               {filteredNews.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_90%] sm:flex-[0_0_70%] md:flex-[0_0_32%] min-w-0 bg-white/5 border border-white/10 rounded-lg shadow cursor-pointer flex flex-col"
+                  className="flex-[0_0_90%] sm:flex-[0_0_70%] md:flex-[0_0_24%] min-w-0 bg-white/5 border border-white/10 rounded-lg shadow cursor-pointer flex flex-col"
                   onClick={() => {
                     setSelectedNews(item)
                     window.history.pushState(null, "", `?news=${item.slug}`)
