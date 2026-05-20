@@ -154,9 +154,9 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
 
   return (
     <section id="news" className="py-16 bg-background">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-12">
           <p className="text-gray-500 uppercase tracking-widest mt-2">Latest News</p>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Our Latest News</h2>
         </div>
@@ -167,7 +167,7 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
               {filteredNews.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_90%] sm:flex-[0_0_70%] md:flex-[0_0_24%] min-w-0 bg-white/5 border border-white/10 rounded-lg shadow cursor-pointer flex flex-col"
+                  className="flex-[0_0_88%] sm:flex-[0_0_70%] md:flex-[0_0_24%] min-w-0 bg-white/5 border border-white/10 rounded-lg shadow cursor-pointer flex flex-col"
                   onClick={() => {
                     setSelectedNews(item)
                     window.history.pushState(null, "", `?news=${item.slug}`)
@@ -177,7 +177,7 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
                     <img src={item.img} className="w-full h-full object-cover" />
                   </div>
 
-                  <div className="p-6 flex flex-col flex-grow">
+                  <div className="p-4 sm:p-6 flex flex-col flex-grow">
                     <p className="text-xs text-white/70">
                       {item.date}
                       {item.publishDate > today && (
@@ -196,14 +196,14 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
 
           <button
             onClick={scrollPrev}
-            className="absolute left-1 md:left-0 top-1/2 -translate-y-1/2 text-white text-3xl z-10 bg-transparent p-0 m-0 border-0"
+            className="absolute left-0 sm:left-1 md:left-0 top-1/2 -translate-y-1/2 text-white text-3xl z-10 bg-transparent p-0 m-0 border-0"
           >
             <FiArrowLeft />
           </button>
 
           <button
             onClick={scrollNext}
-            className="absolute right-1 md:right-0 top-1/2 -translate-y-1/2 text-white text-3xl z-10 bg-transparent p-0 m-0 border-0"
+            className="absolute right-0 sm:right-1 md:right-0 top-1/2 -translate-y-1/2 text-white text-3xl z-10 bg-transparent p-0 m-0 border-0"
           >
             <FiArrowRight />
           </button>
@@ -225,14 +225,14 @@ Message us now via AlkhairPH or LuminoStudiosPH.`
               <div className="w-full bg-black flex items-center justify-center rounded-t-xl p-2">
                 <img
                   src={selectedNews.img}
-                  className="max-h-[60vh] w-auto object-contain"
+                  className="max-h-[45vh] sm:max-h-[60vh] w-auto object-contain"
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-4 sm:p-6">
                 <p className="text-xs text-white/70">{selectedNews.date}</p>
-                <h3 className="text-2xl font-bold text-white mt-2">{selectedNews.title}</h3>
-                <p className="text-white whitespace-pre-line mt-4">{selectedNews.desc}</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mt-2">{selectedNews.title}</h3>
+                <p className="text-sm sm:text-base text-white whitespace-pre-line mt-4">{selectedNews.desc}</p>
               </div>
             </div>
           </div>

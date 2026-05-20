@@ -83,9 +83,9 @@ export function Services() {
   const { containerRef, visibleItems } = useStaggeredAnimation(mainServices.length, 0.15)
 
   return (
-    <section id="services" className="py-24 bg-background">
+    <section id="services" className="py-16 md:py-24 bg-background">
       <div ref={containerRef} className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <p className="text-gray-500 uppercase tracking-widest mb-4">
             OUR SERVICES
           </p>
@@ -94,7 +94,7 @@ export function Services() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {mainServices.map((service, index) => (
             <div
               key={index}
@@ -107,7 +107,7 @@ export function Services() {
               }}
             >
               {/* Image */}
-              <div className="w-full h-64 sm:h-72 md:h-80 overflow-hidden mb-6 bg-white/5 rounded-lg">
+              <div className="w-full h-56 sm:h-64 md:h-80 overflow-hidden mb-5 sm:mb-6 bg-white/5 rounded-lg">
                 {service.image && (
                   <img
                     src={service.image}
@@ -124,7 +124,7 @@ export function Services() {
                 </div>
               )}
 
-              <h3 className="text-white font-semibold text-base leading-tight px-4 pb-6">
+              <h3 className="text-white font-semibold text-sm sm:text-base leading-tight px-4 pb-5 sm:pb-6">
                 {service.title}
               </h3>
             </div>
@@ -134,27 +134,27 @@ export function Services() {
         {/* MODAL */}
         {selectedService && (
           <div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-6"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4 sm:p-6"
             onClick={() => setSelectedService(null)}
           >
             <div
               className="bg-card border border-border rounded-2xl 
                         w-full max-w-3xl 
                         max-h-[85vh] overflow-y-auto
-                        p-12 relative shadow-2xl"
+                        p-5 sm:p-8 md:p-12 relative shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedService(null)}
-                className="absolute top-6 right-6 text-gray-400 hover:text-white transition"
+                className="absolute top-4 right-4 sm:top-6 sm:right-6 text-gray-400 hover:text-white transition"
               >
                 <X size={24} />
               </button>
 
               {/* Image */}
               {selectedService.image ? (
-                <div className="w-full h-64 mb-8 overflow-hidden rounded-xl">
+                <div className="w-full h-48 sm:h-56 md:h-64 mb-6 sm:mb-8 overflow-hidden rounded-xl">
                   <img
                     src={selectedService.image}
                     alt={selectedService.title}
@@ -168,7 +168,7 @@ export function Services() {
               )}
 
               {/* Title */}
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
                 {selectedService.title}
               </h3>
 
@@ -176,7 +176,7 @@ export function Services() {
               <div className="h-px bg-border mb-6" />
 
               {/* Description */}
-              <p className="text-gray-300 text-lg leading-relaxed whitespace-pre-line">
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed whitespace-pre-line">
                 {selectedService.description}
               </p>
             </div>

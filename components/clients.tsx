@@ -122,18 +122,18 @@ export default function Clients() {
   const bottomBigLogos = bigBrandItems.slice(7);
 
   return (
-    <section id="clients" className="py-24 bg-card">
+    <section id="clients" className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
 
-        <p className="text-center text-gray-500 uppercase tracking-widest mb-12">
+        <p className="text-center text-gray-500 uppercase tracking-widest mb-8 md:mb-12">
           OUR TRUSTED CLIENTS
         </p>
 
         {/* TOP BIG LOGOS */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-8 justify-items-center mb-10">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 gap-4 sm:gap-6 md:gap-8 justify-items-center mb-8 md:mb-10">
           {topBigLogos.map(brand => (
-            <div key={brand.name} onClick={()=>setSelectedBrand(brand)} className="cursor-pointer flex flex-col items-center w-32">
-              <div className="w-28 h-28 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-md mb-2">
+            <div key={brand.name} onClick={()=>setSelectedBrand(brand)} className="cursor-pointer flex flex-col items-center w-28 sm:w-32">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-md mb-2">
                 <img src={brand.image} className={`w-full h-full ${["TOPSHION", "The Glitter Cart"].includes(brand.name) ? "object-cover" : "object-contain"}`}/>
               </div>
               <p className="text-gray-400 text-sm text-center">{brand.name}</p>
@@ -142,10 +142,10 @@ export default function Clients() {
         </div>
 
         {/* BOTTOM BIG LOGOS */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-8 justify-items-center mb-16">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-4 sm:gap-6 md:gap-8 justify-items-center mb-12 md:mb-16">
           {bottomBigLogos.map(brand => (
-            <div key={brand.name} onClick={()=>setSelectedBrand(brand)} className="cursor-pointer flex flex-col items-center w-32">
-              <div className="w-28 h-28 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-md mb-2">
+            <div key={brand.name} onClick={()=>setSelectedBrand(brand)} className="cursor-pointer flex flex-col items-center w-28 sm:w-32">
+              <div className="w-24 h-24 sm:w-28 sm:h-28 bg-white rounded-lg flex items-center justify-center overflow-hidden shadow-md mb-2">
                 <img src={brand.image} className={`w-full h-full ${["TOPSHION", "The Glitter Cart"].includes(brand.name) ? "object-cover" : "object-contain"}`}/>
               </div>
               <p className="text-gray-400 text-sm text-center">{brand.name}</p>
@@ -154,11 +154,11 @@ export default function Clients() {
         </div>
 
         {/* NORMAL LOGOS */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 gap-2 sm:gap-3 md:gap-4">
           {normalBrandItems.map(brand => (
-            <div key={brand.name} onClick={()=>setSelectedBrand(brand)} className="cursor-pointer p-4 flex items-center justify-center">
+            <div key={brand.name} onClick={()=>setSelectedBrand(brand)} className="cursor-pointer p-2 sm:p-3 md:p-4 flex items-center justify-center">
               <div className="text-center">
-                <div className="w-12 h-12 mx-auto mb-2 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-2 bg-white rounded-lg flex items-center justify-center overflow-hidden">
                   <img src={brand.image} className="w-full h-full object-contain"/>
                 </div>
                 <p className="text-gray-400 text-xs truncate">{brand.name}</p>
@@ -171,14 +171,14 @@ export default function Clients() {
 
       {selectedBrand && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 px-4">
-          <div className="bg-background max-w-3xl w-full rounded-2xl p-8 relative">
+          <div className="bg-background max-w-3xl w-full rounded-2xl p-5 sm:p-8 relative max-h-[90vh] overflow-y-auto">
             <button onClick={()=>setSelectedBrand(null)} className="absolute top-4 right-4 text-gray-400 text-2xl">✕</button>
 
-            <div className="flex items-center gap-6 mb-6">
-              <div className="w-24 h-24 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+            <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 mb-6 text-center sm:text-left">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-white rounded-xl flex items-center justify-center overflow-hidden">
                 <img src={selectedBrand.image} className="w-full h-full object-contain"/>
               </div>
-              <h3 className="text-2xl font-bold">{selectedBrand.name}</h3>
+              <h3 className="text-xl sm:text-2xl font-bold break-words">{selectedBrand.name}</h3>
             </div>
 
             <p className="text-gray-300">{selectedBrand.description}</p>

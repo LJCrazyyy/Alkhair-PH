@@ -44,7 +44,7 @@ export function Hero() {
       id="home"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative w-full flex items-center justify-center overflow-hidden pt-16 sm:pt-20"
+      className="relative w-full flex items-center justify-center overflow-hidden"
     >
       {/* IMAGE CONTAINER */}
       <div className="relative w-full max-w-[1920px] bg-[#071029] sm:bg-transparent overflow-hidden rounded-sm">
@@ -55,7 +55,7 @@ export function Hero() {
           width={slides[currentSlide].width}
           height={slides[currentSlide].height}
           sizes="100vw"
-          className="w-full h-auto sm:h-[60vh] md:h-[72vh] lg:h-[88vh] object-contain sm:object-cover object-center rounded-sm shadow-md"
+          className="w-full h-auto sm:h-[calc(100vh-5rem)] md:h-[78vh] lg:h-[88vh] object-cover object-center rounded-sm shadow-md"
           priority
         />
 

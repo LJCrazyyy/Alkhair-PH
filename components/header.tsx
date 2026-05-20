@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
@@ -30,7 +30,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           
           {/* Logo Section */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div className="w-10 h-10 sm:w-12 sm:h-12 relative">
               <Image
                 src="/Clients/Logo.png"
@@ -40,7 +40,7 @@ export function Header() {
                 priority
               />
             </div>
-            <span className="text-[var(--foreground)] text-sm sm:text-lg font-semibold tracking-wide">
+            <span className="text-[var(--foreground)] text-xs sm:text-lg font-semibold tracking-wide truncate max-w-[10.5rem] sm:max-w-none">
               Alkhair Philippines
             </span>
           </div>
