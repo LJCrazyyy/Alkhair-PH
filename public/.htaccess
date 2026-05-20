@@ -1,0 +1,14 @@
+Options -MultiViews
+RewriteEngine On
+
+# Redirect directory-style routes without a trailing slash to the exported folder index.
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*)$ $1/ [R=301,L]
+
+# Serve exported .html files for extensionless routes.
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+ErrorDocument 404 /404.html
