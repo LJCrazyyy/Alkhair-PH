@@ -27,6 +27,22 @@ const leaders: Leader[] = [
     description: "Oversees daily operations and internal processes.",
     bio: "Christian ensures that all departments work efficiently and meet business goals.",
   },
+  
+  // {
+  //   name: "Kia Borja",
+  //   position: "Executive Sales and Marketing Director",
+  //   image: "/Clients/Careers/Kia.png",
+  //   description: "Leads sales and marketing initiatives.",
+  //   bio: "Kia drives sales and marketing strategies, she has a proven track record of success in the industry.",
+  // },
+  
+  {
+    name: "Johnro Malitic",
+    position: "Web Developer / Account Manager",
+    image: "/Clients/Careers/Johnro.png",
+    description: "Manages client accounts while delivering cutting-edge web development solutions.",
+    bio: "Johnro combines technical expertise in web development with strategic account management to deliver exceptional results and drive client success.",
+  },
   {
     name: "Vincent Sapurco",
     position: "Director of Creative Production",
@@ -35,23 +51,9 @@ const leaders: Leader[] = [
     bio: "Vincent leads the creative team in producing visually compelling marketing assets.",
   },
   {
-    name: "Kia Borja",
-    position: "Executive Sales and Marketing Director",
-    image: "/Clients/Careers/Kia.png",
-    description: "Leads sales and marketing initiatives.",
-    bio: "Kia drives sales and marketing strategies, she has a proven track record of success in the industry.",
-  },
-  {
-    name: "Johnro Malitic",
-    position: "Web Developer / Account Manager",
-    image: "/Clients/Careers/JohnV2.png",
-    description: "Manages client accounts while delivering cutting-edge web development solutions.",
-    bio: "Johnro combines technical expertise in web development with strategic account management to deliver exceptional results and drive client success.",
-  },
-  {
     name: "Lawrence Jumamoy",
     position: "Web Developer / Account Manager",
-    image: "/Clients/Careers/LawrV2.png",
+    image: "/Clients/Careers/Lawrence.png",
     description: "Manages client accounts while delivering cutting-edge web development solutions.",
     bio: "Lawrence combines technical expertise in web development with strategic account management to deliver exceptional results and drive client success.",
   },
@@ -75,6 +77,21 @@ const teamMembers: string[] = [
   "/Clients/Careers/Girl5.png",
   "/Clients/Careers/Girl7.png",
   "/Clients/Careers/Girl11.png",
+];
+const teamLaguna: string[] = [
+
+  "/Clients/Careers/Jerwin.png",
+  "/Clients/Careers/Brea.png",
+  "/Clients/Careers/Jholan.png",
+  "/Clients/Careers/Miriam.png",
+  "/Clients/Careers/Rozz.png",
+  "/Clients/Careers/Rose.png",
+  "/Clients/Careers/Rob.png",
+  "/Clients/Careers/Stefh.png",
+  "/Clients/Careers/Patrick.png",
+  "/Clients/Careers/Glayze.png",
+  "/Clients/Careers/Ara.png",
+  "/Clients/Careers/Liezel.png",
 ];
 
 export function Careers() {
@@ -113,30 +130,53 @@ export function Careers() {
         </div>
 
         {/* BOTTOM ROW */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-6 justify-items-center">
-          <LeaderCard leader={leaders[3]} onClick={setSelectedLeader} />
-          <LeaderCard leader={leaders[2]} onClick={setSelectedLeader} />
-          <LeaderCard leader={leaders[4]} onClick={setSelectedLeader} />
-          <LeaderCard leader={leaders[5]} onClick={setSelectedLeader} />
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 mt-6">
+          {leaders.slice(2, 6).map((leader) => (
+            <LeaderCard key={leader.name} leader={leader} onClick={setSelectedLeader} />
+          ))}
         </div>
 
-        {/* TEAM MEMBERS GRID */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3 sm:gap-4 md:gap-6 justify-items-center mt-10 md:mt-12">
-          {teamMembers.map((img, index) => (
-            <div
-              key={index}
-              className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-gray-600 shadow-md"
-            >
-              <Image
-                src={img}
-                alt={`Team Member ${index + 1}`}
-                fill
-                sizes="80px"
-                className="object-cover object-top"
-                quality={90} 
-              />
+        {/* TEAM MEMBERS GRID - Left: Team, Right: Laguna */}
+        <div className="flex flex-col md:flex-row gap-6 mt-10 md:mt-12">
+          <div className="flex-1">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 justify-items-start">
+              {teamMembers.map((img, index) => (
+                <div
+                  key={index}
+                  className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-gray-600 shadow-md"
+                >
+                  <Image
+                    src={img}
+                    alt={`Team Member ${index + 1}`}
+                    fill
+                    sizes="80px"
+                    className="object-cover object-top"
+                    quality={90}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          <div className="flex-1">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 justify-items-start">
+              {teamLaguna.map((img, index) => (
+                <div
+                  key={`laguna-${index}`}
+                  className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border border-gray-600 shadow-md"
+                >
+                  <Image
+                    src={img}
+                    alt={`Laguna Member ${index + 1}`}
+                    fill
+                    sizes="80px"
+                    className="object-cover object-top"
+                    quality={90}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
