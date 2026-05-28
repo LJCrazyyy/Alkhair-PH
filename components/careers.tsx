@@ -74,7 +74,6 @@ const teamMembers: string[] = [
   "/Clients/Careers/Live3.png",
   "/Clients/Careers/Girl12.png",
   "/Clients/Careers/Girl4.png",
-  "/Clients/Careers/Girl5.png",
   "/Clients/Careers/Girl7.png",
   "/Clients/Careers/Girl11.png",
 ];
@@ -92,6 +91,12 @@ const teamLaguna: string[] = [
   "/Clients/Careers/Glayze.png",
   "/Clients/Careers/Ara.png",
   "/Clients/Careers/Liezel.png",
+  "/Clients/Careers/Anne.png",
+  "/Clients/Careers/Reigne.png",
+  "/Clients/Careers/Cess.png",
+  "/Clients/Careers/Ashley.png",
+
+
 ];
 
 export function Careers() {
