@@ -21,42 +21,42 @@ const leaders: Leader[] = [
     bio: "Alby is the visionary behind our success, driving innovation and fostering key relationships.",
   },
   {
-    name: "Kitch Marquez",
-    position: "Chief Operating Officer",
-    image: "/Clients/Careers/S2.png",
-    description: "Oversees daily operations and internal processes.",
-    bio: "Christian ensures that all departments work efficiently and meet business goals.",
+    name: "Earl Andrew Alabado",
+    position: "Account Manager / Co-Owner",
+    image: "/Clients/Careers/Live2.png",
+    description: "Leads the creative team in producing visually compelling marketing assets.",
+    bio: "Earl leads the creative team in producing visually compelling marketing assets.",
   },
   
   // {
-  //   name: "Kia Borja",
+  //   name: "Sab Borja",
   //   position: "Executive Sales and Marketing Director",
   //   image: "/Clients/Careers/Kia.png",
   //   description: "Leads sales and marketing initiatives.",
-  //   bio: "Kia drives sales and marketing strategies, she has a proven track record of success in the industry.",
+  //   bio: "Sab drives sales and marketing strategies, she has a proven track record of success in the industry.",
   // },
+  {
+    name: "Ken Edward Cumlat",
+    position: "Web Developer / Account Manager",
+    image: "/Clients/Careers/ken.png",
+    description: "Manages client accounts while delivering cutting-edge web development solutions.",
+    bio: "Ken combines technical expertise in web development with strategic account management to deliver exceptional results and drive client success.",
+  },
   
   {
-    name: "Johnro Malitic",
-    position: "Web Developer / Account Manager",
-    image: "/Clients/Careers/Johnro.png",
-    description: "Manages client accounts while delivering cutting-edge web development solutions.",
-    bio: "Johnro combines technical expertise in web development with strategic account management to deliver exceptional results and drive client success.",
+    name: "Jennefer Sergio",
+    position: "HR Manager",
+    image: "/Clients/Careers/Jen.jpg",
+    description: "Oversees daily operations and internal processes.",
+    bio: "Jennefer ensures that all departments work efficiently and meet business goals.",
   },
-  {
-    name: "Vincent Sapurco",
-    position: "Director of Creative Production",
-    image: "/Clients/Careers/S1.png",
-    description: "Leads the creative team in producing visually compelling marketing assets.",
-    bio: "Vincent leads the creative team in producing visually compelling marketing assets.",
-  },
-  {
-    name: "Lawrence Jumamoy",
-    position: "Web Developer / Account Manager",
-    image: "/Clients/Careers/Lawrence.png",
-    description: "Manages client accounts while delivering cutting-edge web development solutions.",
-    bio: "Lawrence combines technical expertise in web development with strategic account management to deliver exceptional results and drive client success.",
-  },
+  // {
+  //   name: "Lawrence Jumamoy",
+  //   position: "Web Developer / Account Manager",
+  //   image: "/Clients/Careers/Lawrence.png",
+  //   description: "Manages client accounts while delivering cutting-edge web development solutions.",
+  //   bio: "Lawrence combines technical expertise in web development with strategic account management to deliver exceptional results and drive client success.",
+  // },
 ];
 
 const teamMembers: string[] = [
@@ -79,24 +79,23 @@ const teamMembers: string[] = [
 ];
 const teamLaguna: string[] = [
 
-  "/Clients/Careers/Jerwin.png",
-  "/Clients/Careers/Brea.png",
-  "/Clients/Careers/Jholan.png",
-  "/Clients/Careers/Miriam.png",
-  "/Clients/Careers/Rozz.png",
-  "/Clients/Careers/Rose.png",
-  "/Clients/Careers/Rob.png",
-  "/Clients/Careers/Stefh.png",
-  "/Clients/Careers/Patrick.png",
-  "/Clients/Careers/Glayze.png",
-  "/Clients/Careers/Ara.png",
-  "/Clients/Careers/Liezel.png",
-  "/Clients/Careers/Anne.png",
-  "/Clients/Careers/Reigne.png",
-  "/Clients/Careers/Cess.png",
-  "/Clients/Careers/Ashley.png",
-
-
+  "/Clients/Careers/Angel.jpg",
+  "/Clients/Careers/Axl.jpg",
+  "/Clients/Careers/Bea.jpg",
+  "/Clients/Careers/Brendon.jpg",
+  "/Clients/Careers/Carlo.jpg",
+  "/Clients/Careers/Chris.jpg",
+  "/Clients/Careers/Eden.jpg",
+  "/Clients/Careers/Emman.jpg",
+  "/Clients/Careers/Eunice.jpg",
+  "/Clients/Careers/Grace.jpg",
+  "/Clients/Careers/Heart.jpg",
+  "/Clients/Careers/Jahseh.jpg",
+  "/Clients/Careers/Keenoh.jpg",
+  "/Clients/Careers/Lj.jpg",
+  "/Clients/Careers/Mich.jpg",
+  "/Clients/Careers/Zarah.jpg",
+  "/Clients/Careers/Mary.jpg",
 ];
 
 export function Careers() {
@@ -184,7 +183,6 @@ export function Careers() {
           </div>
         </div>
       </div>
-
       {/* MODAL */}
       {selectedLeader && (
         <Modal onClose={() => setSelectedLeader(null)}>
